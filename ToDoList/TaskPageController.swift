@@ -11,6 +11,13 @@ import UIKit
 class TaskPageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var TaskCellTable: UITableView!
+    @IBOutlet weak var AddTaskButton: UINavigationItem!
+    
+    @IBAction func addTaskButtonTapped(_ sender: UIButton) {
+        //performSegue(withIdentifier: "presentSecondViewController", sender: self)
+        let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
+        self.navigationController?.pushViewController(AddTaskPageController, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

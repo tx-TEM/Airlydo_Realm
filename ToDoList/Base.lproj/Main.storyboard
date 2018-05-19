@@ -29,7 +29,7 @@
         <!--Task Page Controller-->
         <scene sceneID="PoI-DF-wez">
             <objects>
-                <viewController id="19s-j5-sQy" customClass="TaskPageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskPageController" id="19s-j5-sQy" customClass="TaskPageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMO-Pu-CVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,18 +54,22 @@
                         <viewLayoutGuide key="safeArea" id="ha9-PK-jKO"/>
                     </view>
                     <navigationItem key="navigationItem" id="cDn-wH-L1b">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Dhp-u9-9op">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="Dhp-u9-9op">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ufl-9x-inj">
                                 <rect key="frame" x="329" y="0.0" width="30" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="addTaskButtonTapped:" destination="19s-j5-sQy" eventType="touchUpInside" id="56f-V0-yhO"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="AddTaskButton" destination="cDn-wH-L1b" id="8I8-xa-QgC"/>
                         <outlet property="TaskCellTable" destination="PMT-gK-QQI" id="f7N-sk-aba"/>
-                        <segue destination="jlh-vE-G7A" kind="presentation" id="LmW-gG-8t3"/>
+                        <segue destination="jlh-vE-G7A" kind="presentation" identifier="ToAddTaskPage" id="LmW-gG-8t3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzP-f1-FTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -75,7 +79,7 @@
         <!--Add Task Page Controller-->
         <scene sceneID="Xas-81-A7o">
             <objects>
-                <viewController id="jlh-vE-G7A" customClass="AddTaskPageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTaskPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlh-vE-G7A" customClass="AddTaskPageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tfQ-kz-y0z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
