@@ -7,12 +7,47 @@
 //
 
 import UIKit
+import Eureka
 
-class AddTaskPageController: UIViewController {
+class AddTaskPageController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        form +++ Section("タスク")
+            <<< TextRow("TextFiled"){
+                $0.title = "タイトル"
+                $0.placeholder = "ここに書いてね"
+            }
+            <<< TextRow(){
+                $0.title = "詳細"
+                $0.placeholder = "ここに書いてね"
+            }
+            <<< DateRow() { $0.title = "期限"; $0.value = Date()}
 
+        
+        form +++ MultivaluedSection(multivaluedOptions: [.Reorder, .Insert, .Delete],
+                           header: "リマインダー") {
+                            $0.addButtonProvider = { section in
+                                return ButtonRow(){
+                                    $0.title = "追加"
+                                }
+                            }
+                            $0.multivaluedRowToInsertAt = { index in
+                                return DateTimeRow() {
+                                    $0.title = "通知時刻"
+                                }
+                            }
+                            $0 <<< DateTimeRow() {
+                                $0.title = "通知時刻"
+                            }
+        }
+        
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 
