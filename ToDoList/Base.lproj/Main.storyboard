@@ -54,29 +54,23 @@
                         <viewLayoutGuide key="safeArea" id="ha9-PK-jKO"/>
                     </view>
                     <navigationItem key="navigationItem" id="cDn-wH-L1b">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="Dhp-u9-9op">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ufl-9x-inj">
-                                <rect key="frame" x="329" y="0.0" width="30" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <action selector="addTaskButtonTapped:" destination="19s-j5-sQy" eventType="touchUpInside" id="56f-V0-yhO"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dhp-u9-9op">
+                            <connections>
+                                <action selector="addTaskButtonTapped:" destination="19s-j5-sQy" id="FQB-fY-Kfq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="AddTaskButton" destination="cDn-wH-L1b" id="8I8-xa-QgC"/>
                         <outlet property="TaskCellTable" destination="PMT-gK-QQI" id="f7N-sk-aba"/>
-                        <segue destination="jlh-vE-G7A" kind="presentation" identifier="ToAddTaskPage" id="LmW-gG-8t3"/>
+                        <segue destination="jlh-vE-G7A" kind="show" identifier="AddTaskSegue" id="kMe-Vd-KCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzP-f1-FTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="130.88455772113943"/>
         </scene>
-        <!--Add Task Page Controller-->
+        <!--Add Task-->
         <scene sceneID="Xas-81-A7o">
             <objects>
                 <viewController storyboardIdentifier="AddTaskPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlh-vE-G7A" customClass="AddTaskPageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,10 +80,34 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sci-k5-sOr"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Task" id="rhq-dI-quT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="84K-qa-lsW"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ZwJ-Kl-25W" kind="show" identifier="AddTaskSegue" id="5z6-11-deX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edj-TJ-SIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="131"/>
+            <point key="canvasLocation" x="1212" y="130.88455772113943"/>
+        </scene>
+        <!--Note-->
+        <scene sceneID="c5p-4x-ayK">
+            <objects>
+                <viewController id="ZwJ-Kl-25W" customClass="SetNotePage" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cvl-QX-GR8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HUl-mV-Jme"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Note" id="eyO-yx-NE9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zcw-BJ-P06"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bx-Mz-zYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110" y="130"/>
         </scene>
     </scenes>
 </document>

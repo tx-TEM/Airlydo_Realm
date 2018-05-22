@@ -19,7 +19,7 @@
 		6F2F3E2320AC58020081E5F9 /* TaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */; };
 		6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */; };
 		6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */; };
-		6F2F3E3220AFD7570081E5F9 /* AddTaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E3120AFD7570081E5F9 /* AddTaskPageController.swift */; };
+		6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3D81C620B4534800B960F7 /* SetNotePageController.swift */; };
 		FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +63,7 @@
 		6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageController.swift; sourceTree = "<group>"; };
 		6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
-		6F2F3E3120AFD7570081E5F9 /* AddTaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPageController.swift; sourceTree = "<group>"; };
+		6F3D81C620B4534800B960F7 /* SetNotePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotePageController.swift; sourceTree = "<group>"; };
 		6FE6B31CDEFF47694DDD6736 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		D775324CCA2D02684E69B47C /* Pods-ToDoListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListTests/Pods-ToDoListTests.release.xcconfig"; sourceTree = "<group>"; };
 		F72C492496140E5AA874A155 /* Pods-ToDoListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListUITests/Pods-ToDoListUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		6F2F3DA120A6B3740081E5F9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				6F2F3E3120AFD7570081E5F9 /* AddTaskPageController.swift */,
+				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
 				6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */,
 				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
 				6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */,
@@ -397,7 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */,
-				6F2F3E3220AFD7570081E5F9 /* AddTaskPageController.swift in Sources */,
+				6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */,
 				6F2F3DAB20A6B3740081E5F9 /* ToDoList.xcdatamodeld in Sources */,
 				6F2F3DA320A6B3740081E5F9 /* AppDelegate.swift in Sources */,
 				6F2F3E2320AC58020081E5F9 /* TaskPageController.swift in Sources */,
