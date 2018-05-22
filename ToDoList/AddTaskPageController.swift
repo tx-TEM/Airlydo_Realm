@@ -2,16 +2,18 @@
 //  AddTaskPageController.swift
 //  ToDoList
 //
-//  Created by yoshiki-t on 2018/05/19.
+//  Created by yoshiki-t on 2018/05/22.
 //  Copyright © 2018年 yoshiki-t. All rights reserved.
 //
+
+import UIKit
 
 import UIKit
 import Eureka
 
 class AddTaskPageController: FormViewController {
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +33,7 @@ class AddTaskPageController: FormViewController {
             <<< TextRow("aaa").cellSetup({ (cell, row) in
                 cell.height = ({return 10})
             })
-        
+            
             <<< ActionSheetRow<String>("listTag") {
                 $0.title = "List"
                 $0.selectorTitle = "List"
@@ -56,22 +58,22 @@ class AddTaskPageController: FormViewController {
                 $0.value = "なし"
                 }.onChange{row in
                     print(row.value as Any)
-                }
+        }
         
-
+        
         
         form +++ MultivaluedSection(multivaluedOptions: [.Reorder, .Insert, .Delete],
-                           header: "Reminder") {
-                            $0.addButtonProvider = { section in
-                                return ButtonRow(){
-                                    $0.title = "Add"
-                                }
-                            }
-                            $0.multivaluedRowToInsertAt = { index in
-                                return DateTimeRow() {
-                                    $0.title = ""
-                                }
-                            }
+                                    header: "Reminder") {
+                                        $0.addButtonProvider = { section in
+                                            return ButtonRow(){
+                                                $0.title = "Add"
+                                            }
+                                        }
+                                        $0.multivaluedRowToInsertAt = { index in
+                                            return DateTimeRow() {
+                                                $0.title = ""
+                                            }
+                                        }
         }
         
         form +++ Section("Option")
@@ -90,26 +92,27 @@ class AddTaskPageController: FormViewController {
                 $0.value = "自分"
                 }.onChange{row in
                     print(row.value as Any)
-            }
-
+        }
+        
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+
