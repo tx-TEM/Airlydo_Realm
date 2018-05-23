@@ -10,8 +10,23 @@ import UIKit
 
 class SetNotePageController: UIViewController {
 
+    @IBOutlet weak var NoteTextView: UITextView!
+    @IBOutlet weak var SaveNoteButton: UIBarButtonItem!
+    
+    var noteValue: String? = ""
+    
+    @IBAction func SaveNoteButtonTapped(_ sender: UIButton) {
+        //performSegue(withIdentifier: "presentSecondViewController", sender: self)
+        let count = (self.navigationController?.viewControllers.count)! - 2
+        let AddTaskPageController = self.navigationController?.viewControllers[count] as! AddTaskPageController
+        AddTaskPageController.recvVal = NoteTextView.text
+        AddTaskPageController.updateNote()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NoteTextView.text = noteValue
 
         // Do any additional setup after loading the view.
     }

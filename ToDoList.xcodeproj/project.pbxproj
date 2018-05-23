@@ -147,16 +147,16 @@
 		6F2F3DA120A6B3740081E5F9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
+				6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */,
+				6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */,
 				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
 				6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */,
-				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
-				6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */,
-				6F2F3DA620A6B3740081E5F9 /* Main.storyboard */,
 				6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */,
 				6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */,
-				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
+				6F2F3DA620A6B3740081E5F9 /* Main.storyboard */,
+				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
 				6F2F3DA920A6B3740081E5F9 /* ToDoList.xcdatamodeld */,
-				6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";

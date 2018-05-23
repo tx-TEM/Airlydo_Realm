@@ -94,20 +94,37 @@
         <!--Note-->
         <scene sceneID="c5p-4x-ayK">
             <objects>
-                <viewController id="ZwJ-Kl-25W" customClass="SetNotePage" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetNotePageController" id="ZwJ-Kl-25W" customClass="SetNotePageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cvl-QX-GR8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fOS-fA-CdU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="HUl-mV-Jme"/>
                     </view>
                     <navigationItem key="navigationItem" title="Note" id="eyO-yx-NE9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zcw-BJ-P06"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zcw-BJ-P06">
+                            <connections>
+                                <action selector="SaveNoteButtonTapped:" destination="ZwJ-Kl-25W" id="Rdf-ZC-GPn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="NoteTextView" destination="fOS-fA-CdU" id="ROE-bU-gtY"/>
+                        <outlet property="SaveNoteButton" destination="Zcw-BJ-P06" id="9e8-Oc-ZgI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bx-Mz-zYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="130"/>
+            <point key="canvasLocation" x="2109.5999999999999" y="129.98500749625188"/>
         </scene>
     </scenes>
 </document>

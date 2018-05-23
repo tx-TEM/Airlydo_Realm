@@ -12,8 +12,13 @@ import UIKit
 import Eureka
 
 class AddTaskPageController: FormViewController {
+    var recvVal: String = ""
     
-    
+    func updateNote(){
+        let noteForm:LabelRow = form.rowBy(tag:"NoteTag") as! LabelRow
+        noteForm.value = recvVal
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,19 +26,16 @@ class AddTaskPageController: FormViewController {
             <<< TextRow("TextFiled"){
                 $0.title = "Add a Task"
             }
-            <<< LabelRow("areaTag"){
+            <<< LabelRow("NoteTag"){
                 $0.title = "Note"
-                $0.value = "Note"
+                $0.value = ""
                 }.onCellSelection{ cell, row in
-                    cell.backgroundColor = .lightGray
+                    let SetNotePageController = self.storyboard?.instantiateViewController(withIdentifier: "SetNotePageController") as! SetNotePageController
+                    SetNotePageController.noteValue = row.value
+                    self.navigationController?.pushViewController(SetNotePageController, animated: true)
             }
             
-            
-            
-            <<< TextRow("aaa").cellSetup({ (cell, row) in
-                cell.height = ({return 10})
-            })
-            
+        
             <<< ActionSheetRow<String>("listTag") {
                 $0.title = "List"
                 $0.selectorTitle = "List"
