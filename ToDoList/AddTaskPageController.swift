@@ -23,7 +23,7 @@ class AddTaskPageController: FormViewController {
         super.viewDidLoad()
         
         form +++ Section("Task")
-            <<< TextRow("TextFiled"){
+            <<< TextRow("TitleTag"){
                 $0.title = "Add a Task"
             }
             <<< LabelRow("NoteTag"){
@@ -36,7 +36,7 @@ class AddTaskPageController: FormViewController {
             }
             
         
-            <<< ActionSheetRow<String>("listTag") {
+            <<< ActionSheetRow<String>("ListTag") {
                 $0.title = "List"
                 $0.selectorTitle = "List"
                 $0.options = ["なし"]
@@ -53,7 +53,7 @@ class AddTaskPageController: FormViewController {
                 
             }
             
-            <<< ActionSheetRow<String>("repeatTag") {
+            <<< ActionSheetRow<String>("RepeatTag") {
                 $0.title = "Repeat"
                 $0.selectorTitle = "繰り返し"
                 $0.options = ["毎週","毎月","毎年", "なし"]
