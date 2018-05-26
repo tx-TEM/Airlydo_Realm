@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import MGSwipeTableCell
+import MCSwipeTableViewCell
 
-class TaskCell: MGSwipeTableCell {
+class TaskCell: MCSwipeTableViewCell {
 
     @IBOutlet weak var TaskTitleLabel: UILabel!
     @IBOutlet weak var TaskInfoLabel: UILabel!

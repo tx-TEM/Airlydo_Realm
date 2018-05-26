@@ -20,6 +20,9 @@
 		6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */; };
 		6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */; };
 		6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3D81C620B4534800B960F7 /* SetNotePageController.swift */; };
+		6F638CB620B9B522004C586C /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F638CB520B9B522004C586C /* check@2x.png */; };
+		6F638CB920B9B52B004C586C /* fav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F638CB720B9B52B004C586C /* fav@2x.png */; };
+		6F638CBA20B9B52B004C586C /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F638CB820B9B52B004C586C /* menu@2x.png */; };
 		6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA758220B9368B003E3272 /* ToDoItem.swift */; };
 		6FC43C1920B45688002BA0C1 /* AddTaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */; };
 		FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */; };
@@ -66,6 +69,9 @@
 		6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		6F3D81C620B4534800B960F7 /* SetNotePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotePageController.swift; sourceTree = "<group>"; };
+		6F638CB520B9B522004C586C /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		6F638CB720B9B52B004C586C /* fav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fav@2x.png"; sourceTree = "<group>"; };
+		6F638CB820B9B52B004C586C /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		6FAA758220B9368B003E3272 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPageController.swift; sourceTree = "<group>"; };
 		6FE6B31CDEFF47694DDD6736 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 		6F2F3DA120A6B3740081E5F9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				6F638CB420B9B4C6004C586C /* Asset */,
 				6FAA758120B9348E003E3272 /* View */,
 				6FAA758020B93442003E3272 /* Model */,
 				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
@@ -187,6 +194,16 @@
 				6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */,
 			);
 			path = TaskCell;
+			sourceTree = "<group>";
+		};
+		6F638CB420B9B4C6004C586C /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				6F638CB720B9B52B004C586C /* fav@2x.png */,
+				6F638CB820B9B52B004C586C /* menu@2x.png */,
+				6F638CB520B9B522004C586C /* check@2x.png */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 		6FAA758020B93442003E3272 /* Model */ = {
@@ -315,7 +332,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F638CB620B9B522004C586C /* check@2x.png in Resources */,
+				6F638CBA20B9B52B004C586C /* menu@2x.png in Resources */,
 				6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */,
+				6F638CB920B9B52B004C586C /* fav@2x.png in Resources */,
 				6F2F3DB020A6B3760081E5F9 /* LaunchScreen.storyboard in Resources */,
 				6F2F3DAD20A6B3760081E5F9 /* Assets.xcassets in Resources */,
 				6F2F3DA820A6B3740081E5F9 /* Main.storyboard in Resources */,
@@ -383,14 +403,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/MCSwipeTableViewCell/MCSwipeTableViewCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCSwipeTableViewCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);

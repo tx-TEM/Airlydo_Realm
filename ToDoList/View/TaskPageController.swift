@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MGSwipeTableCell
+import MCSwipeTableViewCell
 
 class TaskPageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -59,17 +59,58 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         cell.AssignLabel.text = "Taro"
         cell.DateLabel.text = "1/1"
         
-        //configure left buttons
-        cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named:"check.png"), backgroundColor: .green),
-                            MGSwipeButton(title: "", icon: UIImage(named:"fav.png"), backgroundColor: .blue)]
-        cell.leftSwipeSettings.transition = .rotate3D
+        //cell.label.text = dataList[indexPath.row]
+        cell.defaultColor = .lightGray
+        cell.firstTrigger = 0.1;
+        cell.secondTrigger = 0.4
         
-        //configure right buttons
-        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red),
-                             MGSwipeButton(title: "More",backgroundColor: .lightGray)]
-        cell.rightSwipeSettings.transition = .rotate3D
+        // setup
+        // cell.selectionStyle = .none
+        // cell.textLabel?.text = dataList[indexPath.row]
+        // cell.detailTextLabel?.text = "details..."
+        // cell.detailTextLabel?.textColor = .lightGray
+        
+        
+        cell.setSwipeGestureWith(UIImageView(image: UIImage(named: "check")), color: UIColor.green, mode: .exit, state: .state1, completionBlock: { [weak self] (cell, state, mode) in
+            
+            
+            if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
+                //self?.dataList.remove(at: indexPath.row)
+                // 該当のセルを削除
+                //self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        })
+        
+        cell.setSwipeGestureWith(UIImageView(image: UIImage(named: "fav")), color: UIColor.blue, mode: .exit, state: .state2, completionBlock: { [weak self] (cell, state, mode) in
+            
+            
+            if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
+                //self?.dataList.remove(at: indexPath.row)
+                // 該当のセルを削除
+                //self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        })
+        
+        cell.setSwipeGestureWith(UIImageView(image: UIImage(named: "check")), color: UIColor.green, mode: .exit, state: .state3, completionBlock: { [weak self] (cell, state, mode) in
+            
+            
+            if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
+                //self?.dataList.remove(at: indexPath.row)
+                // 該当のセルを削除
+                //self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        })
+        
+        cell.setSwipeGestureWith(UIImageView(image: UIImage(named: "check")), color: UIColor.yellow, mode: .exit, state: .state4, completionBlock: { [weak self] (cell, state, mode) in
+            
+            
+            if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
+                //self?.dataList.remove(at: indexPath.row)
+                // 該当のセルを削除
+                //self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        })
 
-        
         return cell
     }
     
