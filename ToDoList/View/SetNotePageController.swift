@@ -16,7 +16,6 @@ class SetNotePageController: UIViewController {
     var noteValue: String? = ""
     
     @IBAction func SaveNoteButtonTapped(_ sender: UIButton) {
-        //performSegue(withIdentifier: "presentSecondViewController", sender: self)
         let count = (self.navigationController?.viewControllers.count)! - 2
         let AddTaskPageController = self.navigationController?.viewControllers[count] as! AddTaskPageController
         AddTaskPageController.recvVal = NoteTextView.text

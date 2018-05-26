@@ -12,7 +12,30 @@ import UIKit
 import Eureka
 
 class AddTaskPageController: FormViewController {
+    
+    @IBOutlet weak var SaveTaskButton: UIBarButtonItem!
+    
     var recvVal: String = ""
+    
+    @IBAction func SaveTaskButtonTapped(_ sender: UIButton) {
+        let valuesDictionary = form.values()
+        
+        //DB Process
+        let reminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
+        print(reminderTags)
+        
+        """
+        print(values["TitleTag"] as! String)
+        print(values["NoteTag"] as! String)
+        print(values["ListTag"] as! String)
+        print(values["DueDateTag"] as! Date)
+        print(values["RepeatTag"] as! String)
+        print(values["PriorityTag"] as! String)
+        print(values["AssignTag"] as! String)
+        """
+
+        self.navigationController?.popViewController(animated: true)
+    }
     
     func updateNote(){
         let noteForm:LabelRow = form.rowBy(tag:"NoteTag") as! LabelRow
@@ -21,7 +44,7 @@ class AddTaskPageController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         form +++ Section("Task")
             <<< TextRow("TitleTag"){
                 $0.title = "Add a Task"
@@ -47,7 +70,7 @@ class AddTaskPageController: FormViewController {
         
         
         form +++ Section("")
-            <<< DateRow() {
+            <<< DateRow("DueDateTag") {
                 $0.title = "Due Date"
                 $0.value = Date()
                 
@@ -72,14 +95,14 @@ class AddTaskPageController: FormViewController {
                                             }
                                         }
                                         $0.multivaluedRowToInsertAt = { index in
-                                            return DateTimeRow() {
+                                            return DateTimeRow("ReminderTag_\(index+1)") {
                                                 $0.title = ""
                                             }
                                         }
         }
         
         form +++ Section("Option")
-            <<< ActionSheetRow<String>("") {
+            <<< ActionSheetRow<String>("PriorityTag") {
                 $0.title = "Priority"
                 $0.selectorTitle = "set priority"
                 $0.options = ["High","Middle","Low"]
@@ -87,7 +110,7 @@ class AddTaskPageController: FormViewController {
                 }.onChange{row in
                     print(row.value as Any)
             }
-            <<< ActionSheetRow<String>("assignTag") {
+            <<< ActionSheetRow<String>("AssignTag") {
                 $0.title = "Assign"
                 $0.selectorTitle = "Assign"
                 $0.options = ["自分"]

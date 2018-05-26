@@ -20,6 +20,7 @@
 		6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */; };
 		6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */; };
 		6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3D81C620B4534800B960F7 /* SetNotePageController.swift */; };
+		6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA758220B9368B003E3272 /* ToDoItem.swift */; };
 		6FC43C1920B45688002BA0C1 /* AddTaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */; };
 		FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		6F3D81C620B4534800B960F7 /* SetNotePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotePageController.swift; sourceTree = "<group>"; };
+		6FAA758220B9368B003E3272 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPageController.swift; sourceTree = "<group>"; };
 		6FE6B31CDEFF47694DDD6736 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		D775324CCA2D02684E69B47C /* Pods-ToDoListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListTests/Pods-ToDoListTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,11 +149,10 @@
 		6F2F3DA120A6B3740081E5F9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				6FAA758120B9348E003E3272 /* View */,
+				6FAA758020B93442003E3272 /* Model */,
 				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
-				6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */,
 				6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */,
-				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
-				6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */,
 				6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */,
 				6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */,
 				6F2F3DA620A6B3740081E5F9 /* Main.storyboard */,
@@ -186,6 +187,24 @@
 				6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */,
 			);
 			path = TaskCell;
+			sourceTree = "<group>";
+		};
+		6FAA758020B93442003E3272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6FAA758220B9368B003E3272 /* ToDoItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6FAA758120B9348E003E3272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */,
+				6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */,
+				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +424,7 @@
 			files = (
 				6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */,
 				6FC43C1920B45688002BA0C1 /* AddTaskPageController.swift in Sources */,
+				6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */,
 				6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */,
 				6F2F3DAB20A6B3740081E5F9 /* ToDoList.xcdatamodeld in Sources */,
 				6F2F3DA320A6B3740081E5F9 /* AppDelegate.swift in Sources */,

@@ -81,9 +81,14 @@
                         <viewLayoutGuide key="safeArea" id="sci-k5-sOr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="rhq-dI-quT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="84K-qa-lsW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="84K-qa-lsW">
+                            <connections>
+                                <action selector="SaveTaskButtonTapped:" destination="jlh-vE-G7A" id="8At-Ud-Ar9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="SaveTaskButton" destination="84K-qa-lsW" id="93N-pR-fga"/>
                         <segue destination="ZwJ-Kl-25W" kind="show" identifier="AddTaskSegue" id="5z6-11-deX"/>
                     </connections>
                 </viewController>
