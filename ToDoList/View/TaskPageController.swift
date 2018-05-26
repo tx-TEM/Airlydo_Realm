@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 class TaskPageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -57,6 +58,17 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         cell.TaskInfoLabel.text = "kakikukeko!!"
         cell.AssignLabel.text = "Taro"
         cell.DateLabel.text = "1/1"
+        
+        //configure left buttons
+        cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named:"check.png"), backgroundColor: .green),
+                            MGSwipeButton(title: "", icon: UIImage(named:"fav.png"), backgroundColor: .blue)]
+        cell.leftSwipeSettings.transition = .rotate3D
+        
+        //configure right buttons
+        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red),
+                             MGSwipeButton(title: "More",backgroundColor: .lightGray)]
+        cell.rightSwipeSettings.transition = .rotate3D
+
         
         return cell
     }

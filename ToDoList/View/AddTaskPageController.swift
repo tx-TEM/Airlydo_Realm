@@ -6,7 +6,6 @@
 //  Copyright © 2018年 yoshiki-t. All rights reserved.
 //
 
-import UIKit
 
 import UIKit
 import Eureka

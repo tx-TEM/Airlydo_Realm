@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class TaskCell: UITableViewCell {
+class TaskCell: MGSwipeTableCell {
 
- 
     @IBOutlet weak var TaskTitleLabel: UILabel!
     @IBOutlet weak var TaskInfoLabel: UILabel!
     @IBOutlet weak var AssignLabel: UILabel!

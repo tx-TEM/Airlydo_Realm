@@ -6,3 +6,4 @@
 //  Copyright © 2018年 yoshiki-t. All rights reserved.
 //
 
+//Realm model
