@@ -8,6 +8,7 @@
 
 import UIKit
 import MCSwipeTableViewCell
+import SlideMenuControllerSwift
 
 class TaskPageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -25,6 +26,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
 
         TaskCellTable.dataSource = self
         TaskCellTable.delegate = self
+        
+        addLeftBarButtonWithImage(UIImage(named: "menu")!)
         
         TaskCellTable.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskPage_TaskCell")
     }
