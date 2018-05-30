@@ -27,6 +27,8 @@
 		6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA758220B9368B003E3272 /* ToDoItem.swift */; };
 		6FC43C1920B45688002BA0C1 /* AddTaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */; };
 		6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5303C20BACA72000BC746 /* ContainerViewController.swift */; };
+		6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5304320BB63D2000BC746 /* SlideListCell.swift */; };
+		6FD5304620BB63D2000BC746 /* SlideListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5304420BB63D2000BC746 /* SlideListCell.xib */; };
 		FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		6FAA758220B9368B003E3272 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPageController.swift; sourceTree = "<group>"; };
 		6FD5303C20BACA72000BC746 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		6FD5304320BB63D2000BC746 /* SlideListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideListCell.swift; sourceTree = "<group>"; };
+		6FD5304420BB63D2000BC746 /* SlideListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideListCell.xib; sourceTree = "<group>"; };
 		6FE6B31CDEFF47694DDD6736 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		D775324CCA2D02684E69B47C /* Pods-ToDoListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListTests/Pods-ToDoListTests.release.xcconfig"; sourceTree = "<group>"; };
 		F72C492496140E5AA874A155 /* Pods-ToDoListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListUITests/Pods-ToDoListUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */,
 				6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */,
 				6F2F3DA620A6B3740081E5F9 /* Main.storyboard */,
+				6FD5304220BB605E000BC746 /* SlideListCell */,
 				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
 				6F2F3DA920A6B3740081E5F9 /* ToDoList.xcdatamodeld */,
 			);
@@ -194,8 +199,8 @@
 		6F2F3E2C20ADB98E0081E5F9 /* TaskCell */ = {
 			isa = PBXGroup;
 			children = (
-				6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */,
 				6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */,
+				6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */,
 			);
 			path = TaskCell;
 			sourceTree = "<group>";
@@ -228,6 +233,15 @@
 				6F6A290220BAB52C00A83F17 /* LeftViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6FD5304220BB605E000BC746 /* SlideListCell */ = {
+			isa = PBXGroup;
+			children = (
+				6FD5304320BB63D2000BC746 /* SlideListCell.swift */,
+				6FD5304420BB63D2000BC746 /* SlideListCell.xib */,
+			);
+			path = SlideListCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +359,7 @@
 				6F2F3DB020A6B3760081E5F9 /* LaunchScreen.storyboard in Resources */,
 				6F2F3DAD20A6B3760081E5F9 /* Assets.xcassets in Resources */,
 				6F2F3DA820A6B3740081E5F9 /* Main.storyboard in Resources */,
+				6FD5304620BB63D2000BC746 /* SlideListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +472,7 @@
 				6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */,
 				6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */,
 				6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */,
+				6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */,
 				6F2F3DAB20A6B3740081E5F9 /* ToDoList.xcdatamodeld in Sources */,
 				6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */,
 				6F2F3DA320A6B3740081E5F9 /* AppDelegate.swift in Sources */,

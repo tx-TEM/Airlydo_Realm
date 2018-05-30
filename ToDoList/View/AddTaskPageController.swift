@@ -23,7 +23,7 @@ class AddTaskPageController: FormViewController {
         let reminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
         print(reminderTags)
         
-        """
+        /*
         print(values["TitleTag"] as! String)
         print(values["NoteTag"] as! String)
         print(values["ListTag"] as! String)
@@ -31,7 +31,7 @@ class AddTaskPageController: FormViewController {
         print(values["RepeatTag"] as! String)
         print(values["PriorityTag"] as! String)
         print(values["AssignTag"] as! String)
-        """
+        */
 
         self.navigationController?.popViewController(animated: true)
     }

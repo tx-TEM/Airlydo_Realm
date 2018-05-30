@@ -56,7 +56,7 @@
                 <outlet property="TaskInfoLabel" destination="2Q3-dq-lYE" id="HJd-Ci-fnb"/>
                 <outlet property="TaskTitleLabel" destination="XfJ-Wp-uNV" id="PIi-hD-Ngi"/>
             </connections>
-            <point key="canvasLocation" x="-134" y="59.5"/>
+            <point key="canvasLocation" x="13" y="-64.5"/>
         </tableViewCell>
     </objects>
 </document>
