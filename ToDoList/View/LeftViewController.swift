@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import MobileCoreServices
 import SlideMenuControllerSwift
 
-class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
+    
     
     @IBOutlet weak var SlideListTable: UITableView!
     
@@ -23,10 +24,16 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         SlideListTable.dataSource = self
         SlideListTable.delegate = self
+        
+        SlideListTable.dragDelegate = self
+        SlideListTable.dropDelegate = self
     
         SlideListTable.separatorStyle = .none
         
         SlideListTable.register(UINib(nibName: "SlideListCell", bundle: nil), forCellReuseIdentifier: "LeftView_SlideListCell")
+        
+        // Enable Drag
+        SlideListTable.dragInteractionEnabled = true
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,6 +98,30 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("section:\(indexPath.section) , row:\(indexPath.row)")
         print()
     }
+    
+    // Drag and Drop
+    // Provide Data for a Drag Session
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        
+        // Get the Data
+        let item = indexPath.section == 0 ? listData[indexPath.row] : customListData[indexPath.row]
+        guard let data = item.data(using: .utf8) else { return [] }
+        
+        let itemProvider = NSItemProvider()
+        itemProvider.registerDataRepresentation(forTypeIdentifier: kUTTypePlainText as String, visibility: .all) { completion in
+            completion(data, nil)
+            return nil
+        }
+        
+        return [
+            UIDragItem(itemProvider: itemProvider)
+        ]
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+    }
+
+    
 
     /*
     // MARK: - Navigation

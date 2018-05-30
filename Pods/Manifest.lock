@@ -1,0 +1,34 @@
+PODS:
+  - Eureka (4.1.1)
+  - MCSwipeTableViewCell (2.1.4)
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
+  - SlideMenuControllerSwift (4.0.0)
+
+DEPENDENCIES:
+  - Eureka
+  - MCSwipeTableViewCell (~> 2.1.4)
+  - RealmSwift
+  - SlideMenuControllerSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Eureka
+    - MCSwipeTableViewCell
+    - Realm
+    - RealmSwift
+    - SlideMenuControllerSwift
+
+SPEC CHECKSUMS:
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  MCSwipeTableViewCell: 1b303e16c3a26b1982f3a68386e9b8c5fc8344c3
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  SlideMenuControllerSwift: 021d6318201c53d4d4d3710517d43d6c556c7dd0
+
+PODFILE CHECKSUM: c02342b51141c39e8c146080dc0a0a89d9c59700
+
+COCOAPODS: 1.5.2
