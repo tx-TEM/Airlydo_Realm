@@ -166,13 +166,13 @@
 				6F638CB420B9B4C6004C586C /* Asset */,
 				6FAA758120B9348E003E3272 /* View */,
 				6FAA758020B93442003E3272 /* Model */,
+				6FD5304220BB605E000BC746 /* SlideListCell */,
+				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
 				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
 				6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */,
 				6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */,
 				6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */,
 				6F2F3DA620A6B3740081E5F9 /* Main.storyboard */,
-				6FD5304220BB605E000BC746 /* SlideListCell */,
-				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
 				6F2F3DA920A6B3740081E5F9 /* ToDoList.xcdatamodeld */,
 			);
 			path = ToDoList;

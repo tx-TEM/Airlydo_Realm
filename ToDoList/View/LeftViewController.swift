@@ -10,35 +10,40 @@ import UIKit
 import MobileCoreServices
 import SlideMenuControllerSwift
 
-class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
+class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var SlideListTable: UITableView!
+    @IBOutlet weak var CustomSlideListTable: UITableView!
     
     var listData: [String] = ["InBox", "Today", "All"]
     var customListData: [String] = ["Work", "Private", "Study"]
-    
-    let sectionTitle: [String] = ["Default", "Custom"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         SlideListTable.dataSource = self
         SlideListTable.delegate = self
-        
-        SlideListTable.dragDelegate = self
-        SlideListTable.dropDelegate = self
-    
+        CustomSlideListTable.dataSource = self
+        CustomSlideListTable.delegate = self
+
         SlideListTable.separatorStyle = .none
-        
-        SlideListTable.register(UINib(nibName: "SlideListCell", bundle: nil), forCellReuseIdentifier: "LeftView_SlideListCell")
+        CustomSlideListTable.separatorStyle = .none
+
+        SlideListTable.register(UINib(nibName: "SlideListCell", bundle: nil), forCellReuseIdentifier: "LSlideListCell")
+        CustomSlideListTable.register(UINib(nibName: "SlideListCell", bundle: nil), forCellReuseIdentifier: "LCustomSlideListCell")
+
         
         // Enable Drag
-        SlideListTable.dragInteractionEnabled = true
+        CustomSlideListTable.dragDelegate = self
+        CustomSlideListTable.dropDelegate = self
+        CustomSlideListTable.dragInteractionEnabled = true
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return sectionTitle.count
+        return 1
     }
     
     // Section Title
@@ -50,14 +55,11 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
+        if(tableView.tag == 0) {
             return listData.count
-        } else if section == 1 {
+        }else{
             return customListData.count
-        } else {
-            return 0
         }
-        
     }
     
     // return cell height (px)
@@ -67,17 +69,20 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // create new cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LeftView_SlideListCell", for: indexPath) as! SlideListCell
-        
-        // Configure the cell...
-        if indexPath.section == 0 {
+        let cell: SlideListCell
+        if(tableView.tag == 0) {
+            cell = tableView.dequeueReusableCell(withIdentifier: "LSlideListCell", for: indexPath) as! SlideListCell
+            
+            // Configure the cell...
             cell.textLabel?.text = "\(listData[indexPath.row])"
             cell.backgroundColor = UIColor.orange
-
-        } else if indexPath.section == 1 {
+            
+        }else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "LCustomSlideListCell", for: indexPath) as! SlideListCell
+            
+            // Configure the cell...
             cell.textLabel?.text = "\(customListData[indexPath.row])"
             cell.backgroundColor = UIColor.green
-
         }
         
         return cell
@@ -92,35 +97,30 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // deselect
-        SlideListTable.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         // push view
+        print("tapped")
         print("section:\(indexPath.section) , row:\(indexPath.row)")
-        print()
+        
     }
     
-    // Drag and Drop
-    // Provide Data for a Drag Session
-    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        
-        // Get the Data
-        let item = indexPath.section == 0 ? listData[indexPath.row] : customListData[indexPath.row]
-        guard let data = item.data(using: .utf8) else { return [] }
-        
-        let itemProvider = NSItemProvider()
-        itemProvider.registerDataRepresentation(forTypeIdentifier: kUTTypePlainText as String, visibility: .all) { completion in
-            completion(data, nil)
-            return nil
-        }
-        
-        return [
-            UIDragItem(itemProvider: itemProvider)
-        ]
-    }
     
-    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-    }
 
+   // reorder
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print(customListData)
+        let item = self.customListData[sourceIndexPath.row]
+        self.customListData.remove(at: sourceIndexPath.row)
+        self.customListData.insert(item, at: destinationIndexPath.row)
+        print(customListData)
+
+
+    }
     
 
     /*
@@ -132,5 +132,54 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension LeftViewController: UITableViewDragDelegate{
+    // Provide Data for a Drag Session
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        
+        // Get the Data
+        let item = listData[indexPath.row]
+        let itemProvider = NSItemProvider()
+        
+        itemProvider.registerDataRepresentation(forTypeIdentifier: kUTTypePlainText as String, visibility: .all) { completion in
+            let data = item.data(using: .utf8)
+            completion(data, nil)
+            return nil
+        }
+        
+        
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = item
+        return [dragItem]
+    }
+    
+}
+
+extension LeftViewController: UITableViewDropDelegate{
+    
+    func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
+        return session.canLoadObjects(ofClass: NSString.self)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        // The .move operation is available only for dragging within a single app.
+        if tableView.hasActiveDrag {
+            if session.items.count > 1 {
+                return UITableViewDropProposal(operation: .cancel)
+            } else {
+                return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+            }
+        } else {
+            return UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        // someday
+    }
 
 }

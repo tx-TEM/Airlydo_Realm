@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -94,15 +95,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Teo-wg-4Kh">
-                                <rect key="frame" x="16" y="165" width="240" height="400"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Teo-wg-4Kh">
+                                <rect key="frame" x="16" y="164" width="240" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="q8B-sg-hgJ"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sKw-d8-cfk">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LSlideListCell" rowHeight="40" id="sKw-d8-cfk">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sKw-d8-cfk" id="cUO-fr-BuT">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="39.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rsf-CY-z80">
+                                <rect key="frame" x="16" y="280" width="240" height="292"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LCustomSlideListCell" id="T6X-ZP-AUN">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T6X-ZP-AUN" id="j7F-UC-JZ7">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -111,9 +128,19 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rsf-CY-z80" firstAttribute="trailing" secondItem="Teo-wg-4Kh" secondAttribute="trailing" id="1AH-Fi-Igp"/>
+                            <constraint firstItem="tiu-Id-jHc" firstAttribute="trailing" secondItem="Teo-wg-4Kh" secondAttribute="trailing" constant="119" id="1X6-hV-wpp"/>
+                            <constraint firstItem="rsf-CY-z80" firstAttribute="leading" secondItem="Teo-wg-4Kh" secondAttribute="leading" id="Uqb-0H-sZT"/>
+                            <constraint firstItem="rsf-CY-z80" firstAttribute="top" secondItem="tiu-Id-jHc" secondAttribute="top" constant="260" id="abc-gp-0NL"/>
+                            <constraint firstItem="Teo-wg-4Kh" firstAttribute="leading" secondItem="XgB-NP-QFE" secondAttribute="leadingMargin" id="bNS-xl-p03"/>
+                            <constraint firstItem="tiu-Id-jHc" firstAttribute="bottom" secondItem="rsf-CY-z80" secondAttribute="bottom" constant="95" id="bVB-AG-2Gw"/>
+                            <constraint firstItem="Teo-wg-4Kh" firstAttribute="top" secondItem="tiu-Id-jHc" secondAttribute="top" constant="144" id="m42-LI-m72"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tiu-Id-jHc"/>
                     </view>
                     <connections>
+                        <outlet property="CustomSlideListTable" destination="rsf-CY-z80" id="T5C-Ew-bH6"/>
                         <outlet property="SlideListTable" destination="Teo-wg-4Kh" id="ssf-kn-hN5"/>
                     </connections>
                 </viewController>
