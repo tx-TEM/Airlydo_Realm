@@ -29,6 +29,7 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         CustomSlideListTable.delegate = self
 
         SlideListTable.separatorStyle = .none
+        SlideListTable.isScrollEnabled = false
         CustomSlideListTable.separatorStyle = .none
 
         SlideListTable.register(UINib(nibName: "SlideListCell", bundle: nil), forCellReuseIdentifier: "LSlideListCell")
