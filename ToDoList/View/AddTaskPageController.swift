@@ -49,14 +49,21 @@ class AddTaskPageController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(newTask){
+            theTask = Task()
+        }
+        
+        print(theTask?.taskID)
+        print(theTask?.taskName)
 
         form +++ Section("Task")
             <<< TextRow("TitleTag"){
                 $0.title = "Add a Task"
+                $0.value = theTask?.taskName
             }
             <<< LabelRow("NoteTag"){
                 $0.title = "Note"
-                $0.value = ""
+                $0.value = theTask?.note
                 }.onCellSelection{ cell, row in
                     let SetNotePageController = self.storyboard?.instantiateViewController(withIdentifier: "SetNotePageController") as! SetNotePageController
                     SetNotePageController.noteValue = row.value
@@ -68,7 +75,13 @@ class AddTaskPageController: FormViewController {
                 $0.title = "List"
                 $0.selectorTitle = "List"
                 $0.options = ["なし"]
-                $0.value = "なし"
+                
+                if let theList = theTask?.listT {
+                    $0.value = theList.listName
+                }else{
+                    $0.value = "なし"
+                }
+                
                 }.onChange{row in
                     print(row.value as Any)
         }
@@ -77,7 +90,7 @@ class AddTaskPageController: FormViewController {
         form +++ Section("")
             <<< DateRow("DueDateTag") {
                 $0.title = "Due Date"
-                $0.value = Date()
+                $0.value = theTask?.dueDate
                 
             }
             
