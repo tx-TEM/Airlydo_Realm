@@ -53,8 +53,12 @@ class AddTaskPageController: FormViewController {
             theTask = Task()
         }
         
-        print(theTask?.taskID)
-        print(theTask?.taskName)
+        if let taskID = theTask?.taskID{
+            print("taskID\(taskID)")
+        }
+        if let taskName = theTask?.taskName{
+            print("taskID\(taskName)")
+        }
 
         form +++ Section("Task")
             <<< TextRow("TitleTag"){
@@ -97,8 +101,15 @@ class AddTaskPageController: FormViewController {
             <<< ActionSheetRow<String>("RepeatTag") {
                 $0.title = "Repeat"
                 $0.selectorTitle = "繰り返し"
-                $0.options = ["毎週","毎月","毎年", "なし"]
-                $0.value = "なし"
+                var repeatArray = ["毎週","毎月","毎年", "なし"]
+                $0.options = repeatArray
+                
+                if let howRepeat = theTask?.howRepeat{
+                    $0.value = repeatArray[howRepeat]
+                }else{
+                    $0.value = repeatArray[3]
+                }
+                
                 }.onChange{row in
                     print(row.value as Any)
         }

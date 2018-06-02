@@ -29,6 +29,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         TaskCellTable.dataSource = self
         TaskCellTable.delegate = self
