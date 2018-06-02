@@ -13,13 +13,15 @@ import RealmSwift
 // Task
 class Task: Object{
     @objc dynamic var taskID = UUID().uuidString
-    @objc dynamic var taskName = ""
+    @objc dynamic var taskName = "じゃがいも"
     @objc dynamic var note = ""
     @objc dynamic var dueDate: Date?
     @objc dynamic var priority = 0
     
+    // default nil
     @objc dynamic var listT:ListOfTask?
     @objc dynamic var assign:Assign?
+    
     let remindList = List<Reminder>()
     
     // primary key
