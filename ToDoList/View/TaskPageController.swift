@@ -19,6 +19,7 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         //performSegue(withIdentifier: "presentSecondViewController", sender: self)
         let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
+        AddTaskPageController.newTask = true // Set new Task
         self.navigationController?.pushViewController(AddTaskPageController, animated: true)
     }
     

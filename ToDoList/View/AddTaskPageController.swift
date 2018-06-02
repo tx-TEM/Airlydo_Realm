@@ -14,6 +14,12 @@ class AddTaskPageController: FormViewController {
     
     @IBOutlet weak var SaveTaskButton: UIBarButtonItem!
     
+    // task: new or edit
+    var newTask: Bool = true
+    
+    // taskData
+    var theTask: Task?
+    
     var recvVal: String = ""
     
     @IBAction func SaveTaskButtonTapped(_ sender: UIButton) {
