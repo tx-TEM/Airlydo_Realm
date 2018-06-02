@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 import MCSwipeTableViewCell
 import SlideMenuControllerSwift
 
@@ -21,15 +22,22 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.pushViewController(AddTaskPageController, animated: true)
     }
     
+    // Get the default Realm
+    let realm = try! Realm()
+    var tasks : Results<Task>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         TaskCellTable.dataSource = self
         TaskCellTable.delegate = self
+        TaskCellTable.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskPage_TaskCell")
         
         addLeftBarButtonWithImage(UIImage(named: "menu")!)
         
-        TaskCellTable.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskPage_TaskCell")
+        // Query Realm for all Tasks
+        tasks = realm.objects(Task.self)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,12 +47,12 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return tasks.count
     }
     
     // return cell height (px)
@@ -56,11 +64,13 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskPage_TaskCell", for: indexPath) as! TaskCell
         
+        let theTask = tasks[indexPath.row]
+        
         // Configure the cell...
-        cell.TaskTitleLabel.text = "Aiueo"
-        cell.TaskInfoLabel.text = "kakikukeko!!"
-        cell.AssignLabel.text = "Taro"
-        cell.DateLabel.text = "1/1"
+        cell.TaskTitleLabel.text = theTask.taskName
+        cell.TaskInfoLabel.text = theTask.note
+        cell.AssignLabel.text = theTask.assign?.assignName
+        cell.DateLabel.text = "Date"
         
         //cell.label.text = dataList[indexPath.row]
         cell.defaultColor = .lightGray
