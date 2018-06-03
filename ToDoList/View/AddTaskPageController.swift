@@ -31,21 +31,41 @@ class AddTaskPageController: FormViewController {
         let valuesDictionary = form.values()
         
         //DB Process
-        let reminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
-        print(reminderTags)
+        
+        theTask?.taskName = valuesDictionary["TitleTag"] as! String
+        theTask?.note = valuesDictionary["NoteTag"] as! String
+        theTask?.dueDate = valuesDictionary["DueDateTag"] as! Date
+        
+        //let reminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
         
         
-        /*
-        print(valuesDictionary["TitleTag"] as! String)
-        print(valuesDictionary["NoteTag"] as! String)
-        print(valuesDictionary["ListTag"] as! String)
-        print(valuesDictionary["DueDateTag"] as! Date)
-        print(valuesDictionary["RepeatTag"] as! String)
-        print(valuesDictionary["PriorityTag"] as! String)
-        print(valuesDictionary["AssignTag"] as! String)
-        */
+        let repeatText = valuesDictionary["RepeatTag"] as! String
+        switch repeatText {
+        case "毎月":
+            theTask?.howRepeat = 0
+        case "毎週":
+            theTask?.howRepeat = 1
+        case "毎日":
+            theTask?.howRepeat = 2
+        case "なし":
+            theTask?.howRepeat = 3
+        default:
+            theTask?.howRepeat = 3
+        }
         
-        print(valuesDictionary["RepeatTag"] as! String)
+        let priorityText = valuesDictionary["PriorityTag"] as! String
+        switch priorityText {
+        case "High":
+            theTask?.priority = 0
+        case "Middle":
+            theTask?.priority = 1
+        case "Low":
+            theTask?.priority = 2
+        default:
+            theTask?.priority = 1
+        }
+        
+        print(theTask)
 
         self.navigationController?.popViewController(animated: true)
     }
@@ -94,7 +114,7 @@ class AddTaskPageController: FormViewController {
                 if let listName = theTask?.listT?.listName {
                     $0.value = listName
                 }else{
-                    $0.value = "なし"
+                    $0.value = "InBox"
                 }
                 
                 }.onCellSelection{ cell, row in
@@ -110,11 +130,13 @@ class AddTaskPageController: FormViewController {
                             print("index:\(index) title:\(action.title!)")
                             
                             if index == 0 {
-                                print("InBox")
+                                row.value = action.title!
+                                row.updateCell()
                             }else if index == actions.count - 1 {
                                 print("cancel")
                             }else{
-                                print("custom")
+                                row.value = action.title!
+                                row.updateCell()
                                 self.theTask?.listT = self.listT[index - 1] // InBox = index:0...
                             }
                             
@@ -204,11 +226,13 @@ class AddTaskPageController: FormViewController {
                             print("index:\(index) title:\(action.title!)")
                             
                             if index == 0 {
-                                print("自分")
+                                row.value = action.title!
+                                row.updateCell()
                             }else if index == actions.count - 1 {
                                 print("cancel")
                             }else{
-                                print("custom")
+                                row.value = action.title!
+                                row.updateCell()
                                 self.theTask?.assign = self.assign[index - 1] // 自分 = index:0...
                             }
                             
