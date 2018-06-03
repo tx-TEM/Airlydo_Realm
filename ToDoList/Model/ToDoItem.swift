@@ -16,7 +16,7 @@ class Task: Object{
     @objc dynamic var taskName = ""
     @objc dynamic var note = ""
     @objc dynamic var dueDate = Date()
-    @objc dynamic var howRepeat = 3  //0:毎年, 1:毎週, 2:毎日, 3:なし
+    @objc dynamic var howRepeat = 3  //0:毎月, 1:毎週, 2:毎日, 3:なし
     @objc dynamic var priority = 1   //0:low, 1:middle, 2:high
     
     // default nil

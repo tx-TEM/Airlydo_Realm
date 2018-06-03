@@ -9,17 +9,22 @@
 
 import UIKit
 import Eureka
+import RealmSwift
 
 class AddTaskPageController: FormViewController {
     
     @IBOutlet weak var SaveTaskButton: UIBarButtonItem!
+    var realm: Realm!
+    
+    // list for Form
+    var listT : Results<ListOfTask>!
+    var assign : Results<Assign>!
     
     // task: new or edit
     var newTask: Bool = true
     
     // taskData
     var theTask: Task?
-    
     var recvVal: String = ""
     
     @IBAction func SaveTaskButtonTapped(_ sender: UIButton) {
@@ -29,15 +34,18 @@ class AddTaskPageController: FormViewController {
         let reminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
         print(reminderTags)
         
+        
         /*
-        print(values["TitleTag"] as! String)
-        print(values["NoteTag"] as! String)
-        print(values["ListTag"] as! String)
-        print(values["DueDateTag"] as! Date)
-        print(values["RepeatTag"] as! String)
-        print(values["PriorityTag"] as! String)
-        print(values["AssignTag"] as! String)
+        print(valuesDictionary["TitleTag"] as! String)
+        print(valuesDictionary["NoteTag"] as! String)
+        print(valuesDictionary["ListTag"] as! String)
+        print(valuesDictionary["DueDateTag"] as! Date)
+        print(valuesDictionary["RepeatTag"] as! String)
+        print(valuesDictionary["PriorityTag"] as! String)
+        print(valuesDictionary["AssignTag"] as! String)
         */
+        
+        print(valuesDictionary["RepeatTag"] as! String)
 
         self.navigationController?.popViewController(animated: true)
     }
@@ -52,6 +60,13 @@ class AddTaskPageController: FormViewController {
         if(newTask){
             theTask = Task()
         }
+        
+        // Get the default Realm
+        realm = try! Realm()
+        
+        // Query Realm for all Tasks
+        listT = realm.objects(ListOfTask.self)
+        assign = realm.objects(Assign.self)
         
         if let taskID = theTask?.taskID{
             print("taskID\(taskID)")
@@ -74,20 +89,47 @@ class AddTaskPageController: FormViewController {
                     self.navigationController?.pushViewController(SetNotePageController, animated: true)
             }
             
-        
-            <<< ActionSheetRow<String>("ListTag") {
+            <<< LabelRow("ListTag"){
                 $0.title = "List"
-                $0.selectorTitle = "List"
-                $0.options = ["なし"]
-                
-                if let theList = theTask?.listT {
-                    $0.value = theList.listName
+                if let listName = theTask?.listT?.listName {
+                    $0.value = listName
                 }else{
                     $0.value = "なし"
                 }
                 
-                }.onChange{row in
-                    print(row.value as Any)
+                }.onCellSelection{ cell, row in
+                    
+                    let controller = UIAlertController(title: "List",
+                                                       message: nil,
+                                                       preferredStyle: .actionSheet)
+                    
+                    var actions = [UIAlertAction]()
+                    let handler = { (action: UIAlertAction) in
+                        // Returns the first index where the specified value appears in the collection.
+                        if let index = actions.index(of: action) {
+                            print("index:\(index) title:\(action.title!)")
+                            
+                            if index == 0 {
+                                print("InBox")
+                            }else if index == actions.count - 1 {
+                                print("cancel")
+                            }else{
+                                print("custom")
+                                self.theTask?.listT = self.listT[index - 1] // InBox = index:0...
+                            }
+                            
+                        }
+                    }
+                    
+                    // Add Button
+                    controller.addAction(UIAlertAction(title: "InBox", style: .default, handler: handler))
+                    for data in self.listT{
+                        controller.addAction(UIAlertAction(title: data.listName, style: .default, handler: handler))
+                    }
+                    controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: handler)) //action.count - 1
+                    
+                    actions = controller.actions
+                    self.present(controller, animated: true, completion: nil)
         }
         
         
@@ -100,8 +142,9 @@ class AddTaskPageController: FormViewController {
             
             <<< ActionSheetRow<String>("RepeatTag") {
                 $0.title = "Repeat"
+                
                 $0.selectorTitle = "繰り返し"
-                var repeatArray = ["毎週","毎月","毎年", "なし"]
+                var repeatArray = ["毎月","毎週","毎日", "なし"]
                 $0.options = repeatArray
                 
                 if let howRepeat = theTask?.howRepeat{
@@ -139,13 +182,48 @@ class AddTaskPageController: FormViewController {
                 }.onChange{row in
                     print(row.value as Any)
             }
-            <<< ActionSheetRow<String>("AssignTag") {
+        
+            <<< LabelRow("AssignTag"){
                 $0.title = "Assign"
-                $0.selectorTitle = "Assign"
-                $0.options = ["自分"]
-                $0.value = "自分"
-                }.onChange{row in
-                    print(row.value as Any)
+                if let assignName = theTask?.assign?.assignName {
+                    $0.value = assignName
+                }else{
+                    $0.value = "自分"
+                }
+                
+                }.onCellSelection{ cell, row in
+                    
+                    let controller = UIAlertController(title: "Assign",
+                                                       message: nil,
+                                                       preferredStyle: .actionSheet)
+                    
+                    var actions = [UIAlertAction]()
+                    let handler = { (action: UIAlertAction) in
+                        // Returns the first index where the specified value appears in the collection.
+                        if let index = actions.index(of: action) {
+                            print("index:\(index) title:\(action.title!)")
+                            
+                            if index == 0 {
+                                print("自分")
+                            }else if index == actions.count - 1 {
+                                print("cancel")
+                            }else{
+                                print("custom")
+                                self.theTask?.assign = self.assign[index - 1] // 自分 = index:0...
+                            }
+                            
+                        }
+                    }
+                    
+                    // Add Button
+                    controller.addAction(UIAlertAction(title: "自分", style: .default, handler: handler))
+                    for data in self.assign{
+                        controller.addAction(UIAlertAction(title: data.assignName, style: .default, handler: handler))
+                    }
+                    controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: handler)) //action.count - 1
+                    
+                    actions = controller.actions
+                    self.present(controller, animated: true, completion: nil)
         }
         
         

@@ -23,8 +23,7 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.pushViewController(AddTaskPageController, animated: true)
     }
     
-    // Get the default Realm
-    let realm = try! Realm()
+    var realm: Realm!
     var tasks : Results<Task>!
     
     override func viewDidLoad() {
@@ -38,6 +37,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         
         addLeftBarButtonWithImage(UIImage(named: "menu")!)
         
+        // Get the default Realm
+        realm = try! Realm()
         // Query Realm for all Tasks
         tasks = realm.objects(Task.self)
         
