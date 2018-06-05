@@ -43,6 +43,13 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         tasks = realm.objects(Task.self)
         
     }
+    
+    // reload Page
+    func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        TaskCellTable.reloadData()
+        print("reload")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
