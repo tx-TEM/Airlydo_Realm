@@ -16,57 +16,127 @@ class AddTaskPageController: FormViewController {
     @IBOutlet weak var SaveTaskButton: UIBarButtonItem!
     var realm: Realm!
     
-    // list for Form
-    var listT : Results<ListOfTask>!
-    var assign : Results<Assign>!
-    
-    // task: new or edit
-    var newTask: Bool = true
-    
     // taskData
     var theTask: Task?
     var recvVal: String = ""
     
+    // new or edit/ task property
+    var taskName = ""
+    var note = ""
+    var dueDate = Date()
+    var howRepeat = 3
+    var priority = 1
+    let remindList = List<Reminder>()
+    var listT:ListOfTask?
+    var assign:Assign?
+    
+    // list for Form
+    var listTList : Results<ListOfTask>!
+    var assignList : Results<Assign>!
+    
+    // task: new or edit
+    var newTask: Bool = true
+
+  
+    
     @IBAction func SaveTaskButtonTapped(_ sender: UIButton) {
         let valuesDictionary = form.values()
         
-        //DB Process
+        // set property
+        taskName = valuesDictionary["TitleTag"] as! String
+        note = valuesDictionary["NoteTag"] as! String
+        dueDate = valuesDictionary["DueDateTag"] as! Date
         
-        theTask?.taskName = valuesDictionary["TitleTag"] as! String
-        theTask?.note = valuesDictionary["NoteTag"] as! String
-        theTask?.dueDate = valuesDictionary["DueDateTag"] as! Date
+        // Reminder
+        let formReminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
+        var deleteReminder: [Reminder] = []
+        var formReminderList: [Date] = []
         
-        //let reminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
+        for remTag in formReminderTags{
+            formReminderList.append(valuesDictionary[remTag] as! Date)
+        }
+        
+        if let reminderList = theTask?.remindList {
+            for reminder in reminderList {
+                
+                // reminder is an element of formReminderList?
+                let index = formReminderList.index(of: reminder.remDate)
+                
+                if let theIndex = index {
+                    formReminderList.remove(at: theIndex)
+                }else{
+                    deleteReminder.append(reminder)
+                }
+            }
+        }
+        
+        for formReminder in formReminderList {
+            let tempReminder = Reminder()
+            tempReminder.remDate = formReminder
+            remindList.append(tempReminder)
+        }
         
         
         let repeatText = valuesDictionary["RepeatTag"] as! String
         switch repeatText {
         case "毎月":
-            theTask?.howRepeat = 0
+            howRepeat = 0
         case "毎週":
-            theTask?.howRepeat = 1
+            howRepeat = 1
         case "毎日":
-            theTask?.howRepeat = 2
+            howRepeat = 2
         case "なし":
-            theTask?.howRepeat = 3
+            howRepeat = 3
         default:
-            theTask?.howRepeat = 3
+            howRepeat = 3
         }
         
         let priorityText = valuesDictionary["PriorityTag"] as! String
         switch priorityText {
         case "High":
-            theTask?.priority = 0
+            priority = 0
         case "Middle":
-            theTask?.priority = 1
+            priority = 1
         case "Low":
-            theTask?.priority = 2
+            priority = 2
         default:
-            theTask?.priority = 1
+            priority = 1
+        }
+
+        
+        // DB process
+        if (newTask) {
+            theTask?.taskName = taskName
+            theTask?.note = note
+            theTask?.dueDate = dueDate
+            theTask?.howRepeat = howRepeat
+            theTask?.priority = priority
+            theTask?.listT = listT
+            for remind in remindList{
+                theTask?.remindList.append(remind)
+            }
+            
+            try! realm.write() {
+                realm.add(theTask!)
+            }
+        }else{
+            try! realm.write() {
+                theTask?.taskName = taskName
+                theTask?.note = note
+                theTask?.dueDate = dueDate
+                theTask?.howRepeat = howRepeat
+                theTask?.priority = priority
+                theTask?.listT = listT
+                for remind in remindList{
+                    theTask?.remindList.append(remind)
+                }
+            }
         }
         
-        print(theTask)
-
+        if let task = self.theTask{
+            print(task)
+        }
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -85,14 +155,11 @@ class AddTaskPageController: FormViewController {
         realm = try! Realm()
         
         // Query Realm for all Tasks
-        listT = realm.objects(ListOfTask.self)
-        assign = realm.objects(Assign.self)
+        listTList = realm.objects(ListOfTask.self)
+        assignList = realm.objects(Assign.self)
         
         if let taskID = theTask?.taskID{
             print("taskID\(taskID)")
-        }
-        if let taskName = theTask?.taskName{
-            print("taskID\(taskName)")
         }
 
         form +++ Section("Task")
@@ -137,7 +204,7 @@ class AddTaskPageController: FormViewController {
                             }else{
                                 row.value = action.title!
                                 row.updateCell()
-                                self.theTask?.listT = self.listT[index - 1] // InBox = index:0...
+                                self.listT = self.listTList[index - 1] // InBox = index:0...
                             }
                             
                         }
@@ -145,7 +212,7 @@ class AddTaskPageController: FormViewController {
                     
                     // Add Button
                     controller.addAction(UIAlertAction(title: "InBox", style: .default, handler: handler))
-                    for data in self.listT{
+                    for data in self.listTList{
                         controller.addAction(UIAlertAction(title: data.listName, style: .default, handler: handler))
                     }
                     controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: handler)) //action.count - 1
@@ -189,8 +256,17 @@ class AddTaskPageController: FormViewController {
                                             }
                                         }
                                         $0.multivaluedRowToInsertAt = { index in
-                                            return DateTimeRow("ReminderTag_\(index+1)") {
+                                            return DateTimeRow("NReminderTag_\(index+1)") {
                                                 $0.title = ""
+                                            }
+                                        }
+                                        
+                                        if let remindList = self.theTask?.remindList {
+                                            for (index,data) in remindList.enumerated() {
+                                                $0 <<< DateTimeRow("ReminderTag_\(index+1)") {
+                                                    $0.title = ""
+                                                    $0.value = data.remDate
+                                                }
                                             }
                                         }
         }
@@ -233,7 +309,7 @@ class AddTaskPageController: FormViewController {
                             }else{
                                 row.value = action.title!
                                 row.updateCell()
-                                self.theTask?.assign = self.assign[index - 1] // 自分 = index:0...
+                                self.assign = self.assignList[index - 1] // 自分 = index:0...
                             }
                             
                         }
@@ -241,7 +317,7 @@ class AddTaskPageController: FormViewController {
                     
                     // Add Button
                     controller.addAction(UIAlertAction(title: "自分", style: .default, handler: handler))
-                    for data in self.assign{
+                    for data in self.assignList{
                         controller.addAction(UIAlertAction(title: data.assignName, style: .default, handler: handler))
                     }
                     controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: handler)) //action.count - 1
