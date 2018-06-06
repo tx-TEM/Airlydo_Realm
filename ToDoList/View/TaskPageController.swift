@@ -106,7 +106,9 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
                 // Send the task to archive
-                //self?.tasks[indexPath.row].isArchive = true
+                try! self?.realm.write() {
+                    self?.tasks[indexPath.row].isArchive = true
+                }
             }
             self?.TaskCellTable.reloadData()
         })
