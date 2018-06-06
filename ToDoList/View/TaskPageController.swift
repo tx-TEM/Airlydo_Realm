@@ -40,7 +40,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         // Get the default Realm
         realm = try! Realm()
         // Query Realm for all Tasks
-        tasks = realm.objects(Task.self)
+        let predicate = NSPredicate(format: "isArchive = false")
+        tasks = realm.objects(Task.self).filter(predicate)
         
     }
     
@@ -48,7 +49,6 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TaskCellTable.reloadData()
-        print("reload")
     }
 
 
@@ -100,20 +100,26 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
             
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
-                //self?.dataList.remove(at: indexPath.row)
-                // 該当のセルを削除
-                //self?.tableView.deleteRows(at: [indexPath], with: .fade)
+                // Send the task to archive
+                //self?.tasks[indexPath.row].isArchive = true
             }
+            self?.TaskCellTable.reloadData()
         })
         
         cell.setSwipeGestureWith(UIImageView(image: UIImage(named: "fav")), color: UIColor.blue, mode: .exit, state: .state2, completionBlock: { [weak self] (cell, state, mode) in
             
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
-                //self?.dataList.remove(at: indexPath.row)
-                // 該当のセルを削除
-                //self?.tableView.deleteRows(at: [indexPath], with: .fade)
+
+                // delete task
+                try! self?.realm.write() {
+                    for theReminder in (self?.tasks[indexPath.row].remindList)! {
+                        self?.realm.delete(theReminder)
+                    }
+                    self?.realm.delete((self?.tasks[indexPath.row])!)
+                }
             }
+            self?.TaskCellTable.reloadData()
         })
         
         cell.setSwipeGestureWith(UIImageView(image: UIImage(named: "check")), color: UIColor.green, mode: .exit, state: .state3, completionBlock: { [weak self] (cell, state, mode) in

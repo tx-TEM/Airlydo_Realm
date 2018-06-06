@@ -49,7 +49,7 @@ class AddTaskPageController: FormViewController {
         
         // Reminder
         let formReminderTags = [String](valuesDictionary.keys).filter({$0.contains("ReminderTag_")}).sorted()
-        var deleteReminder: [Reminder] = []
+        var deleteReminderList: [Reminder] = []
         var formReminderList: [Date] = []
         
         for remTag in formReminderTags{
@@ -65,7 +65,7 @@ class AddTaskPageController: FormViewController {
                 if let theIndex = index {
                     formReminderList.remove(at: theIndex)
                 }else{
-                    deleteReminder.append(reminder)
+                    deleteReminderList.append(reminder)
                 }
             }
         }
@@ -130,6 +130,11 @@ class AddTaskPageController: FormViewController {
                 for remind in remindList{
                     theTask?.remindList.append(remind)
                 }
+                
+                for deleteReminder in deleteReminderList{
+                    realm.delete(deleteReminder)
+                }
+                
             }
         }
         
