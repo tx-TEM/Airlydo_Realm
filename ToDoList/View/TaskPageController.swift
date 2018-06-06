@@ -81,7 +81,12 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         // Configure the cell...
         cell.TaskTitleLabel.text = theTask.taskName
         cell.TaskInfoLabel.text = theTask.note
-        cell.AssignLabel.text = theTask.assign?.assignName
+        if let assignName = theTask.assign?.assignName{
+            cell.AssignLabel.text = assignName
+        } else {
+            cell.AssignLabel.text = "自分"
+
+        }
         cell.DateLabel.text = "Date"
         
         //cell.label.text = dataList[indexPath.row]
