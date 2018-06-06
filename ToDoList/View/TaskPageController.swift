@@ -45,11 +45,12 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // reload Page
-    func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TaskCellTable.reloadData()
         print("reload")
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,9 +139,22 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    /// セルが選択された時に呼ばれるデリゲートメソッド
-    //func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
+    // cell tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // deselect
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // push view
+        print("row:\(indexPath.row)")
+        let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
+        AddTaskPageController.newTask = false // edit Task
+        AddTaskPageController.theTask = self.tasks[indexPath.row]
+        self.navigationController?.pushViewController(AddTaskPageController, animated: true)
+        
+    }
 
+    
     /*
     // MARK: - Navigation
 
