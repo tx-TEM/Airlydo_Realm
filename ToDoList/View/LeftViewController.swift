@@ -20,13 +20,44 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBAction func AddListButtonTapped(_ sender: UIButton) {
         let tempListT = ListOfTask()
-        tempListT.listName = "Work"
-    
-        try! realm.write {
-            customListData.append(tempListT)
-        }
         
-        CustomSlideListTable.reloadData()
+        let controller = UIAlertController(title: "ListName",
+                                           message: nil,
+                                           preferredStyle: .alert)
+        
+        // OK Button
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            let textFields:Array<UITextField>? =  controller.textFields as Array<UITextField>?
+            if textFields != nil {
+                for textField:UITextField in textFields! {
+                    tempListT.listName = textField.text!
+                }
+            }
+            if(!(tempListT.listName.isEmpty)) {
+                try! self.realm.write {
+                    self.customListData.append(tempListT)
+                }
+            }
+            
+            self.CustomSlideListTable.reloadData()
+        })
+        // Cancel Button
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        
+        // add Button Action
+        controller.addAction(cancelAction)
+        controller.addAction(defaultAction)
+        
+        // add textfiled
+        controller.addTextField(configurationHandler: {(text:UITextField!) -> Void in
+        })
+        
+        // Display Alert
+        self.present(controller, animated: true, completion: nil)
+        
     }
 
     

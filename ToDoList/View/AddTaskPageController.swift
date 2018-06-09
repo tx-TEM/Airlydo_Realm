@@ -33,7 +33,7 @@ class AddTaskPageController: FormViewController {
     var assign:Assign?
 
     // list for Form
-    var listTList : Results<ListOfTask>!
+    var listTList : List<ListOfTask>!
     var assignList : Results<Assign>!
     
     // task: new or edit
@@ -159,7 +159,19 @@ class AddTaskPageController: FormViewController {
         }
         
         // Query Realm for all Tasks
-        listTList = realm.objects(ListOfTask.self)
+        
+        if let list = realm.objects(ListOfTaskWrapper.self).first?.list {
+            listTList = list
+        }else{
+            let listTWrapper = ListOfTaskWrapper()
+            
+            try! realm.write {
+                realm.add(listTWrapper)
+            }
+            
+            listTList = listTWrapper.list
+        }
+        
         assignList = realm.objects(Assign.self)
         
         if let taskID = theTask?.taskID{
