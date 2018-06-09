@@ -71,6 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="ha9-PK-jKO"/>
                     </view>
                     <navigationItem key="navigationItem" id="cDn-wH-L1b">
+                        <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dhp-u9-9op">
                             <connections>
                                 <action selector="addTaskButtonTapped:" destination="19s-j5-sQy" id="FQB-fY-Kfq"/>
@@ -96,31 +97,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Teo-wg-4Kh">
-                                <rect key="frame" x="16" y="164" width="240" height="120"/>
+                                <rect key="frame" x="16" y="164" width="343" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="q8B-sg-hgJ"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LSlideListCell" rowHeight="40" id="sKw-d8-cfk">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="40"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sKw-d8-cfk" id="cUO-fr-BuT">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="39.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rsf-CY-z80">
-                                <rect key="frame" x="16" y="280" width="240" height="292"/>
+                                <rect key="frame" x="16" y="280" width="343" height="292"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B3u-N1-x53">
+                                    <rect key="frame" x="0.0" y="72" width="343" height="53"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <state key="normal" title="+">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="AddListButtonTapped:" destination="zLy-Mo-MQ7" eventType="touchUpInside" id="N4S-NO-OU1"/>
+                                    </connections>
+                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LCustomSlideListCell" id="T6X-ZP-AUN">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T6X-ZP-AUN" id="j7F-UC-JZ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -130,7 +142,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rsf-CY-z80" firstAttribute="trailing" secondItem="Teo-wg-4Kh" secondAttribute="trailing" id="1AH-Fi-Igp"/>
-                            <constraint firstItem="tiu-Id-jHc" firstAttribute="trailing" secondItem="Teo-wg-4Kh" secondAttribute="trailing" constant="119" id="1X6-hV-wpp"/>
+                            <constraint firstItem="tiu-Id-jHc" firstAttribute="trailing" secondItem="Teo-wg-4Kh" secondAttribute="trailing" constant="16" id="1X6-hV-wpp"/>
                             <constraint firstItem="rsf-CY-z80" firstAttribute="leading" secondItem="Teo-wg-4Kh" secondAttribute="leading" id="Uqb-0H-sZT"/>
                             <constraint firstItem="rsf-CY-z80" firstAttribute="top" secondItem="tiu-Id-jHc" secondAttribute="top" constant="260" id="abc-gp-0NL"/>
                             <constraint firstItem="Teo-wg-4Kh" firstAttribute="leading" secondItem="XgB-NP-QFE" secondAttribute="leadingMargin" id="bNS-xl-p03"/>
@@ -140,6 +152,7 @@
                         <viewLayoutGuide key="safeArea" id="tiu-Id-jHc"/>
                     </view>
                     <connections>
+                        <outlet property="AddListButton" destination="B3u-N1-x53" id="dVk-3n-dyf"/>
                         <outlet property="CustomSlideListTable" destination="rsf-CY-z80" id="T5C-Ew-bH6"/>
                         <outlet property="SlideListTable" destination="Teo-wg-4Kh" id="ssf-kn-hN5"/>
                     </connections>

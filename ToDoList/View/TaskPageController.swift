@@ -23,7 +23,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.pushViewController(AddTaskPageController, animated: true)
     }
     
-    var realm: Realm!
+    // Get the default Realm
+    lazy var realm = try! Realm()
     var tasks : Results<Task>!
     
     override func viewDidLoad() {
@@ -37,8 +38,6 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         
         addLeftBarButtonWithImage(UIImage(named: "menu")!)
         
-        // Get the default Realm
-        realm = try! Realm()
         // Query Realm for all Tasks
         let predicate = NSPredicate(format: "isArchive = false")
         tasks = realm.objects(Task.self).filter(predicate)

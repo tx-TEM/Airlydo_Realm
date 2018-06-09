@@ -9,19 +9,49 @@
 import UIKit
 import MobileCoreServices
 import SlideMenuControllerSwift
+import RealmSwift
 
 class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var SlideListTable: UITableView!
     @IBOutlet weak var CustomSlideListTable: UITableView!
+    @IBOutlet weak var AddListButton: UIButton!
+
+    @IBAction func AddListButtonTapped(_ sender: UIButton) {
+        let tempListT = ListOfTask()
+        tempListT.listName = "Work"
+    
+        try! realm.write {
+            customListData.append(tempListT)
+        }
+        
+        CustomSlideListTable.reloadData()
+    }
+
     
     var listData: [String] = ["InBox", "Today", "All"]
-    var customListData: [String] = ["Work", "Private", "Study"]
-
+  
+    // Get the default Realm
+    lazy var realm = try! Realm()
+    var customListData: List<ListOfTask>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Query Realm
+        if let list = realm.objects(ListOfTaskWrapper.self).first?.list {
+            customListData = list
+        }else{
+            let listTWrapper = ListOfTaskWrapper()
+            
+            try! realm.write {
+                realm.add(listTWrapper)
+            }
+            
+            customListData = listTWrapper.list
+        }
+        
         
         SlideListTable.dataSource = self
         SlideListTable.delegate = self
@@ -82,7 +112,7 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell = tableView.dequeueReusableCell(withIdentifier: "LCustomSlideListCell", for: indexPath) as! SlideListCell
             
             // Configure the cell...
-            cell.textLabel?.text = "\(customListData[indexPath.row])"
+            cell.textLabel?.text = "\(customListData[indexPath.row].listName)"
             cell.backgroundColor = UIColor.green
         }
         
@@ -115,11 +145,14 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         print(customListData)
-        let item = self.customListData[sourceIndexPath.row]
-        self.customListData.remove(at: sourceIndexPath.row)
-        self.customListData.insert(item, at: destinationIndexPath.row)
+        
+        try! realm.write {
+            let item = customListData[sourceIndexPath.row]
+            customListData.remove(at: sourceIndexPath.row)
+            customListData.insert(item, at: destinationIndexPath.row)
+        }
+        
         print(customListData)
-
 
     }
     
