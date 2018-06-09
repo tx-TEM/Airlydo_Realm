@@ -14,8 +14,10 @@ import RealmSwift
 class AddTaskPageController: FormViewController {
     
     @IBOutlet weak var SaveTaskButton: UIBarButtonItem!
-    var realm: Realm!
     
+    // Get the default Realm
+    lazy var realm = try! Realm()
+
     // taskData
     var theTask: Task?
     var recvVal: String = ""
@@ -29,7 +31,7 @@ class AddTaskPageController: FormViewController {
     let remindList = List<Reminder>()
     var listT:ListOfTask?
     var assign:Assign?
-    
+
     // list for Form
     var listTList : Results<ListOfTask>!
     var assignList : Results<Assign>!
@@ -155,9 +157,6 @@ class AddTaskPageController: FormViewController {
         if(newTask){
             theTask = Task()
         }
-        
-        // Get the default Realm
-        realm = try! Realm()
         
         // Query Realm for all Tasks
         listTList = realm.objects(ListOfTask.self)

@@ -45,6 +45,11 @@ class ListOfTask: Object{
     }
 }
 
+// List of Task Wrapper
+class ListOfTaskWrapper: Object{
+     let list = List<ListOfTask>()
+}
+
 // Assignd user
 class Assign: Object{
     @objc dynamic var assignID = UUID().uuidString
