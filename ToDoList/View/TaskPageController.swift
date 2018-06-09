@@ -68,7 +68,7 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     
     // return cell height (px)
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 100
     }
     
     // create new cell
