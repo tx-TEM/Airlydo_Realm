@@ -30,7 +30,7 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     
-    var listData: [String] = ["InBox", "Today", "All"]
+    var listData: [String] = ["Inbox", "Today", "All"]
   
     // Get the default Realm
     lazy var realm = try! Realm()
@@ -106,14 +106,14 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // Configure the cell...
             cell.textLabel?.text = "\(listData[indexPath.row])"
-            cell.backgroundColor = UIColor.orange
+            cell.backgroundColor = UIColor.white
             
         }else{
             cell = tableView.dequeueReusableCell(withIdentifier: "LCustomSlideListCell", for: indexPath) as! SlideListCell
             
             // Configure the cell...
             cell.textLabel?.text = "\(customListData[indexPath.row].listName)"
-            cell.backgroundColor = UIColor.green
+            cell.backgroundColor = UIColor.white
         }
         
         return cell
