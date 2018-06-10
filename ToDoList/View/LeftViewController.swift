@@ -13,7 +13,6 @@ import RealmSwift
 
 class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet weak var SlideListTable: UITableView!
     @IBOutlet weak var CustomSlideListTable: UITableView!
     @IBOutlet weak var AddListButton: UIButton!
@@ -161,10 +160,33 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         // deselect
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // push view
-        print("tapped")
-        print("section:\(indexPath.section) , row:\(indexPath.row)")
+        var predicate: NSPredicate!
+
+        // get mainViewController instance
+        if let slideMenuController = self.slideMenuController() {
+            let NavigationController = slideMenuController.mainViewController as! UINavigationController
+            let TaskPageController = NavigationController.topViewController as! TaskPageController
         
+            if(tableView.tag == 0) {
+            
+                switch indexPath.row {
+                case 0:
+                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                case 1:
+                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                case 2:
+                    predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                default:
+                        predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                }
+            
+            }else{
+                predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:TaskPageController.isArchiveMode), customListData[indexPath.row])
+            }
+            
+            TaskPageController.getTableData(predicate: predicate)
+            TaskPageController.TaskCellTable.reloadData()
+        }
     }
     
     
