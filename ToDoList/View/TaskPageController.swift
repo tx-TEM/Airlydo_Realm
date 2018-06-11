@@ -17,31 +17,47 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var AddTaskButton: UINavigationItem!
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
-        //performSegue(withIdentifier: "presentSecondViewController", sender: self)
         let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
         AddTaskPageController.newTask = true // Set new Task
         self.navigationController?.pushViewController(AddTaskPageController, animated: true)
     }
     
+
+    
     // Get the default Realm
     lazy var realm = try! Realm()
-    var tasks : Results<Task>!
+    var tasks: Results<Task>!
+    var isArchiveMode = false
+    var whichList: ListOfTask?
+    var predicate: NSPredicate!
+    
+    // Date Formatter
+    let dateFormatter = DateFormatter()
+    
+    func getTableData(predicate: NSPredicate){
+        tasks = realm.objects(Task.self).filter(predicate)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-
+        
         TaskCellTable.dataSource = self
         TaskCellTable.delegate = self
         TaskCellTable.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskPage_TaskCell")
         
         addLeftBarButtonWithImage(UIImage(named: "menu")!)
         
-        // Query Realm for all Tasks
-        let predicate = NSPredicate(format: "isArchive = false")
-        tasks = realm.objects(Task.self).filter(predicate)
+        // Realm
+        // Get Data from DB
+        predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: isArchiveMode))
+        getTableData(predicate: predicate)
         
+        // Date formatter
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.ReferenceType.local
+        dateFormatter.dateFormat = "MMM. d"
     }
     
     // reload Page
@@ -86,7 +102,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
             cell.AssignLabel.text = "自分"
 
         }
-        cell.DateLabel.text = "Date"
+        
+        cell.DateLabel.text = dateFormatter.string(from: theTask.dueDate)
         
         //cell.label.text = dataList[indexPath.row]
         cell.defaultColor = .lightGray

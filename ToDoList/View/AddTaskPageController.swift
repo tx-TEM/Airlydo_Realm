@@ -39,7 +39,6 @@ class AddTaskPageController: FormViewController {
     // task: new or edit
     var newTask: Bool = true
 
-  
     
     @IBAction func SaveTaskButtonTapped(_ sender: UIButton) {
         let valuesDictionary = form.values()
