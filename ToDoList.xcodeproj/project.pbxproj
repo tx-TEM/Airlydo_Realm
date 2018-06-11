@@ -20,14 +20,15 @@
 		6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */; };
 		6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */; };
 		6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3D81C620B4534800B960F7 /* SetNotePageController.swift */; };
-		6F4DB01620CD2B99009AC462 /* Airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01120CD2B99009AC462 /* Airplane.png */; };
-		6F4DB01720CD2B99009AC462 /* Time.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01220CD2B99009AC462 /* Time.png */; };
-		6F4DB01820CD2B99009AC462 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01320CD2B99009AC462 /* Plus.png */; };
-		6F4DB01920CD2B99009AC462 /* Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01420CD2B99009AC462 /* Check.png */; };
-		6F4DB01A20CD2B99009AC462 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01520CD2B99009AC462 /* Menu.png */; };
 		6F4DB01D20CD2D38009AC462 /* fav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01B20CD2D38009AC462 /* fav@2x.png */; };
 		6F4DB01E20CD2D38009AC462 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01C20CD2D38009AC462 /* check@2x.png */; };
 		6F4DB02020CD2D79009AC462 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01F20CD2D79009AC462 /* menu@2x.png */; };
+		6F4DB02620CEFDF5009AC462 /* Airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02120CEFDF4009AC462 /* Airplane.png */; };
+		6F4DB02720CEFDF5009AC462 /* Time.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02220CEFDF5009AC462 /* Time.png */; };
+		6F4DB02820CEFDF5009AC462 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02320CEFDF5009AC462 /* Plus.png */; };
+		6F4DB02920CEFDF5009AC462 /* Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02420CEFDF5009AC462 /* Check.png */; };
+		6F4DB02A20CEFDF5009AC462 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02520CEFDF5009AC462 /* Menu.png */; };
+		6F4DB02C20CF0DEA009AC462 /* TaskPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DB02B20CF0DEA009AC462 /* TaskPageModel.swift */; };
 		6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A290220BAB52C00A83F17 /* LeftViewController.swift */; };
 		6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA758220B9368B003E3272 /* ToDoItem.swift */; };
 		6FC43C1920B45688002BA0C1 /* AddTaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */; };
@@ -78,14 +79,15 @@
 		6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		6F3D81C620B4534800B960F7 /* SetNotePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotePageController.swift; sourceTree = "<group>"; };
-		6F4DB01120CD2B99009AC462 /* Airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Airplane.png; sourceTree = "<group>"; };
-		6F4DB01220CD2B99009AC462 /* Time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Time.png; sourceTree = "<group>"; };
-		6F4DB01320CD2B99009AC462 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
-		6F4DB01420CD2B99009AC462 /* Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Check.png; sourceTree = "<group>"; };
-		6F4DB01520CD2B99009AC462 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
 		6F4DB01B20CD2D38009AC462 /* fav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fav@2x.png"; sourceTree = "<group>"; };
 		6F4DB01C20CD2D38009AC462 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		6F4DB01F20CD2D79009AC462 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		6F4DB02120CEFDF4009AC462 /* Airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Airplane.png; sourceTree = "<group>"; };
+		6F4DB02220CEFDF5009AC462 /* Time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Time.png; sourceTree = "<group>"; };
+		6F4DB02320CEFDF5009AC462 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
+		6F4DB02420CEFDF5009AC462 /* Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Check.png; sourceTree = "<group>"; };
+		6F4DB02520CEFDF5009AC462 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
+		6F4DB02B20CF0DEA009AC462 /* TaskPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageModel.swift; sourceTree = "<group>"; };
 		6F6A290220BAB52C00A83F17 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		6FAA758220B9368B003E3272 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPageController.swift; sourceTree = "<group>"; };
@@ -174,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				6F638CB420B9B4C6004C586C /* Asset */,
-				6FAA758120B9348E003E3272 /* View */,
 				6FAA758020B93442003E3272 /* Model */,
+				6FAA758120B9348E003E3272 /* View */,
 				6FD5304220BB605E000BC746 /* SlideListCell */,
 				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
 				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
@@ -219,13 +221,13 @@
 			isa = PBXGroup;
 			children = (
 				6F4DB01F20CD2D79009AC462 /* menu@2x.png */,
+				6F4DB02120CEFDF4009AC462 /* Airplane.png */,
+				6F4DB02420CEFDF5009AC462 /* Check.png */,
+				6F4DB02520CEFDF5009AC462 /* Menu.png */,
+				6F4DB02320CEFDF5009AC462 /* Plus.png */,
+				6F4DB02220CEFDF5009AC462 /* Time.png */,
 				6F4DB01C20CD2D38009AC462 /* check@2x.png */,
 				6F4DB01B20CD2D38009AC462 /* fav@2x.png */,
-				6F4DB01120CD2B99009AC462 /* Airplane.png */,
-				6F4DB01420CD2B99009AC462 /* Check.png */,
-				6F4DB01520CD2B99009AC462 /* Menu.png */,
-				6F4DB01320CD2B99009AC462 /* Plus.png */,
-				6F4DB01220CD2B99009AC462 /* Time.png */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				6FAA758220B9368B003E3272 /* ToDoItem.swift */,
+				6F4DB02B20CF0DEA009AC462 /* TaskPageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,17 +372,17 @@
 			files = (
 				6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */,
 				6F2F3DB020A6B3760081E5F9 /* LaunchScreen.storyboard in Resources */,
+				6F4DB02720CEFDF5009AC462 /* Time.png in Resources */,
 				6F4DB02020CD2D79009AC462 /* menu@2x.png in Resources */,
-				6F4DB01A20CD2B99009AC462 /* Menu.png in Resources */,
 				6F4DB01D20CD2D38009AC462 /* fav@2x.png in Resources */,
-				6F4DB01720CD2B99009AC462 /* Time.png in Resources */,
 				6F2F3DAD20A6B3760081E5F9 /* Assets.xcassets in Resources */,
 				6F2F3DA820A6B3740081E5F9 /* Main.storyboard in Resources */,
 				6FD5304620BB63D2000BC746 /* SlideListCell.xib in Resources */,
-				6F4DB01620CD2B99009AC462 /* Airplane.png in Resources */,
-				6F4DB01920CD2B99009AC462 /* Check.png in Resources */,
-				6F4DB01820CD2B99009AC462 /* Plus.png in Resources */,
 				6F4DB01E20CD2D38009AC462 /* check@2x.png in Resources */,
+				6F4DB02620CEFDF5009AC462 /* Airplane.png in Resources */,
+				6F4DB02A20CEFDF5009AC462 /* Menu.png in Resources */,
+				6F4DB02920CEFDF5009AC462 /* Check.png in Resources */,
+				6F4DB02820CEFDF5009AC462 /* Plus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +497,7 @@
 				6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */,
 				6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */,
 				6F2F3DAB20A6B3740081E5F9 /* ToDoList.xcdatamodeld in Sources */,
+				6F4DB02C20CF0DEA009AC462 /* TaskPageModel.swift in Sources */,
 				6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */,
 				6F2F3DA320A6B3740081E5F9 /* AppDelegate.swift in Sources */,
 				6F2F3E2320AC58020081E5F9 /* TaskPageController.swift in Sources */,
