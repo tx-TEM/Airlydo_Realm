@@ -30,9 +30,10 @@ class TaskPageModel {
     weak var delegate: TaskPageModelDelegate?
     
     init() {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Get Data from Realm
-        let predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: isArchiveMode))
+        let predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: self.isArchiveMode))
         readData(predicate: predicate)
         
         // Date Formatter
@@ -48,7 +49,7 @@ class TaskPageModel {
     
     // Change Display Tasks
     func changeList (selectedList: ListOfTask){
-        let predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:isArchiveMode), selectedList)
+        let predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:self.isArchiveMode), selectedList)
         readData(predicate: predicate)
         self.delegate?.tasksDidChange()
     }
@@ -67,6 +68,7 @@ class TaskPageModel {
             }
             self.realm.delete(tasks[indexPath.row])
         }
+        self.delegate?.tasksDidChange()
     }
     
     // Send the task to archive
@@ -74,5 +76,7 @@ class TaskPageModel {
         try! self.realm.write() {
             self.tasks[indexPath.row].isArchive = true
         }
+        self.delegate?.tasksDidChange()
+
     }
 }

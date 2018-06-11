@@ -11,10 +11,12 @@ import RealmSwift
 import MCSwipeTableViewCell
 import SlideMenuControllerSwift
 
-class TaskPageController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TaskPageViewController: UIViewController {
 
     @IBOutlet weak var TaskCellTable: UITableView!
     @IBOutlet weak var AddTaskButton: UINavigationItem!
+    
+    let taskPageModel = TaskPageModel()
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
@@ -22,42 +24,17 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.pushViewController(AddTaskPageController, animated: true)
     }
     
-
-    
-    // Get the default Realm
-    lazy var realm = try! Realm()
-    var tasks: Results<Task>!
-    var isArchiveMode = false
-    var whichList: ListOfTask?
-    var predicate: NSPredicate!
-    
-    // Date Formatter
-    let dateFormatter = DateFormatter()
-    
-    func getTableData(predicate: NSPredicate){
-        tasks = realm.objects(Task.self).filter(predicate)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
+                
         TaskCellTable.dataSource = self
         TaskCellTable.delegate = self
         TaskCellTable.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskPage_TaskCell")
         
+        taskPageModel.delegate = self
         addLeftBarButtonWithImage(UIImage(named: "menu")!)
         
-        // Realm
-        // Get Data from DB
-        predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: isArchiveMode))
-        getTableData(predicate: predicate)
-        
-        // Date formatter
-        dateFormatter.locale = Locale.current
-        dateFormatter.timeZone = TimeZone.ReferenceType.local
-        dateFormatter.dateFormat = "MMM. d"
     }
     
     // reload Page
@@ -71,7 +48,20 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+extension TaskPageViewController: TaskPageModelDelegate {
+    func tasksDidChange() {
+        TaskCellTable.reloadData()
+    }
     
+    func errorDidOccur(error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -79,7 +69,7 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks.count
+        return taskPageModel.tasks.count
     }
     
     // return cell height (px)
@@ -91,7 +81,7 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskPage_TaskCell", for: indexPath) as! TaskCell
         
-        let theTask = tasks[indexPath.row]
+        let theTask = taskPageModel.tasks[indexPath.row]
         
         // Configure the cell...
         cell.TaskTitleLabel.text = theTask.taskName
@@ -100,10 +90,10 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
             cell.AssignLabel.text = assignName
         } else {
             cell.AssignLabel.text = "自分"
-
+            
         }
         
-        cell.DateLabel.text = dateFormatter.string(from: theTask.dueDate)
+        cell.DateLabel.text = taskPageModel.dueDateToString(dueDate: theTask.dueDate)
         
         //cell.label.text = dataList[indexPath.row]
         cell.defaultColor = .lightGray
@@ -122,9 +112,7 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
                 // Send the task to archive
-                try! self?.realm.write() {
-                    self?.tasks[indexPath.row].isArchive = true
-                }
+                self?.taskPageModel.archiveTask(indexPath: indexPath)
             }
             self?.TaskCellTable.reloadData()
         })
@@ -133,16 +121,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
             
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
-
-                // delete task
-                try! self?.realm.write() {
-                    for theReminder in (self?.tasks[indexPath.row].remindList)! {
-                        self?.realm.delete(theReminder)
-                    }
-                    self?.realm.delete((self?.tasks[indexPath.row])!)
-                }
+                self?.taskPageModel.deleteTask(indexPath: indexPath)
             }
-            self?.TaskCellTable.reloadData()
         })
         
         cell.setSwipeGestureWith(UIImageView(image: UIImage(named: "check")), color: UIColor.green, mode: .exit, state: .state3, completionBlock: { [weak self] (cell, state, mode) in
@@ -164,7 +144,7 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
                 //self?.tableView.deleteRows(at: [indexPath], with: .fade)
             }
         })
-
+        
         return cell
     }
     
@@ -178,20 +158,8 @@ class TaskPageController: UIViewController, UITableViewDelegate, UITableViewData
         print("row:\(indexPath.row)")
         let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
         AddTaskPageController.newTask = false // edit Task
-        AddTaskPageController.theTask = self.tasks[indexPath.row]
+        AddTaskPageController.theTask = self.taskPageModel.tasks[indexPath.row]
         self.navigationController?.pushViewController(AddTaskPageController, animated: true)
         
     }
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

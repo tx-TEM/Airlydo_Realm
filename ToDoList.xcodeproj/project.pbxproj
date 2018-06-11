@@ -16,7 +16,7 @@
 		6F2F3DB020A6B3760081E5F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */; };
 		6F2F3DBB20A6B3760081E5F9 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3DBA20A6B3760081E5F9 /* ToDoListTests.swift */; };
 		6F2F3DC620A6B3760081E5F9 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3DC520A6B3760081E5F9 /* ToDoListUITests.swift */; };
-		6F2F3E2320AC58020081E5F9 /* TaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */; };
+		6F2F3E2320AC58020081E5F9 /* TaskPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2220AC58020081E5F9 /* TaskPageViewController.swift */; };
 		6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */; };
 		6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */; };
 		6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3D81C620B4534800B960F7 /* SetNotePageController.swift */; };
@@ -75,7 +75,7 @@
 		6F2F3DC120A6B3760081E5F9 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2F3DC520A6B3760081E5F9 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		6F2F3DC720A6B3760081E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageController.swift; sourceTree = "<group>"; };
+		6F2F3E2220AC58020081E5F9 /* TaskPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageViewController.swift; sourceTree = "<group>"; };
 		6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		6F3D81C620B4534800B960F7 /* SetNotePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotePageController.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				6FD5303C20BACA72000BC746 /* ContainerViewController.swift */,
-				6F2F3E2220AC58020081E5F9 /* TaskPageController.swift */,
+				6F2F3E2220AC58020081E5F9 /* TaskPageViewController.swift */,
 				6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */,
 				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
 				6F6A290220BAB52C00A83F17 /* LeftViewController.swift */,
@@ -500,7 +500,7 @@
 				6F4DB02C20CF0DEA009AC462 /* TaskPageModel.swift in Sources */,
 				6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */,
 				6F2F3DA320A6B3740081E5F9 /* AppDelegate.swift in Sources */,
-				6F2F3E2320AC58020081E5F9 /* TaskPageController.swift in Sources */,
+				6F2F3E2320AC58020081E5F9 /* TaskPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

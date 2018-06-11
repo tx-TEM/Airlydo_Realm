@@ -165,27 +165,28 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         // get mainViewController instance
         if let slideMenuController = self.slideMenuController() {
             let NavigationController = slideMenuController.mainViewController as! UINavigationController
-            let TaskPageController = NavigationController.topViewController as! TaskPageController
+            let TaskPageViewController = NavigationController.topViewController as! TaskPageViewController
         
             if(tableView.tag == 0) {
             
                 switch indexPath.row {
                 case 0:
-                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
                 case 1:
-                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
                 case 2:
-                    predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                    predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
                 default:
-                        predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageController.isArchiveMode))
+                        predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
                 }
             
             }else{
-                predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:TaskPageController.isArchiveMode), customListData[indexPath.row])
+                predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:TaskPageViewController.taskPageModel.isArchiveMode), customListData[indexPath.row])
             }
             
-            TaskPageController.getTableData(predicate: predicate)
-            TaskPageController.TaskCellTable.reloadData()
+            TaskPageViewController.taskPageModel.readData(predicate: predicate)
+            TaskPageViewController.TaskCellTable.reloadData()
+            slideMenuController.closeLeft()
         }
     }
     
