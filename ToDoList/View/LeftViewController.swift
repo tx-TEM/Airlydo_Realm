@@ -167,7 +167,7 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
             }else{
                 TaskPageViewController.taskPageModel.changeList(selectedList: leftModel.customListData[indexPath.row])
             }
-            
+            slideMenuController.closeLeft()
         }
     }
     
