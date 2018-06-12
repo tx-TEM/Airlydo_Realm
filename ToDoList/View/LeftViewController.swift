@@ -11,14 +11,16 @@ import MobileCoreServices
 import SlideMenuControllerSwift
 import RealmSwift
 
-class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LeftViewController: UIViewController {
+    
+    let leftModel = LeftModel()
+    var listData: [String] = ["Inbox", "Today", "All"]
     
     @IBOutlet weak var SlideListTable: UITableView!
     @IBOutlet weak var CustomSlideListTable: UITableView!
     @IBOutlet weak var AddListButton: UIButton!
 
     @IBAction func AddListButtonTapped(_ sender: UIButton) {
-        let tempListT = ListOfTask()
         
         let controller = UIAlertController(title: "ListName",
                                            message: nil,
@@ -28,19 +30,15 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler:{
             (action: UIAlertAction!) -> Void in
             let textFields:Array<UITextField>? =  controller.textFields as Array<UITextField>?
+            
             if textFields != nil {
                 for textField:UITextField in textFields! {
-                    tempListT.listName = textField.text!
-                }
-            }
-            if(!(tempListT.listName.isEmpty)) {
-                try! self.realm.write {
-                    self.customListData.append(tempListT)
+                    self.leftModel.addList(listName: textField.text!)
                 }
             }
             
-            self.CustomSlideListTable.reloadData()
         })
+        
         // Cancel Button
         let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel, handler:{
             (action: UIAlertAction!) -> Void in
@@ -58,30 +56,9 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(controller, animated: true, completion: nil)
         
     }
-
-    
-    var listData: [String] = ["Inbox", "Today", "All"]
-  
-    // Get the default Realm
-    lazy var realm = try! Realm()
-    var customListData: List<ListOfTask>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Query Realm
-        if let list = realm.objects(ListOfTaskWrapper.self).first?.list {
-            customListData = list
-        }else{
-            let listTWrapper = ListOfTaskWrapper()
-            
-            try! realm.write {
-                realm.add(listTWrapper)
-            }
-            
-            customListData = listTWrapper.list
-        }
-        
         
         SlideListTable.dataSource = self
         SlideListTable.delegate = self
@@ -94,7 +71,8 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         SlideListTable.register(UINib(nibName: "SlideListCell", bundle: nil), forCellReuseIdentifier: "LSlideListCell")
         CustomSlideListTable.register(UINib(nibName: "SlideListCell", bundle: nil), forCellReuseIdentifier: "LCustomSlideListCell")
-
+        
+        leftModel.delegate = self
         
         // Enable Drag
         CustomSlideListTable.dragDelegate = self
@@ -102,24 +80,37 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         CustomSlideListTable.dragInteractionEnabled = true
     }
     
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+   
+}
+
+extension LeftViewController: LeftModelDelegate {
+    func listDidChange() {
+        CustomSlideListTable.reloadData()
+    }
+    
+    func errorDidOccur(error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+
+extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    // Section Title
-    /*
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitle[section]
-    }
-    */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if(tableView.tag == 0) {
             return listData.count
         }else{
-            return customListData.count
+            return leftModel.customListData.count
         }
     }
     
@@ -142,88 +133,57 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell = tableView.dequeueReusableCell(withIdentifier: "LCustomSlideListCell", for: indexPath) as! SlideListCell
             
             // Configure the cell...
-            cell.textLabel?.text = "\(customListData[indexPath.row].listName)"
+            cell.textLabel?.text = "\(leftModel.customListData[indexPath.row].listName)"
             cell.backgroundColor = UIColor.white
         }
         
         return cell
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    // cell tapped
+    // Cell tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // deselect
         tableView.deselectRow(at: indexPath, animated: true)
         
-        var predicate: NSPredicate!
-
         // get mainViewController instance
         if let slideMenuController = self.slideMenuController() {
             let NavigationController = slideMenuController.mainViewController as! UINavigationController
             let TaskPageViewController = NavigationController.topViewController as! TaskPageViewController
-        
-            if(tableView.tag == 0) {
             
+            if(tableView.tag == 0) {
+                
                 switch indexPath.row {
                 case 0:
-                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
+                    TaskPageViewController.taskPageModel.changeListInBox()
                 case 1:
-                    predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
+                    TaskPageViewController.taskPageModel.changeList()
                 case 2:
-                    predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
+                    TaskPageViewController.taskPageModel.changeList()
                 default:
-                        predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: TaskPageViewController.taskPageModel.isArchiveMode))
+                    TaskPageViewController.taskPageModel.changeList()
                 }
-            
+                
             }else{
-                predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:TaskPageViewController.taskPageModel.isArchiveMode), customListData[indexPath.row])
+                TaskPageViewController.taskPageModel.changeList(selectedList: leftModel.customListData[indexPath.row])
             }
             
-            TaskPageViewController.taskPageModel.readData(predicate: predicate)
-            TaskPageViewController.TaskCellTable.reloadData()
-            slideMenuController.closeLeft()
         }
     }
     
-    
-
-   // reorder
+    // Reorder Cell
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        print(customListData)
-        
-        try! realm.write {
-            let item = customListData[sourceIndexPath.row]
-            customListData.remove(at: sourceIndexPath.row)
-            customListData.insert(item, at: destinationIndexPath.row)
-        }
-        
-        print(customListData)
-
+        leftModel.reorder(sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-extension LeftViewController: UITableViewDragDelegate{
+
+extension LeftViewController: UITableViewDragDelegate {
     // Provide Data for a Drag Session
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
