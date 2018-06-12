@@ -33,13 +33,13 @@ class TaskPageModel {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Get Data from Realm
-        let predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: self.isArchiveMode))
+        let predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: isArchiveMode))
         readData(predicate: predicate)
         
         // Date Formatter
-        self.dateFormatter.locale = Locale.current
-        self.dateFormatter.timeZone = TimeZone.ReferenceType.local
-        self.dateFormatter.dateFormat = "MMM. d"
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.ReferenceType.local
+        dateFormatter.dateFormat = "MMM. d"
     }
     
     // Read Data from Realm
@@ -48,27 +48,39 @@ class TaskPageModel {
     }
     
     // Change Display Tasks
-    func changeList (selectedList: ListOfTask){
-        let predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:self.isArchiveMode), selectedList)
+    func changeList () {
+        let predicate = NSPredicate(format: "isArchive = %@" , NSNumber(booleanLiteral: isArchiveMode))
         readData(predicate: predicate)
-        self.delegate?.tasksDidChange()
+        delegate?.tasksDidChange()
+    }
+    
+    func changeList (selectedList: ListOfTask) {
+        let predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:isArchiveMode), selectedList)
+        readData(predicate: predicate)
+        delegate?.tasksDidChange()
+    }
+    
+    func changeListInBox(){
+        let predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral:isArchiveMode))
+        readData(predicate: predicate)
+        delegate?.tasksDidChange()
     }
     
     // Date to String using Formatter
     func dueDateToString(dueDate: Date)-> String {
-        return self.dateFormatter.string(from: dueDate)
+        return dateFormatter.string(from: dueDate)
     }
     
     // Delete Task
     func deleteTask(indexPath: IndexPath) {
-        try! self.realm.write() {
+        try! realm.write() {
             // delete Task's remindList
-            for theReminder in self.tasks[indexPath.row].remindList {
-                self.realm.delete(theReminder)
+            for theReminder in tasks[indexPath.row].remindList {
+                realm.delete(theReminder)
             }
-            self.realm.delete(tasks[indexPath.row])
+            realm.delete(tasks[indexPath.row])
         }
-        self.delegate?.tasksDidChange()
+        delegate?.tasksDidChange()
     }
     
     // Send the task to archive
