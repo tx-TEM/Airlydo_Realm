@@ -32,7 +32,7 @@
 		6F4DB02E20CFE511009AC462 /* LeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DB02D20CFE511009AC462 /* LeftViewModel.swift */; };
 		6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A290220BAB52C00A83F17 /* LeftViewController.swift */; };
 		6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA758220B9368B003E3272 /* ToDoItem.swift */; };
-		6FC43C1920B45688002BA0C1 /* AddTaskPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */; };
+		6FC43C1920B45688002BA0C1 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC43C1820B45688002BA0C1 /* TaskDetailViewController.swift */; };
 		6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5303C20BACA72000BC746 /* ContainerViewController.swift */; };
 		6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5304320BB63D2000BC746 /* SlideListCell.swift */; };
 		6FD5304620BB63D2000BC746 /* SlideListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5304420BB63D2000BC746 /* SlideListCell.xib */; };
@@ -92,7 +92,7 @@
 		6F4DB02D20CFE511009AC462 /* LeftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewModel.swift; sourceTree = "<group>"; };
 		6F6A290220BAB52C00A83F17 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		6FAA758220B9368B003E3272 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
-		6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPageController.swift; sourceTree = "<group>"; };
+		6FC43C1820B45688002BA0C1 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		6FD5303C20BACA72000BC746 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		6FD5304320BB63D2000BC746 /* SlideListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideListCell.swift; sourceTree = "<group>"; };
 		6FD5304420BB63D2000BC746 /* SlideListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideListCell.xib; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 			children = (
 				6FD5303C20BACA72000BC746 /* ContainerViewController.swift */,
 				6F2F3E2220AC58020081E5F9 /* TaskPageViewController.swift */,
-				6FC43C1820B45688002BA0C1 /* AddTaskPageController.swift */,
+				6FC43C1820B45688002BA0C1 /* TaskDetailViewController.swift */,
 				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
 				6F6A290220BAB52C00A83F17 /* LeftViewController.swift */,
 			);
@@ -494,7 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */,
-				6FC43C1920B45688002BA0C1 /* AddTaskPageController.swift in Sources */,
+				6FC43C1920B45688002BA0C1 /* TaskDetailViewController.swift in Sources */,
 				6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */,
 				6FAA758320B9368B003E3272 /* ToDoItem.swift in Sources */,
 				6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */,

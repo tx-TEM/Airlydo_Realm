@@ -19,9 +19,9 @@ class TaskPageViewController: UIViewController {
     let taskPageModel = TaskPageModel()
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
-        let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
-        AddTaskPageController.newTask = true // Set new Task
-        self.navigationController?.pushViewController(AddTaskPageController, animated: true)
+        let TaskDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "TaskDetailViewController") as! TaskDetailViewController
+        TaskDetailViewController.newTask = true // Set new Task
+        self.navigationController?.pushViewController(TaskDetailViewController, animated: true)
     }
     
     
@@ -156,10 +156,10 @@ extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
         
         // push view
         print("row:\(indexPath.row)")
-        let AddTaskPageController = self.storyboard?.instantiateViewController(withIdentifier: "AddTaskPageController") as! AddTaskPageController
-        AddTaskPageController.newTask = false // edit Task
-        AddTaskPageController.theTask = self.taskPageModel.tasks[indexPath.row]
-        self.navigationController?.pushViewController(AddTaskPageController, animated: true)
+        let TaskDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "TaskDetailViewController") as! TaskDetailViewController
+        TaskDetailViewController.newTask = false // edit Task
+        TaskDetailViewController.theTask = self.taskPageModel.tasks[indexPath.row]
+        self.navigationController?.pushViewController(TaskDetailViewController, animated: true)
         
     }
 }

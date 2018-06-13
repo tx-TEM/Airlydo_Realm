@@ -1,5 +1,5 @@
 //
-//  AddTaskPageController.swift
+//  TaskDetailViewController.swift
 //  ToDoList
 //
 //  Created by yoshiki-t on 2018/05/22.
@@ -11,7 +11,7 @@ import UIKit
 import Eureka
 import RealmSwift
 
-class AddTaskPageController: FormViewController {
+class TaskDetailViewController: FormViewController {
     
     @IBOutlet weak var SaveTaskButton: UIBarButtonItem!
     

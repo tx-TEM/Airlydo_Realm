@@ -164,7 +164,7 @@
         <!--Add Task-->
         <scene sceneID="Xas-81-A7o">
             <objects>
-                <viewController storyboardIdentifier="AddTaskPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlh-vE-G7A" customClass="AddTaskPageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlh-vE-G7A" customClass="TaskDetailViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tfQ-kz-y0z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -17,9 +17,9 @@ class SetNotePageController: UIViewController {
     
     @IBAction func SaveNoteButtonTapped(_ sender: UIButton) {
         let count = (self.navigationController?.viewControllers.count)! - 2
-        let AddTaskPageController = self.navigationController?.viewControllers[count] as! AddTaskPageController
-        AddTaskPageController.recvVal = NoteTextView.text
-        AddTaskPageController.updateNote()
+        let TaskDetailViewController = self.navigationController?.viewControllers[count] as! TaskDetailViewController
+        TaskDetailViewController.recvVal = NoteTextView.text
+        TaskDetailViewController.updateNote()
         self.navigationController?.popViewController(animated: true)
     }
     
