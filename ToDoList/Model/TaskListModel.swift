@@ -54,14 +54,16 @@ class TaskListModel {
         delegate?.tasksDidChange()
     }
     
-    func changeList (selectedList: ListOfTask) {
-        let predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:isArchiveMode), selectedList)
-        readData(predicate: predicate)
-        delegate?.tasksDidChange()
-    }
-    
-    func changeListInBox(){
-        let predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral:isArchiveMode))
+    func changeList (selectedList: ListOfTask?) {
+        let predicate:NSPredicate
+        
+        if let theSelectedList = selectedList {
+            predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:isArchiveMode), theSelectedList)
+        }else{
+            predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral:isArchiveMode))
+
+        }
+        
         readData(predicate: predicate)
         delegate?.tasksDidChange()
     }

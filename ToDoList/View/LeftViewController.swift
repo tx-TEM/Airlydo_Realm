@@ -155,7 +155,7 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 switch indexPath.row {
                 case 0:
-                    TaskListViewController.taskListModel.changeListInBox()
+                    TaskListViewController.taskListModel.changeList(selectedList: nil)
                 case 1:
                     TaskListViewController.taskListModel.changeList()
                 case 2:

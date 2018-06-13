@@ -20,7 +20,7 @@ class TaskListViewController: UIViewController {
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         let TaskDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "TaskDetailViewController") as! TaskDetailViewController
-        TaskDetailViewController.newTask = true // Set new Task
+        TaskDetailViewController.taskDetailModel = TaskDetailModel() // Set new Task
         self.navigationController?.pushViewController(TaskDetailViewController, animated: true)
     }
     
@@ -157,8 +157,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         // push view
         print("row:\(indexPath.row)")
         let TaskDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "TaskDetailViewController") as! TaskDetailViewController
-        TaskDetailViewController.newTask = false // edit Task
-        TaskDetailViewController.theTask = self.taskListModel.tasks[indexPath.row]
+        TaskDetailViewController.taskDetailModel = TaskDetailModel(task: self.taskListModel.tasks[indexPath.row])
         self.navigationController?.pushViewController(TaskDetailViewController, animated: true)
         
     }
