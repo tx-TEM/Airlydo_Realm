@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="-1735" y="-27"/>
         </scene>
-        <!--Task Page View Controller-->
+        <!--Task List View Controller-->
         <scene sceneID="PoI-DF-wez">
             <objects>
-                <viewController storyboardIdentifier="TaskPageController" id="19s-j5-sQy" customClass="TaskPageViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskListViewController" id="19s-j5-sQy" customClass="TaskListViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMO-Pu-CVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

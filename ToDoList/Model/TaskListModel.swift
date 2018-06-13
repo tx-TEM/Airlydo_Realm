@@ -9,12 +9,12 @@
 import Foundation
 import RealmSwift
 
-protocol TaskPageModelDelegate: class {
+protocol TaskListModelDelegate: class {
     func tasksDidChange()
     func errorDidOccur(error: Error)
 }
 
-class TaskPageModel {
+class TaskListModel {
     
     // Get the default Realm
     lazy var realm = try! Realm()
@@ -27,7 +27,7 @@ class TaskPageModel {
     let dateFormatter = DateFormatter()
     
     // Delegate
-    weak var delegate: TaskPageModelDelegate?
+    weak var delegate: TaskListModelDelegate?
     
     init() {
         print(Realm.Configuration.defaultConfiguration.fileURL!)

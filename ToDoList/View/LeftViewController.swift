@@ -149,23 +149,23 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
         // get mainViewController instance
         if let slideMenuController = self.slideMenuController() {
             let NavigationController = slideMenuController.mainViewController as! UINavigationController
-            let TaskPageViewController = NavigationController.topViewController as! TaskPageViewController
+            let TaskListViewController = NavigationController.topViewController as! TaskListViewController
             
             if(tableView.tag == 0) {
                 
                 switch indexPath.row {
                 case 0:
-                    TaskPageViewController.taskPageModel.changeListInBox()
+                    TaskListViewController.taskListModel.changeListInBox()
                 case 1:
-                    TaskPageViewController.taskPageModel.changeList()
+                    TaskListViewController.taskListModel.changeList()
                 case 2:
-                    TaskPageViewController.taskPageModel.changeList()
+                    TaskListViewController.taskListModel.changeList()
                 default:
-                    TaskPageViewController.taskPageModel.changeList()
+                    TaskListViewController.taskListModel.changeList()
                 }
                 
             }else{
-                TaskPageViewController.taskPageModel.changeList(selectedList: leftModel.customListData[indexPath.row])
+                TaskListViewController.taskListModel.changeList(selectedList: leftModel.customListData[indexPath.row])
             }
             slideMenuController.closeLeft()
         }

@@ -11,12 +11,12 @@ import RealmSwift
 import MCSwipeTableViewCell
 import SlideMenuControllerSwift
 
-class TaskPageViewController: UIViewController {
+class TaskListViewController: UIViewController {
 
     @IBOutlet weak var TaskCellTable: UITableView!
     @IBOutlet weak var AddTaskButton: UINavigationItem!
     
-    let taskPageModel = TaskPageModel()
+    let taskListModel = TaskListModel()
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         let TaskDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "TaskDetailViewController") as! TaskDetailViewController
@@ -32,7 +32,7 @@ class TaskPageViewController: UIViewController {
         TaskCellTable.delegate = self
         TaskCellTable.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskPage_TaskCell")
         
-        taskPageModel.delegate = self
+        taskListModel.delegate = self
         addLeftBarButtonWithImage(UIImage(named: "menu")!)
         
     }
@@ -51,7 +51,7 @@ class TaskPageViewController: UIViewController {
 
 }
 
-extension TaskPageViewController: TaskPageModelDelegate {
+extension TaskListViewController: TaskListModelDelegate {
     func tasksDidChange() {
         TaskCellTable.reloadData()
     }
@@ -61,7 +61,7 @@ extension TaskPageViewController: TaskPageModelDelegate {
     }
 }
 
-extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
+extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -69,7 +69,7 @@ extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return taskPageModel.tasks.count
+        return taskListModel.tasks.count
     }
     
     // return cell height (px)
@@ -81,7 +81,7 @@ extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskPage_TaskCell", for: indexPath) as! TaskCell
         
-        let theTask = taskPageModel.tasks[indexPath.row]
+        let theTask = taskListModel.tasks[indexPath.row]
         
         // Configure the cell...
         cell.TaskTitleLabel.text = theTask.taskName
@@ -93,7 +93,7 @@ extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
         
-        cell.DateLabel.text = taskPageModel.dueDateToString(dueDate: theTask.dueDate)
+        cell.DateLabel.text = taskListModel.dueDateToString(dueDate: theTask.dueDate)
         
         //cell.label.text = dataList[indexPath.row]
         cell.defaultColor = .lightGray
@@ -112,7 +112,7 @@ extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
                 // Send the task to archive
-                self?.taskPageModel.archiveTask(indexPath: indexPath)
+                self?.taskListModel.archiveTask(indexPath: indexPath)
             }
             self?.TaskCellTable.reloadData()
         })
@@ -121,7 +121,7 @@ extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
             
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
-                self?.taskPageModel.deleteTask(indexPath: indexPath)
+                self?.taskListModel.deleteTask(indexPath: indexPath)
             }
         })
         
@@ -158,7 +158,7 @@ extension TaskPageViewController: UITableViewDelegate, UITableViewDataSource {
         print("row:\(indexPath.row)")
         let TaskDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "TaskDetailViewController") as! TaskDetailViewController
         TaskDetailViewController.newTask = false // edit Task
-        TaskDetailViewController.theTask = self.taskPageModel.tasks[indexPath.row]
+        TaskDetailViewController.theTask = self.taskListModel.tasks[indexPath.row]
         self.navigationController?.pushViewController(TaskDetailViewController, animated: true)
         
     }
