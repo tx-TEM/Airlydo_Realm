@@ -92,18 +92,25 @@ class TaskDetailModel {
                  formRemindList: [Date]
         ) {
         
+        // dueDate -> 11:59:59
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dueDate)
+        components.hour = 11
+        components.minute = 59
+        components.second = 59
+        
         theTask?.taskName = taskName
         theTask?.note = note
-        theTask?.dueDate = dueDate
+        theTask?.dueDate = calendar.date(from: components)!
         theTask?.howRepeat = self.howRepeatStringToInt(howRepeatText: howRepeat)
         theTask?.priority = self.priorityStringToInt(priorityText: priority)
         theTask?.listT = listT
         theTask?.assign = assign
 
         
-        let remindList = self.genarateRemindList(theFormRemindList: formRemindList)
+        let remindList = self.genarateRemindList(formRemindList: formRemindList)
         
-        for remind in remindList{
+        for remind in remindList.addRemList {
             theTask?.remindList.append(remind)
         }
         
@@ -123,7 +130,7 @@ class TaskDetailModel {
                     formRemindList: [Date]
         ) {
         
-        let remindList = self.genarateRemindList(theFormRemindList: formRemindList)
+        let remindList = self.genarateRemindList(formRemindList: formRemindList)
         
         try! realm.write() {
             theTask?.taskName = taskName
@@ -134,7 +141,12 @@ class TaskDetailModel {
             theTask?.listT = listT
             theTask?.assign = assign
             
-            for remind in remindList{
+            
+            for delRemind in remindList.delRemList {
+                realm.delete(delRemind)
+            }
+            
+            for remind in remindList.addRemList {
                 theTask?.remindList.append(remind)
             }
             
@@ -142,31 +154,52 @@ class TaskDetailModel {
     }
     
     // generate add RemindList using form Data
-    func genarateRemindList(theFormRemindList: [Date])-> [Reminder] {
-        var formRemindList = theFormRemindList
+    func genarateRemindList(formRemindList: [Date])-> (addRemList: [Reminder], delRemList: [Reminder]) {
+        var uniqueRemindList: [Date] = []
+        var tempRemindList: [Date] = []
+        
         var reRemindList: [Reminder] = []
+        var reDeleteRemindList: [Reminder] = []
+        
+        // Remind sec -> 0
+        let calendar = Calendar.current
+        
+        for formRemind in formRemindList {
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: formRemind)
+            tempRemindList.append(calendar.date(from: components)!)
+        }
+        
+        // Eliminate duplication
+        let orderedRemindList = NSOrderedSet(array: tempRemindList)
+        uniqueRemindList = orderedRemindList.array as! [Date]
+        
+        print(tempRemindList)
+        print(uniqueRemindList)
         
         if(!isNewTask){
             if let remindList = theTask?.remindList {
                 for reminder in remindList {
                     
                     // reminder is an element of formReminderList?
-                    let index = formRemindList.index(of: reminder.remDate)
+                    let index = uniqueRemindList.index(of: reminder.remDate)
                     
                     if let theIndex = index {
-                        formRemindList.remove(at: theIndex)
+                        uniqueRemindList.remove(at: theIndex)
+                    }else{
+                        reDeleteRemindList.append(reminder)
                     }
                 }
             }
         }
         
-        for formReminder in formRemindList {
+        // create Reminder instance, and add list
+        for reminder in uniqueRemindList {
             let tempReminder = Reminder()
-            tempReminder.remDate = formReminder
+            tempReminder.remDate = reminder
             reRemindList.append(tempReminder)
         }
         
-        return reRemindList
+        return (reRemindList, reDeleteRemindList)
     }
     
     // convert howRepeatText to Integer
