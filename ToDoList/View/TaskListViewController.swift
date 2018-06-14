@@ -111,7 +111,12 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
-                // Send the task to archive
+                // Genarate Repeat Task
+                if(self?.taskListModel.tasks[indexPath.row].howRepeat != 3){
+                    self?.taskListModel.genRepeatask(indexPath: indexPath)
+                }
+                
+                // Send the Task to Archive
                 self?.taskListModel.archiveTask(indexPath: indexPath)
             }
             self?.TaskCellTable.reloadData()
@@ -121,6 +126,12 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             
             
             if let cell = cell, let indexPath = tableView.indexPath(for: cell) {
+                // Genarate Repeat Task
+                if(self?.taskListModel.tasks[indexPath.row].howRepeat != 3){
+                    self?.taskListModel.genRepeatask(indexPath: indexPath)
+                }
+                
+                // Remove Task
                 self?.taskListModel.deleteTask(indexPath: indexPath)
             }
         })

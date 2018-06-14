@@ -93,4 +93,51 @@ class TaskListModel {
         self.delegate?.tasksDidChange()
 
     }
+    
+    // Get the Time of after Repeat Calc
+    func calcRepeatTime(date: Date, howRepeat: Int)-> Date {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+
+        switch howRepeat {
+        // 毎月
+        case 0:
+            components.month = components.month! + 1
+        // 毎週
+        case 1:
+            components.day = components.day! + 7
+        // 毎日
+        case 2:
+            components.day = components.day! + 1
+        default:
+            components.day = components.day! + 1
+        }
+        
+        return calendar.date(from: components)!
+    }
+    
+    // Generate Repeat Task
+    func genRepeatask(indexPath: IndexPath) {
+        let task = tasks[indexPath.row]
+        let repeatTask = Task()
+        repeatTask.taskName = task.taskName
+        repeatTask.dueDate = calcRepeatTime(date: task.dueDate, howRepeat: task.howRepeat)
+        repeatTask.howRepeat = task.howRepeat
+        repeatTask.priority = task.priority
+        
+        // Create Reminder instance, and Add List
+        for reminder in task.remindList {
+            let tempReminder = Reminder()
+            print(reminder.remDate)
+            tempReminder.remDate = calcRepeatTime(date: reminder.remDate, howRepeat: task.howRepeat)
+            repeatTask.remindList.append(tempReminder)
+        }
+        
+        // Add repeatTask
+        try! realm.write() {
+            realm.add(repeatTask)
+        }
+        
+        self.delegate?.tasksDidChange()
+    }
 }
