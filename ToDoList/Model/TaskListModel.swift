@@ -57,14 +57,13 @@ class TaskListModel {
         delegate?.tasksDidChange()
     }
     
-    func changeList (selectedList: Project?) {
+    func changeList (selectedProjcet: Project?) {
         let predicate:NSPredicate
         
-        if let theSelectedList = selectedList {
-            predicate = NSPredicate(format: "isArchive = %@ && project = %@", NSNumber(booleanLiteral:isArchiveMode), theSelectedList)
+        if let theSelectedProjcet = selectedProjcet {
+            predicate = NSPredicate(format: "isArchive = %@ && projectID = %@", NSNumber(booleanLiteral:isArchiveMode), theSelectedProjcet.projectID)
         }else{
-            predicate = NSPredicate(format: "isArchive = %@ && project = nil", NSNumber(booleanLiteral:isArchiveMode))
-
+            predicate = NSPredicate(format: "isArchive = %@ && projectID = nil", NSNumber(booleanLiteral:isArchiveMode))
         }
         
         readData(predicate: predicate)

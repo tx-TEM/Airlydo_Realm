@@ -155,7 +155,7 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 switch indexPath.row {
                 case 0:
-                    TaskListViewController.taskListModel.changeList()
+                    TaskListViewController.taskListModel.changeList(selectedProjcet: nil)
                 case 1:
                     TaskListViewController.taskListModel.changeList()
                 case 2:
@@ -165,7 +165,7 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 
             }else{
-                TaskListViewController.taskListModel.changeList(selectedList: leftModel.customListData[indexPath.row])
+                TaskListViewController.taskListModel.changeList(selectedProjcet: leftModel.customListData[indexPath.row])
             }
             slideMenuController.closeLeft()
         }
