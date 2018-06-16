@@ -19,7 +19,7 @@ class TaskDetailViewController: FormViewController {
     
     var recvVal: String = ""
     
-    var formListT: ListOfTask?
+    var formProject: Project?
     var formAssign: Assign?
     
     @IBAction func SaveTaskButtonTapped(_ sender: UIButton) {
@@ -40,7 +40,7 @@ class TaskDetailViewController: FormViewController {
                                      dueDate: valuesDictionary["DueDateTag"] as! Date,
                                      howRepeat: valuesDictionary["RepeatTag"] as! String,
                                      priority: valuesDictionary["PriorityTag"] as! String,
-                                     listT: formListT,
+                                     project: formProject,
                                      assign: formAssign,
                                      formRemindList: formRemindList)
             
@@ -50,7 +50,7 @@ class TaskDetailViewController: FormViewController {
                                         dueDate: valuesDictionary["DueDateTag"] as! Date,
                                         howRepeat: valuesDictionary["RepeatTag"] as! String,
                                         priority: valuesDictionary["PriorityTag"] as! String,
-                                        listT: formListT,
+                                        project: formProject,
                                         assign: formAssign,
                                         formRemindList: formRemindList)
         }
@@ -86,7 +86,7 @@ class TaskDetailViewController: FormViewController {
             
             <<< LabelRow("ListTag"){
                 $0.title = "List"
-                if let listName = taskDetailModel?.theTask?.listT?.listName {
+                if let listName = taskDetailModel?.theTask?.project?.projectName {
                     $0.value = listName
                 }else{
                     $0.value = "InBox"
@@ -102,7 +102,6 @@ class TaskDetailViewController: FormViewController {
                     let handler = { (action: UIAlertAction) in
                         // Returns the first index where the specified value appears in the collection.
                         if let index = actions.index(of: action) {
-                            print("index:\(index) title:\(action.title!)")
                             
                             if index == 0 {
                                 row.value = action.title!
@@ -112,7 +111,7 @@ class TaskDetailViewController: FormViewController {
                             }else{
                                 row.value = action.title!
                                 row.updateCell()
-                                self.formListT = self.taskDetailModel?.listTList[index - 1] // InBox = index:0...
+                                self.formProject = self.taskDetailModel?.theProjectList[index - 1] // InBox = index:0...
                             }
                             
                         }
@@ -120,10 +119,10 @@ class TaskDetailViewController: FormViewController {
                     
                     // Add Button
                     controller.addAction(UIAlertAction(title: "InBox", style: .default, handler: handler))
-                    if let listTList = self.taskDetailModel?.listTList {
+                    if let projectList = self.taskDetailModel?.theProjectList {
                         
-                        for data in listTList {
-                            controller.addAction(UIAlertAction(title: data.listName, style: .default, handler: handler))
+                        for data in projectList {
+                            controller.addAction(UIAlertAction(title: data.projectName, style: .default, handler: handler))
                         }
                     }
                     

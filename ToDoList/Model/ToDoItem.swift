@@ -10,8 +10,26 @@ import RealmSwift
 
 // Realm model
 
+// Project
+class Project: Object {
+    @objc dynamic var projectID = UUID().uuidString
+    @objc dynamic var projectName = ""
+    let taskList = List<Task>()
+    let assignList = List<Assign>()
+    
+    // primary key
+    override static func primaryKey() -> String? {
+        return "projectID"
+    }
+}
+
+// List of Task Wrapper
+class ProjectWrapper: Object{
+    let projectList = List<Project>()
+}
+
 // Task
-class Task: Object{
+class Task: Object {
     @objc dynamic var taskID = UUID().uuidString
     @objc dynamic var taskName = ""
     @objc dynamic var note = ""
@@ -20,34 +38,21 @@ class Task: Object{
     @objc dynamic var howRepeat = 3  //0:毎月, 1:毎週, 2:毎日, 3:なし
     @objc dynamic var priority = 1   //0:low, 1:middle, 2:high
     
-    // default nil
-    @objc dynamic var listT:ListOfTask?
     @objc dynamic var assign:Assign?
-    
     let remindList = List<Reminder>()
     
+    // Parent Project
+    @objc dynamic var projectID: String?
+    
+    private let projects:LinkingObjects<Project> = LinkingObjects(fromType: Project.self, property: "taskList")
+    var project:Project? { return self.projects.first }
+    
+
     // primary key
     override static func primaryKey() -> String? {
         return "taskID"
     }
     
-}
-
-// List of Task
-class ListOfTask: Object{
-    @objc dynamic var listID = UUID().uuidString
-    @objc dynamic var listName = ""
-    
-    let tasks = LinkingObjects(fromType: Task.self, property: "listT")
-    // primary key
-    override static func primaryKey() -> String? {
-        return "listID"
-    }
-}
-
-// List of Task Wrapper
-class ListOfTaskWrapper: Object{
-     let list = List<ListOfTask>()
 }
 
 // Assignd user

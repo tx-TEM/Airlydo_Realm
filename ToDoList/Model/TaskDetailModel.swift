@@ -24,7 +24,7 @@ class TaskDetailModel {
     var isNewTask: Bool
     
     // list for Form
-    var listTList : List<ListOfTask>!
+    var theProjectList : List<Project>!
     var assignList : Results<Assign>!
     
     
@@ -36,24 +36,21 @@ class TaskDetailModel {
         isNewTask = true
         
         // get list for Form
-        if let list = realm.objects(ListOfTaskWrapper.self).first?.list {
-            listTList = list
+        if let list = realm.objects(ProjectWrapper.self).first?.projectList {
+            theProjectList = list
             
         }else{
-            let listTWrapper = ListOfTaskWrapper()
+            let projectWrapper = ProjectWrapper()
             
             try! realm.write {
-                realm.add(listTWrapper)
+                realm.add(projectWrapper)
             }
             
-            listTList = listTWrapper.list
+            theProjectList = projectWrapper.projectList
         }
         
         assignList = realm.objects(Assign.self)
         
-        if let taskID = theTask?.taskID{
-            print("taskID\(taskID)")
-        }
     }
     
     init(task: Task) {
@@ -61,24 +58,21 @@ class TaskDetailModel {
         isNewTask = false
         
         // get list for Form
-        if let list = realm.objects(ListOfTaskWrapper.self).first?.list {
-            listTList = list
+        if let list = realm.objects(ProjectWrapper.self).first?.projectList {
+            theProjectList = list
             
         }else{
-            let listTWrapper = ListOfTaskWrapper()
+            let projectWrapper = ProjectWrapper()
             
             try! realm.write {
-                realm.add(listTWrapper)
+                realm.add(projectWrapper)
             }
             
-            listTList = listTWrapper.list
+            theProjectList = projectWrapper.projectList
         }
         
         assignList = realm.objects(Assign.self)
         
-        if let taskID = theTask?.taskID{
-            print("taskID\(taskID)")
-        }
     }
     
     // create NewTask
@@ -87,7 +81,7 @@ class TaskDetailModel {
                  dueDate: Date,
                  howRepeat: String,
                  priority: String,
-                 listT: ListOfTask?,
+                 project: Project?,
                  assign: Assign?,
                  formRemindList: [Date]
         ) {
@@ -104,9 +98,9 @@ class TaskDetailModel {
         theTask?.dueDate = calendar.date(from: components)!
         theTask?.howRepeat = self.howRepeatStringToInt(howRepeatText: howRepeat)
         theTask?.priority = self.priorityStringToInt(priorityText: priority)
-        theTask?.listT = listT
         theTask?.assign = assign
-
+        theTask?.projectID = project?.projectID
+        
         
         let remindList = self.genarateRemindList(formRemindList: formRemindList)
         
@@ -115,7 +109,12 @@ class TaskDetailModel {
         }
         
         try! realm.write() {
-            realm.add(theTask!)
+            if let theProject = project {
+                theProject.taskList.append(theTask!)
+            }else{
+                // InBox
+                realm.add(theTask!)
+            }
         }
     }
     
@@ -125,7 +124,7 @@ class TaskDetailModel {
                     dueDate: Date,
                     howRepeat: String,
                     priority: String,
-                    listT: ListOfTask?,
+                    project: Project?,
                     assign: Assign?,
                     formRemindList: [Date]
         ) {
@@ -138,9 +137,84 @@ class TaskDetailModel {
             theTask?.dueDate = dueDate
             theTask?.howRepeat = self.howRepeatStringToInt(howRepeatText: howRepeat)
             theTask?.priority = self.priorityStringToInt(priorityText: priority)
-            theTask?.listT = listT
             theTask?.assign = assign
             
+            // Remove theTask from old Project's Task List
+            
+            
+            // insert Task to Project
+            if let theProject = project {
+                // the Task was element of Project?
+                if let projPrimaryID = theTask?.projectID {
+                    
+                    // Does the Task move to other Project?
+                    if projPrimaryID != theProject.projectID {
+                        // Get Old Project
+                        if let oldProj = realm.object(ofType: Project.self, forPrimaryKey: projPrimaryID) {
+                            
+                            // Search Task index
+                            if let index = oldProj.taskList.index(of: theTask!) {
+                                // Remove from old Project's Task List
+                                oldProj.taskList.remove(at: index)
+                                
+                                // Insert to new Project's Task List
+                                theProject.taskList.append(theTask!)
+                                theTask?.projectID = theProject.projectID
+                                
+                            }else{
+                                theTask?.projectID = theProject.projectID
+                            }
+                            
+                        // Old Project has been deleted
+                        }else{
+                            theTask?.projectID = theProject.projectID
+                        }
+                        
+                    // Stay Same Project
+                    }else{
+                        theTask?.projectID = theProject.projectID
+                    }
+                    
+                // the Task was not element of Project?
+                }else{
+                    // Insert to new Project's Task List
+                    theProject.taskList.append(theTask!)
+                    theTask?.projectID = theProject.projectID
+                }
+                
+            // insert Task to InBox(not Project)
+            }else{
+                // the Task was element of Project?
+                if let projPrimaryID = theTask?.projectID {
+                    
+                    // Get Old Project
+                    if let oldProj = realm.object(ofType: Project.self, forPrimaryKey: projPrimaryID) {
+                        
+                        // Search Task index
+                        if let index = oldProj.taskList.index(of: theTask!) {
+                            // Remove from old Project's Task List
+                            oldProj.taskList.remove(at: index)
+                            
+                            // Insert to InBox (not Project)
+                            theTask?.projectID = nil
+                            
+                        }else{
+                            theTask?.projectID = nil
+                        }
+                        
+                        // Old Project has been deleted
+                    }else{
+                        theTask?.projectID = nil
+                    }
+                    
+                    
+                    // the Task was not element of Project?
+                }else{
+                    theTask?.projectID = nil
+                }
+                
+                theTask?.projectID = nil
+            }
             
             for delRemind in remindList.delRemList {
                 realm.delete(delRemind)
@@ -173,8 +247,6 @@ class TaskDetailModel {
         let orderedRemindList = NSOrderedSet(array: tempRemindList)
         uniqueRemindList = orderedRemindList.array as! [Date]
         
-        print(tempRemindList)
-        print(uniqueRemindList)
         
         if(!isNewTask){
             if let remindList = theTask?.remindList {

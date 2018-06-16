@@ -18,30 +18,30 @@ class LeftModel {
     
     // Get the default Realm
     lazy var realm = try! Realm()
-    var customListData: List<ListOfTask>!
+    var customListData: List<Project>!
     
     // Delegate
     weak var delegate: LeftModelDelegate?
     
     init() {
         
-        if let list = realm.objects(ListOfTaskWrapper.self).first?.list {
+        if let list = realm.objects(ProjectWrapper.self).first?.projectList {
             customListData = list
         }else{
-            let listTWrapper = ListOfTaskWrapper()
+            let listTWrapper = ProjectWrapper()
             
             try! realm.write {
                 realm.add(listTWrapper)
             }
             
-            customListData = listTWrapper.list
+            customListData = listTWrapper.projectList
         }
     }
     
     func addList(listName: String) {
         if(!(listName.isEmpty)) {
-            let tempListT = ListOfTask()
-            tempListT.listName = listName
+            let tempListT = Project()
+            tempListT.projectName = listName
             
             try! self.realm.write {
                 self.customListData.append(tempListT)

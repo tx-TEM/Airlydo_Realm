@@ -21,7 +21,7 @@ class TaskListModel {
     var tasks: Results<Task>!
     
     var isArchiveMode = false
-    var nowList: ListOfTask?
+    var nowList: Project?
     
     // Date Formatter
     let dateFormatter = DateFormatter()
@@ -33,8 +33,7 @@ class TaskListModel {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Get Data from Realm
-        let predicate = NSPredicate(format: "isArchive = %@", NSNumber(booleanLiteral: isArchiveMode))
-        readData(predicate: predicate)
+        readAllData()
         
         // Date Formatter
         dateFormatter.locale = Locale.current
@@ -47,20 +46,24 @@ class TaskListModel {
         self.tasks = self.realm.objects(Task.self).filter(predicate)
     }
     
+    func readAllData () {
+        let predicate = NSPredicate(format: "isArchive = %@" , NSNumber(booleanLiteral: isArchiveMode))
+        self.tasks = self.realm.objects(Task.self).filter(predicate)
+    }
+    
     // Change Display Tasks
     func changeList () {
-        let predicate = NSPredicate(format: "isArchive = %@" , NSNumber(booleanLiteral: isArchiveMode))
-        readData(predicate: predicate)
+        readAllData()
         delegate?.tasksDidChange()
     }
     
-    func changeList (selectedList: ListOfTask?) {
+    func changeList (selectedList: Project?) {
         let predicate:NSPredicate
         
         if let theSelectedList = selectedList {
-            predicate = NSPredicate(format: "isArchive = %@ && listT = %@", NSNumber(booleanLiteral:isArchiveMode), theSelectedList)
+            predicate = NSPredicate(format: "isArchive = %@ && project = %@", NSNumber(booleanLiteral:isArchiveMode), theSelectedList)
         }else{
-            predicate = NSPredicate(format: "isArchive = %@ && listT = nil", NSNumber(booleanLiteral:isArchiveMode))
+            predicate = NSPredicate(format: "isArchive = %@ && project = nil", NSNumber(booleanLiteral:isArchiveMode))
 
         }
         

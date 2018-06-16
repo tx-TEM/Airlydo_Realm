@@ -133,7 +133,7 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "LCustomSlideListCell", for: indexPath) as! SlideListCell
             
             // Configure the cell...
-            cell.textLabel?.text = "\(leftModel.customListData[indexPath.row].listName)"
+            cell.textLabel?.text = "\(leftModel.customListData[indexPath.row].projectName)"
             cell.backgroundColor = UIColor.white
         }
         
@@ -155,7 +155,7 @@ extension LeftViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 switch indexPath.row {
                 case 0:
-                    TaskListViewController.taskListModel.changeList(selectedList: nil)
+                    TaskListViewController.taskListModel.changeList()
                 case 1:
                     TaskListViewController.taskListModel.changeList()
                 case 2:

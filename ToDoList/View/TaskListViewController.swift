@@ -166,7 +166,6 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         // push view
-        print("row:\(indexPath.row)")
         let TaskDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "TaskDetailViewController") as! TaskDetailViewController
         TaskDetailViewController.taskDetailModel = TaskDetailModel(task: self.taskListModel.tasks[indexPath.row])
         self.navigationController?.pushViewController(TaskDetailViewController, animated: true)
