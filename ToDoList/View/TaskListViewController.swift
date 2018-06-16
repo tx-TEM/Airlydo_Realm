@@ -15,6 +15,10 @@ class TaskListViewController: UIViewController {
 
     @IBOutlet weak var TaskCellTable: UITableView!
     @IBOutlet weak var AddTaskButton: UINavigationItem!
+    @IBOutlet weak var MainButton: UIButton!
+    @IBOutlet weak var ArchiveButton: UIButton!
+    @IBOutlet weak var SortButton: UIButton!
+    
     
     let taskListModel = TaskListModel()
     
@@ -24,17 +28,28 @@ class TaskListViewController: UIViewController {
         self.navigationController?.pushViewController(TaskDetailViewController, animated: true)
     }
     
+    @IBAction func mainButtonTapped(_ sender: UIButton) {
+        taskListModel.isArchiveMode = false
+        taskListModel.changeListOld()
+    }
+
+    @IBAction func archiveButtonTapped(_ sender: UIButton) {
+        taskListModel.isArchiveMode = true
+        taskListModel.changeListOld()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        // TableView
         TaskCellTable.dataSource = self
         TaskCellTable.delegate = self
         TaskCellTable.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskPage_TaskCell")
         
         taskListModel.delegate = self
         addLeftBarButtonWithImage(UIImage(named: "menu")!)
-        
+            
     }
     
     // reload Page

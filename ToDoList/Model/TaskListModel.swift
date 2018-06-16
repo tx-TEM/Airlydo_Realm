@@ -20,8 +20,12 @@ class TaskListModel {
     lazy var realm = try! Realm()
     var tasks: Results<Task>!
     
+    // Page Status
     var isArchiveMode = false
-    var nowList: Project?
+    var nowProject: Project?
+    
+    // 0: changeList(),  1: changeList(Proj)
+    var oldChangeFunc = 0
     
     // Date Formatter
     let dateFormatter = DateFormatter()
@@ -52,12 +56,13 @@ class TaskListModel {
     }
     
     // Change Display Tasks
-    func changeList () {
+    func changeList() {
         readAllData()
         delegate?.tasksDidChange()
+        self.oldChangeFunc = 0
     }
     
-    func changeList (selectedProjcet: Project?) {
+    func changeList(selectedProjcet: Project?) {
         let predicate:NSPredicate
         
         if let theSelectedProjcet = selectedProjcet {
@@ -68,6 +73,21 @@ class TaskListModel {
         
         readData(predicate: predicate)
         delegate?.tasksDidChange()
+        self.oldChangeFunc = 1
+    }
+    
+    func changeListOld() {
+        
+        switch self.oldChangeFunc {
+        case 0:
+            changeList()
+
+        case 1:
+            changeList(selectedProjcet: self.nowProject)
+            
+        default:
+            changeList()
+        }
     }
     
     // Date to String using Formatter

@@ -52,15 +52,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PMT-gK-QQI">
-                                <rect key="frame" x="9" y="64" width="356" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="15" y="64" width="345" height="604"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskPage_TaskCell" id="43t-zS-X4h" customClass="TaskCell" customModule="ToDoList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="356" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="345" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TaskPage_TaskCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="43t-zS-X4h" id="ku0-Ut-lqW" customClass="TaskCell" customModule="ToDoList" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="356" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -72,6 +72,33 @@
                     </view>
                     <navigationItem key="navigationItem" id="cDn-wH-L1b">
                         <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="RKV-al-JyO">
+                            <rect key="frame" x="117.5" y="7" width="140" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFX-bN-yCk">
+                                    <rect key="frame" x="15" y="0.0" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="S"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnk-P6-ddR">
+                                    <rect key="frame" x="55" y="0.0" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="M"/>
+                                    <connections>
+                                        <action selector="mainButtonTapped:" destination="19s-j5-sQy" eventType="touchUpInside" id="gX9-Zo-Air"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgU-VO-hj0">
+                                    <rect key="frame" x="95" y="0.0" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="A"/>
+                                    <connections>
+                                        <action selector="archiveButtonTapped:" destination="19s-j5-sQy" eventType="touchUpInside" id="cGI-RA-Gd4"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dhp-u9-9op">
                             <connections>
                                 <action selector="addTaskButtonTapped:" destination="19s-j5-sQy" id="FQB-fY-Kfq"/>
@@ -80,6 +107,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="AddTaskButton" destination="cDn-wH-L1b" id="8I8-xa-QgC"/>
+                        <outlet property="ArchiveButton" destination="dgU-VO-hj0" id="Wad-i6-bfa"/>
+                        <outlet property="MainButton" destination="dnk-P6-ddR" id="rZ3-Hs-KSl"/>
+                        <outlet property="SortButton" destination="UFX-bN-yCk" id="VYx-Ca-Km0"/>
                         <outlet property="TaskCellTable" destination="PMT-gK-QQI" id="f7N-sk-aba"/>
                         <segue destination="jlh-vE-G7A" kind="show" identifier="AddTaskSegue" id="kMe-Vd-KCE"/>
                     </connections>
