@@ -23,6 +23,7 @@ class TaskListModel {
     // Page Status
     var isArchiveMode = false
     var nowProject: Project?
+    var pageTitle = "All"
     
     // 0: changeList(),  1: changeList(Proj)
     var oldChangeFunc = 0
@@ -58,8 +59,10 @@ class TaskListModel {
     // Change Display Tasks
     func changeList() {
         readAllData()
-        delegate?.tasksDidChange()
         self.oldChangeFunc = 0
+        self.pageTitle = isArchiveMode ? "All <Archive>" : "All"
+        delegate?.tasksDidChange()
+        self.nowProject = nil
     }
     
     func changeList(selectedProjcet: Project?) {
@@ -67,13 +70,19 @@ class TaskListModel {
         
         if let theSelectedProjcet = selectedProjcet {
             predicate = NSPredicate(format: "isArchive = %@ && projectID = %@", NSNumber(booleanLiteral:isArchiveMode), theSelectedProjcet.projectID)
+            self.pageTitle = isArchiveMode ? theSelectedProjcet.projectName + " <Archive>" : theSelectedProjcet.projectName
+            
+            
         }else{
             predicate = NSPredicate(format: "isArchive = %@ && projectID = nil", NSNumber(booleanLiteral:isArchiveMode))
+            self.pageTitle = "InBox"
+            self.pageTitle = isArchiveMode ? "InBox <Archive>" : "InBox"
         }
         
         readData(predicate: predicate)
-        delegate?.tasksDidChange()
         self.oldChangeFunc = 1
+        self.nowProject = selectedProjcet
+        delegate?.tasksDidChange()
     }
     
     func changeListOld() {

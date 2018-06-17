@@ -41,6 +41,7 @@ class TaskListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = self.taskListModel.pageTitle
         
         // TableView
         TaskCellTable.dataSource = self
@@ -68,6 +69,7 @@ class TaskListViewController: UIViewController {
 
 extension TaskListViewController: TaskListModelDelegate {
     func tasksDidChange() {
+        self.navigationItem.title = self.taskListModel.pageTitle
         TaskCellTable.reloadData()
     }
     
