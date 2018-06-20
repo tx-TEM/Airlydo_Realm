@@ -19,6 +19,7 @@ class TaskDetailModel {
     // Get the default Realm
     lazy var realm = try! Realm()
     var theTask: Task?
+    var taskManager = TaskManager()
     
     // task status : new or edit
     var isNewTask: Bool
@@ -76,203 +77,26 @@ class TaskDetailModel {
     }
     
     // create NewTask
-    func newTask(taskName: String,
-                 note: String,
-                 dueDate: Date,
-                 howRepeat: String,
-                 priority: String,
-                 project: Project?,
-                 assign: Assign?,
-                 formRemindList: [Date]
-        ) {
+    func newTask(formTaskName: String, formNote: String, formDueDate: Date, formHowRepeat: String,
+                 formPriority: String, formProject: Project?, formAssign: Assign?, formRemindList: [Date]) {
         
-        // dueDate -> 11:59:59
-        let calendar = Calendar.current
-        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dueDate)
-        components.hour = 11
-        components.minute = 59
-        components.second = 59
-        
-        theTask?.taskName = taskName
-        theTask?.note = note
-        theTask?.dueDate = calendar.date(from: components)!
-        theTask?.howRepeat = self.howRepeatStringToInt(howRepeatText: howRepeat)
-        theTask?.priority = self.priorityStringToInt(priorityText: priority)
-        theTask?.assign = assign
-        theTask?.projectID = project?.projectID
-        
-        
-        let remindList = self.genarateRemindList(formRemindList: formRemindList)
-        
-        for remind in remindList.addRemList {
-            theTask?.remindList.append(remind)
-        }
-        
-        try! realm.write() {
-            if let theProject = project {
-                theProject.taskList.append(theTask!)
-            }else{
-                // InBox
-                realm.add(theTask!)
-            }
-        }
+        self.taskManager.newTask(taskName: formTaskName, note: formNote, dueDate: formDueDate,
+                                 howRepeat: self.howRepeatStringToInt(howRepeatText: formHowRepeat),
+                                 priority: self.priorityStringToInt(priorityText: formPriority),
+                                 project: formProject, assign: formAssign, remindList: formRemindList)
     }
     
     // edit Task
-    func changeTask(taskName: String,
-                    note: String,
-                    dueDate: Date,
-                    howRepeat: String,
-                    priority: String,
-                    project: Project?,
-                    assign: Assign?,
-                    formRemindList: [Date]
-        ) {
+    func editTask(formTaskName: String, formNote: String, formDueDate: Date, formHowRepeat: String,
+                  formPriority: String, formProject: Project?, formAssign: Assign?, formRemindList: [Date]) {
         
-        let remindList = self.genarateRemindList(formRemindList: formRemindList)
+        self.taskManager.editTask(theTask: self.theTask!, taskName: formTaskName, note: formNote, dueDate: formDueDate,
+                                  howRepeat: self.howRepeatStringToInt(howRepeatText: formHowRepeat),
+                                  priority: self.priorityStringToInt(priorityText: formPriority),
+                                  project: formProject, assign: formAssign, remindList: formRemindList)
         
-        try! realm.write() {
-            theTask?.taskName = taskName
-            theTask?.note = note
-            theTask?.dueDate = dueDate
-            theTask?.howRepeat = self.howRepeatStringToInt(howRepeatText: howRepeat)
-            theTask?.priority = self.priorityStringToInt(priorityText: priority)
-            theTask?.assign = assign
-            
-            // Remove theTask from old Project's Task List
-            
-            
-            // insert Task to Project
-            if let theProject = project {
-                // the Task was element of Project?
-                if let projPrimaryID = theTask?.projectID {
-                    
-                    // Does the Task move to other Project?
-                    if projPrimaryID != theProject.projectID {
-                        // Get Old Project
-                        if let oldProj = realm.object(ofType: Project.self, forPrimaryKey: projPrimaryID) {
-                            
-                            // Search Task index
-                            if let index = oldProj.taskList.index(of: theTask!) {
-                                // Remove from old Project's Task List
-                                oldProj.taskList.remove(at: index)
-                                
-                                // Insert to new Project's Task List
-                                theProject.taskList.append(theTask!)
-                                theTask?.projectID = theProject.projectID
-                                
-                            }else{
-                                theTask?.projectID = theProject.projectID
-                            }
-                            
-                        // Old Project has been deleted
-                        }else{
-                            theTask?.projectID = theProject.projectID
-                        }
-                        
-                    // Stay Same Project
-                    }else{
-                        theTask?.projectID = theProject.projectID
-                    }
-                    
-                // the Task was not element of Project?
-                }else{
-                    // Insert to new Project's Task List
-                    theProject.taskList.append(theTask!)
-                    theTask?.projectID = theProject.projectID
-                }
-                
-            // insert Task to InBox(not Project)
-            }else{
-                // the Task was element of Project?
-                if let projPrimaryID = theTask?.projectID {
-                    
-                    // Get Old Project
-                    if let oldProj = realm.object(ofType: Project.self, forPrimaryKey: projPrimaryID) {
-                        
-                        // Search Task index
-                        if let index = oldProj.taskList.index(of: theTask!) {
-                            // Remove from old Project's Task List
-                            oldProj.taskList.remove(at: index)
-                            
-                            // Insert to InBox (not Project)
-                            theTask?.projectID = nil
-                            
-                        }else{
-                            theTask?.projectID = nil
-                        }
-                        
-                        // Old Project has been deleted
-                    }else{
-                        theTask?.projectID = nil
-                    }
-                    
-                    
-                    // the Task was not element of Project?
-                }else{
-                    theTask?.projectID = nil
-                }
-                
-                theTask?.projectID = nil
-            }
-            
-            for delRemind in remindList.delRemList {
-                realm.delete(delRemind)
-            }
-            
-            for remind in remindList.addRemList {
-                theTask?.remindList.append(remind)
-            }
-            
-        }
     }
     
-    // generate add RemindList using form Data
-    func genarateRemindList(formRemindList: [Date])-> (addRemList: [Reminder], delRemList: [Reminder]) {
-        var uniqueRemindList: [Date] = []
-        var tempRemindList: [Date] = []
-        
-        var reRemindList: [Reminder] = []
-        var reDeleteRemindList: [Reminder] = []
-        
-        // Remind sec -> 0
-        let calendar = Calendar.current
-        
-        for formRemind in formRemindList {
-            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: formRemind)
-            tempRemindList.append(calendar.date(from: components)!)
-        }
-        
-        // Eliminate duplication
-        let orderedRemindList = NSOrderedSet(array: tempRemindList)
-        uniqueRemindList = orderedRemindList.array as! [Date]
-        
-        
-        if(!isNewTask){
-            if let remindList = theTask?.remindList {
-                for reminder in remindList {
-                    
-                    // reminder is an element of formReminderList?
-                    let index = uniqueRemindList.index(of: reminder.remDate)
-                    
-                    if let theIndex = index {
-                        uniqueRemindList.remove(at: theIndex)
-                    }else{
-                        reDeleteRemindList.append(reminder)
-                    }
-                }
-            }
-        }
-        
-        // create Reminder instance, and add list
-        for reminder in uniqueRemindList {
-            let tempReminder = Reminder()
-            tempReminder.remDate = reminder
-            reRemindList.append(tempReminder)
-        }
-        
-        return (reRemindList, reDeleteRemindList)
-    }
     
     // convert howRepeatText to Integer
     func howRepeatStringToInt(howRepeatText: String)-> Int {

@@ -35,24 +35,24 @@ class TaskDetailViewController: FormViewController {
         }
         
         if(taskDetailModel?.isNewTask)! {
-            taskDetailModel?.newTask(taskName: valuesDictionary["TitleTag"] as! String,
-                                     note: valuesDictionary["NoteTag"] as! String,
-                                     dueDate: valuesDictionary["DueDateTag"] as! Date,
-                                     howRepeat: valuesDictionary["RepeatTag"] as! String,
-                                     priority: valuesDictionary["PriorityTag"] as! String,
-                                     project: formProject,
-                                     assign: formAssign,
+            taskDetailModel?.newTask(formTaskName: valuesDictionary["TitleTag"] as! String,
+                                     formNote: valuesDictionary["NoteTag"] as! String,
+                                     formDueDate: valuesDictionary["DueDateTag"] as! Date,
+                                     formHowRepeat: valuesDictionary["RepeatTag"] as! String,
+                                     formPriority: valuesDictionary["PriorityTag"] as! String,
+                                     formProject: formProject,
+                                     formAssign: formAssign,
                                      formRemindList: formRemindList)
             
         }else{
-            taskDetailModel?.changeTask(taskName: valuesDictionary["TitleTag"] as! String,
-                                        note: valuesDictionary["NoteTag"] as! String,
-                                        dueDate: valuesDictionary["DueDateTag"] as! Date,
-                                        howRepeat: valuesDictionary["RepeatTag"] as! String,
-                                        priority: valuesDictionary["PriorityTag"] as! String,
-                                        project: formProject,
-                                        assign: formAssign,
-                                        formRemindList: formRemindList)
+            taskDetailModel?.editTask(formTaskName: valuesDictionary["TitleTag"] as! String,
+                                      formNote: valuesDictionary["NoteTag"] as! String,
+                                      formDueDate: valuesDictionary["DueDateTag"] as! Date,
+                                      formHowRepeat: valuesDictionary["RepeatTag"] as! String,
+                                      formPriority: valuesDictionary["PriorityTag"] as! String,
+                                      formProject: formProject,
+                                      formAssign: formAssign,
+                                      formRemindList: formRemindList)
         }
         
         self.navigationController?.popViewController(animated: true)
@@ -241,26 +241,13 @@ class TaskDetailViewController: FormViewController {
                     actions = controller.actions
                     self.present(controller, animated: true, completion: nil)
         }
-        
-        
-        // Do any additional setup after loading the view.
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
