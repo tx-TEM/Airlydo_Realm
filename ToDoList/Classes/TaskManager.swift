@@ -34,15 +34,21 @@ class TaskManager {
     }
     
     // Create new Task
-    func newTask(taskName: String,
-                 note: String,
-                 dueDate: Date,
-                 howRepeat: Int,
-                 priority: Int,
-                 project: Project?,
-                 assign: Assign?,
-                 remindList: [Date]
-        ) {
+    func newTask(task: Task, project: Project?) {
+        try! realm.write() {
+            
+            if let theProject = project {
+                theProject.taskList.append(task)
+            }else{
+                // InBox
+                realm.add(task)
+            }
+        }
+        
+    }
+    
+    func newTask(taskName: String, note: String, dueDate: Date, howRepeat: Int,
+                 priority: Int, project: Project?, assign: Assign?, remindList: [Date]) {
         
         // dueDate -> 11:59:59
         let calendar = Calendar.current
@@ -80,16 +86,8 @@ class TaskManager {
     }
     
     // edit Task
-    func editTask(theTask: Task,
-                  taskName: String,
-                  note: String,
-                  dueDate: Date,
-                  howRepeat: Int,
-                  priority: Int,
-                  project: Project?,
-                  assign: Assign?,
-                  remindList: [Date]
-        ) {
+    func editTask(theTask: Task, taskName: String, note: String, dueDate: Date, howRepeat: Int,
+                  priority: Int, project: Project?, assign: Assign?, remindList: [Date]) {
         
         let newRemindList = self.genarateRemindList(task: theTask, remindList: remindList, isNewTask: false)
         

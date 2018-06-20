@@ -19,6 +19,7 @@ class TaskListModel {
     // Get the default Realm
     lazy var realm = try! Realm()
     var tasks: Results<Task>!
+    var taskManager = TaskManager()
     
     // Page Status
     var isArchiveMode = false
@@ -38,7 +39,7 @@ class TaskListModel {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Get Data from Realm
-        readAllData()
+        self.tasks = taskManager.readAllData(isArchiveMode: isArchiveMode)
         
         // Date Formatter
         dateFormatter.locale = Locale.current
@@ -46,19 +47,10 @@ class TaskListModel {
         dateFormatter.dateFormat = "MMM. d"
     }
     
-    // Read Data from Realm
-    func readData (predicate: NSPredicate) {
-        self.tasks = self.realm.objects(Task.self).filter(predicate)
-    }
-    
-    func readAllData () {
-        let predicate = NSPredicate(format: "isArchive = %@" , NSNumber(booleanLiteral: isArchiveMode))
-        self.tasks = self.realm.objects(Task.self).filter(predicate)
-    }
     
     // Change Display Tasks
     func changeList() {
-        readAllData()
+        self.tasks = taskManager.readAllData(isArchiveMode: isArchiveMode)
         self.oldChangeFunc = 0
         self.pageTitle = isArchiveMode ? "All <Archive>" : "All"
         delegate?.tasksDidChange()
@@ -66,20 +58,16 @@ class TaskListModel {
     }
     
     func changeList(selectedProjcet: Project?) {
-        let predicate:NSPredicate
         
         if let theSelectedProjcet = selectedProjcet {
-            predicate = NSPredicate(format: "isArchive = %@ && projectID = %@", NSNumber(booleanLiteral:isArchiveMode), theSelectedProjcet.projectID)
+            self.tasks = taskManager.readData(isArchiveMode: isArchiveMode, project: theSelectedProjcet)
             self.pageTitle = isArchiveMode ? theSelectedProjcet.projectName + " <Archive>" : theSelectedProjcet.projectName
             
-            
         }else{
-            predicate = NSPredicate(format: "isArchive = %@ && projectID = nil", NSNumber(booleanLiteral:isArchiveMode))
-            self.pageTitle = "InBox"
+            self.tasks = taskManager.readData(isArchiveMode: isArchiveMode)
             self.pageTitle = isArchiveMode ? "InBox <Archive>" : "InBox"
         }
         
-        readData(predicate: predicate)
         self.oldChangeFunc = 1
         self.nowProject = selectedProjcet
         delegate?.tasksDidChange()
@@ -106,21 +94,13 @@ class TaskListModel {
     
     // Delete Task
     func deleteTask(indexPath: IndexPath) {
-        try! realm.write() {
-            // delete Task's remindList
-            for theReminder in tasks[indexPath.row].remindList {
-                realm.delete(theReminder)
-            }
-            realm.delete(tasks[indexPath.row])
-        }
+        taskManager.deleteTask(task: tasks[indexPath.row])
         delegate?.tasksDidChange()
     }
     
     // Send the task to archive
     func archiveTask(indexPath: IndexPath) {
-        try! self.realm.write() {
-            self.tasks[indexPath.row].isArchive = true
-        }
+        taskManager.archiveTask(task: tasks[indexPath.row])
         self.delegate?.tasksDidChange()
 
     }
@@ -159,16 +139,13 @@ class TaskListModel {
         // Create Reminder instance, and Add List
         for reminder in task.remindList {
             let tempReminder = Reminder()
-            print(reminder.remDate)
             tempReminder.remDate = calcRepeatTime(date: reminder.remDate, howRepeat: task.howRepeat)
             repeatTask.remindList.append(tempReminder)
         }
         
         // Add repeatTask
-        try! realm.write() {
-            realm.add(repeatTask)
-        }
-        
+        taskManager.newTask(task: repeatTask, project: task.project)
+
         self.delegate?.tasksDidChange()
     }
 }

@@ -1,6 +1,6 @@
 //
-//  ToDoItem.swift
-//  ToDoList
+//  RealmModel.swift
+//  RealmModel
 //
 //  Created by yoshiki-t on 2018/05/26.
 //  Copyright © 2018年 yoshiki-t. All rights reserved.
@@ -8,7 +8,6 @@
 
 import RealmSwift
 
-// Realm model
 
 // Project
 class Project: Object {
@@ -23,7 +22,7 @@ class Project: Object {
     }
 }
 
-// List of Task Wrapper
+// Project Wrapper
 class ProjectWrapper: Object{
     let projectList = List<Project>()
 }
