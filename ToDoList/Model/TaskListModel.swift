@@ -16,8 +16,6 @@ protocol TaskListModelDelegate: class {
 
 class TaskListModel {
     
-    // Get the default Realm
-    lazy var realm = try! Realm()
     var tasks: Results<Task>!
     var taskManager = TaskManager()
     
