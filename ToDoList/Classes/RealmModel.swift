@@ -70,7 +70,8 @@ class Assign: Object{
 class Reminder: Object{
     @objc dynamic var remID = UUID().uuidString
     @objc dynamic var remDate = Date()
-    let tasks = LinkingObjects(fromType: Task.self, property: "remindList")
+    private let tasks:LinkingObjects<Task> = LinkingObjects(fromType: Task.self, property: "remindList")
+    var task: Task? { return self.tasks.first }
     
     // primary key
     override static func primaryKey() -> String? {

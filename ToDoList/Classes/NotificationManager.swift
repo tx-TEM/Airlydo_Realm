@@ -12,24 +12,19 @@ import UserNotifications
 class NotificationManager {
     
     
-    static func setLocalNotification(identifier: String, date: Date, title: String) {
+    static func setLocalNotification(identifier: String, date: Date, title: String, body: String) {
         
         // Date
-        let components = Calendar.current.dateComponents(in: TimeZone.current, from: date)
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         
         // content
         let content = UNMutableNotificationContent()
         content.title = title
-        content.body = "Check your Task"
+        content.body = body
         content.sound = UNNotificationSound.default()
         
         // trigger
         let trigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: false)
-        //let trigger = UNCalendarNotificationTrigger.init(dateMatching: DateComponents(hour:7, minute:15 ), repeats: false)
-        print(components)
-        
-        //let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)//５秒後
-       
         
         // request includes content & trigger
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -42,12 +37,8 @@ class NotificationManager {
                 print(theError.localizedDescription)
             }
             
-            print("set")
-            
         }
         
-        let nextTriggerDate = trigger.nextTriggerDate()
-        print(nextTriggerDate as Any)
     }
     
     

@@ -16,8 +16,7 @@ protocol LeftModelDelegate: class {
 
 class LeftModel {
     
-    // Get the default Realm
-    lazy var realm = try! Realm()
+    var projectManager = ProjectManager()
     var customListData: List<Project>!
     
     // Delegate
@@ -25,38 +24,17 @@ class LeftModel {
     
     init() {
         
-        if let list = realm.objects(ProjectWrapper.self).first?.projectList {
-            customListData = list
-        }else{
-            let listTWrapper = ProjectWrapper()
-            
-            try! realm.write {
-                realm.add(listTWrapper)
-            }
-            
-            customListData = listTWrapper.projectList
-        }
+       customListData = projectManager.readAllData()
     }
     
-    func addList(listName: String) {
-        if(!(listName.isEmpty)) {
-            let tempListT = Project()
-            tempListT.projectName = listName
-            
-            try! self.realm.write {
-                self.customListData.append(tempListT)
-            }
-        }        
+    func addList(projectName: String) {
+        projectManager.addProject(projectList: customListData, projectName: projectName)
         
         delegate?.listDidChange()
     }
     
     func reorder(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
-        try! realm.write {
-            let item = customListData[sourceIndexPath.row]
-            customListData.remove(at: sourceIndexPath.row)
-            customListData.insert(item, at: destinationIndexPath.row)
-        }
+        projectManager.reorder(projectList: customListData, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
     }
     
     

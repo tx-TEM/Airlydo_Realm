@@ -144,7 +144,7 @@ class TaskListModel {
         }
         
         // Add repeatTask
-        taskManager.newTask(task: repeatTask, project: task.project)
+        taskManager.addTask(task: repeatTask, project: task.project)
 
         self.delegate?.tasksDidChange()
     }

@@ -33,7 +33,7 @@ class LeftViewController: UIViewController {
             
             if textFields != nil {
                 for textField:UITextField in textFields! {
-                    self.leftModel.addList(listName: textField.text!)
+                    self.leftModel.addList(projectName: textField.text!)
                 }
             }
             

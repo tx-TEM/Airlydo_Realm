@@ -80,7 +80,7 @@ class TaskDetailModel {
     func newTask(formTaskName: String, formNote: String, formDueDate: Date, formHowRepeat: String,
                  formPriority: String, formProject: Project?, formAssign: Assign?, formRemindList: [Date]) {
         
-        self.taskManager.newTask(taskName: formTaskName, note: formNote, dueDate: formDueDate,
+        self.taskManager.addTask(taskName: formTaskName, note: formNote, dueDate: formDueDate,
                                  howRepeat: self.howRepeatStringToInt(howRepeatText: formHowRepeat),
                                  priority: self.priorityStringToInt(priorityText: formPriority),
                                  project: formProject, assign: formAssign, remindList: formRemindList)

@@ -16,7 +16,7 @@ import NotificationCenter
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var reminderManager = ReminderManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -47,6 +47,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        // Delete old Notification
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests();
+        
+        let remindList = reminderManager.readData(minimumRemind: Date())
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.ReferenceType.local
+        dateFormatter.dateFormat = "MMM. d"
+        
+        for reminder in remindList {
+            
+            guard let taskName = reminder.task?.taskName else {
+                abort()
+            }
+            
+            guard let dueDate = reminder.task?.dueDate else {
+                abort()
+            }
+            
+            print(dateFormatter.string(from: dueDate))
+            
+            let body: String = "DueDate: " + dateFormatter.string(from: dueDate)
+            
+            NotificationManager.setLocalNotification(identifier: reminder.remID, date: reminder.remDate, title: taskName, body: body)
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

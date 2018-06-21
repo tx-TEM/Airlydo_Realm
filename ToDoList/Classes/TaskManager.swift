@@ -33,8 +33,8 @@ class TaskManager {
         return self.realm.objects(Task.self).filter(predicate)
     }
     
-    // Create new Task
-    func newTask(task: Task, project: Project?) {
+    // Add new Task
+    func addTask(task: Task, project: Project?) {
         try! realm.write() {
             
             if let theProject = project {
@@ -47,7 +47,7 @@ class TaskManager {
         
     }
     
-    func newTask(taskName: String, note: String, dueDate: Date, howRepeat: Int,
+    func addTask(taskName: String, note: String, dueDate: Date, howRepeat: Int,
                  priority: Int, project: Project?, assign: Assign?, remindList: [Date]) {
         
         // dueDate -> 11:59:59
@@ -72,7 +72,6 @@ class TaskManager {
         
         for remind in newRemindList.addRemList {
             theTask.remindList.append(remind)
-            NotificationManager.setLocalNotification(identifier: remind.remID, date: remind.remDate, title: theTask.taskName)
         }
         
         try! realm.write() {
@@ -150,7 +149,6 @@ class TaskManager {
             
             for remind in newRemindList.addRemList {
                 theTask.remindList.append(remind)
-                NotificationManager.setLocalNotification(identifier: remind.remID, date: remind.remDate, title: theTask.taskName)
             }
             
         }
