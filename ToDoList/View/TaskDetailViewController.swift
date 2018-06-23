@@ -98,37 +98,31 @@ class TaskDetailViewController: FormViewController {
                                                        message: nil,
                                                        preferredStyle: .actionSheet)
                     
-                    var actions = [UIAlertAction]()
-                    let handler = { (action: UIAlertAction) in
-                        // Returns the first index where the specified value appears in the collection.
-                        if let index = actions.index(of: action) {
-                            
-                            if index == 0 {
-                                row.value = action.title!
-                                row.updateCell()
-                            }else if index == actions.count - 1 {
-                                print("cancel")
-                            }else{
-                                row.value = action.title!
-                                row.updateCell()
-                                self.formProject = self.taskDetailModel?.theProjectList[index - 1] // InBox = index:0...
-                            }
-                            
-                        }
-                    }
+                    // Add Action
+                    controller.addAction(UIAlertAction(title: "InBox", style: .default, handler:{
+                        (action: UIAlertAction!) -> Void in
+                        print("inBox")
+                        row.value = action.title!
+                        self.formProject = nil
+                        row.updateCell()
+                    }))
                     
-                    // Add Button
-                    controller.addAction(UIAlertAction(title: "InBox", style: .default, handler: handler))
                     if let projectList = self.taskDetailModel?.theProjectList {
                         
                         for data in projectList {
-                            controller.addAction(UIAlertAction(title: data.projectName, style: .default, handler: handler))
+                            controller.addAction(UIAlertAction(title: data.projectName, style: .default, handler: {
+                                (action: UIAlertAction!) -> Void in
+                                
+                                row.value = action.title!
+                                self.formProject = data
+                                row.updateCell()
+                                
+                            }))
                         }
                     }
                     
-                    controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: handler)) //action.count - 1
+                    controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
                     
-                    actions = controller.actions
                     self.present(controller, animated: true, completion: nil)
         }
         
@@ -206,42 +200,33 @@ class TaskDetailViewController: FormViewController {
                                                        message: nil,
                                                        preferredStyle: .actionSheet)
                     
-                    var actions = [UIAlertAction]()
-                    let handler = { (action: UIAlertAction) in
-                        // Returns the first index where the specified value appears in the collection.
-                        if let index = actions.index(of: action) {
-                            print("index:\(index) title:\(action.title!)")
-                            
-                            if index == 0 {
-                                row.value = action.title!
-                                row.updateCell()
-                            }else if index == actions.count - 1 {
-                                print("cancel")
-                            }else{
-                                row.value = action.title!
-                                row.updateCell()
-                                self.formAssign = self.taskDetailModel?.assignList[index - 1] // 自分 = index:0...
-                            }
-                            
-                        }
-                    }
-                    
                     // Add Button
-                    controller.addAction(UIAlertAction(title: "自分", style: .default, handler: handler))
+                    controller.addAction(UIAlertAction(title: "自分", style: .default, handler:{
+                        (action: UIAlertAction!) -> Void in
+                        row.value = action.title!
+                        self.formAssign = nil
+                        row.updateCell()
+                    }))
                     
                     if let assignList = self.taskDetailModel?.assignList {
                         
                         for data in assignList{
-                            controller.addAction(UIAlertAction(title: data.assignName, style: .default, handler: handler))
+                            controller.addAction(UIAlertAction(title: data.assignName, style: .default, handler: {
+                                (action: UIAlertAction!) -> Void in
+                                
+                                row.value = action.title!
+                                self.formAssign = data
+                                row.updateCell()
+                                
+                            }))
                         }
                     }
                     
-                    controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: handler)) //action.count - 1
-                    
-                    actions = controller.actions
+                    controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+
                     self.present(controller, animated: true, completion: nil)
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {

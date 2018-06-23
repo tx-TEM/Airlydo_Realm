@@ -38,6 +38,13 @@ class TaskListViewController: UIViewController {
         taskListModel.changeListOld()
     }
     
+    @IBAction func sortButtonTapped(_ sender: UIButton) {
+        let SortViewController = self.storyboard?.instantiateViewController(withIdentifier: "SortViewController") as! SortViewController
+        
+        SortViewController.modalPresentationStyle = .overCurrentContext
+        self.present(SortViewController, animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

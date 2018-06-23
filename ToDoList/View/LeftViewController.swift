@@ -188,7 +188,7 @@ extension LeftViewController: UITableViewDragDelegate {
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
         // Get the Data
-        let item = listData[indexPath.row]
+        let item = leftModel.customListData[indexPath.row].projectName
         let itemProvider = NSItemProvider()
         
         itemProvider.registerDataRepresentation(forTypeIdentifier: kUTTypePlainText as String, visibility: .all) { completion in

@@ -20,9 +20,12 @@ class TaskListModel {
     var taskManager = TaskManager()
     
     // Page Status
+    var pageTitle = "All"
     var isArchiveMode = false
     var nowProject: Project?
-    var pageTitle = "All"
+    var sortProperties = [SortDescriptor(keyPath: "dueDate", ascending: true),
+                          SortDescriptor(keyPath: "priority", ascending: true) ]
+    
     
     // 0: changeList(),  1: changeList(Proj)
     var oldChangeFunc = 0
@@ -37,7 +40,7 @@ class TaskListModel {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Get Data from Realm
-        self.tasks = taskManager.readAllData(isArchiveMode: isArchiveMode)
+        self.tasks = taskManager.readAllData(isArchiveMode: isArchiveMode, sortProperties: sortProperties)
         
         // Date Formatter
         dateFormatter.locale = Locale.current
@@ -48,7 +51,7 @@ class TaskListModel {
     
     // Change Display Tasks
     func changeList() {
-        self.tasks = taskManager.readAllData(isArchiveMode: isArchiveMode)
+        self.tasks = taskManager.readAllData(isArchiveMode: isArchiveMode, sortProperties: sortProperties)
         self.oldChangeFunc = 0
         self.pageTitle = isArchiveMode ? "All <Archive>" : "All"
         delegate?.tasksDidChange()
@@ -58,11 +61,11 @@ class TaskListModel {
     func changeList(selectedProjcet: Project?) {
         
         if let theSelectedProjcet = selectedProjcet {
-            self.tasks = taskManager.readData(isArchiveMode: isArchiveMode, project: theSelectedProjcet)
+            self.tasks = taskManager.readData(isArchiveMode: isArchiveMode, project: theSelectedProjcet, sortProperties: sortProperties)
             self.pageTitle = isArchiveMode ? theSelectedProjcet.projectName + " <Archive>" : theSelectedProjcet.projectName
             
         }else{
-            self.tasks = taskManager.readData(isArchiveMode: isArchiveMode)
+            self.tasks = taskManager.readData(isArchiveMode: isArchiveMode, sortProperties: sortProperties)
             self.pageTitle = isArchiveMode ? "InBox <Archive>" : "InBox"
         }
         

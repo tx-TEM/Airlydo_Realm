@@ -16,22 +16,24 @@ class TaskManager {
     
     
     // Read Data from InBox
-    func readData (isArchiveMode: Bool)-> Results<Task> {
+    func readData (isArchiveMode: Bool, sortProperties: [SortDescriptor])-> Results<Task> {
         let predicate = NSPredicate(format: "isArchive = %@ && projectID = nil", NSNumber(booleanLiteral:isArchiveMode))
-        return self.realm.objects(Task.self).filter(predicate)
+        return self.realm.objects(Task.self).filter(predicate).sorted(by: sortProperties)
     }
     
     // Read Data from Project
-    func readData (isArchiveMode: Bool, project: Project)-> Results<Task> {
+    func readData (isArchiveMode: Bool, project: Project, sortProperties: [SortDescriptor])-> Results<Task> {
         let predicate = NSPredicate(format: "isArchive = %@ && projectID = %@", NSNumber(booleanLiteral:isArchiveMode), project.projectID)
-        return self.realm.objects(Task.self).filter(predicate)
+        return self.realm.objects(Task.self).filter(predicate).sorted(by: sortProperties)
     }
     
     // Read All Data
-    func readAllData (isArchiveMode: Bool)-> Results<Task> {
+    func readAllData (isArchiveMode: Bool, sortProperties: [SortDescriptor])-> Results<Task> {
         let predicate = NSPredicate(format: "isArchive = %@" , NSNumber(booleanLiteral: isArchiveMode))
-        return self.realm.objects(Task.self).filter(predicate)
+        return self.realm.objects(Task.self).filter(predicate).sorted(by: sortProperties)
     }
+    
+    // Sort
     
     // Add new Task
     func addTask(task: Task, project: Project?) {
