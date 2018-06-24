@@ -180,8 +180,14 @@ class TaskDetailViewController: FormViewController {
             <<< ActionSheetRow<String>("PriorityTag") {
                 $0.title = "Priority"
                 $0.selectorTitle = "set priority"
-                $0.options = ["High","Middle","Low"]
+                var priorityArray = ["High","Middle","Low"]
+                $0.options = priorityArray
                 $0.value = "Middle"
+                if let priority = taskDetailModel?.theTask?.priority{
+                    $0.value = priorityArray[priority]
+                }else{
+                    $0.value = priorityArray[1]
+                }
                 }.onChange{row in
                     print(row.value as Any)
             }

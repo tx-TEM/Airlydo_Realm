@@ -42,12 +42,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aod-A4-sfF">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Sort"/>
+                                                <connections>
+                                                    <action selector="sortButtonTapped:" destination="QO6-ci-NVC" eventType="touchUpInside" id="Q64-Sr-lqa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8T-lm-C42">
-                                                <rect key="frame" x="125" y="0.0" width="125" height="45"/>
+                                                <rect key="frame" x="94" y="0.0" width="93.5" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Main"/>
                                                 <connections>
@@ -55,12 +58,17 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8R-wf-oUc">
-                                                <rect key="frame" x="250" y="0.0" width="125" height="45"/>
+                                                <rect key="frame" x="187.5" y="0.0" width="94" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Archive"/>
                                                 <connections>
                                                     <action selector="archiveButtonTapped:" destination="QO6-ci-NVC" eventType="touchUpInside" id="fHk-0X-77W"/>
                                                 </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blV-tu-qUs">
+                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="45"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Setting"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,7 +116,7 @@
                         <outlet property="MainButton" destination="h8T-lm-C42" id="LGA-5d-eNx"/>
                         <outlet property="SortButton" destination="Aod-A4-sfF" id="RUa-aW-fwG"/>
                         <outlet property="TaskCellTable" destination="uBE-e2-e2b" id="Uu2-ES-QD8"/>
-                        <segue destination="2A3-F9-X6z" kind="show" id="kCi-s1-onr"/>
+                        <segue destination="2A3-F9-X6z" kind="show" identifier="toAdd" id="kCi-s1-onr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44b-2n-44m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,7 +142,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="SaveTaskButton" destination="o99-bG-5My" id="lew-9k-qbC"/>
-                        <segue destination="vCp-D6-5gh" kind="show" id="KWg-Zd-ewI"/>
+                        <segue destination="vCp-D6-5gh" kind="show" identifier="toNote" id="KWg-Zd-ewI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdM-Xx-Jbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,7 +187,7 @@
         <!--Container View Controller-->
         <scene sceneID="izM-fc-2PJ">
             <objects>
-                <viewController id="APc-m0-TFZ" customClass="ContainerViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Container" id="APc-m0-TFZ" customClass="ContainerViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HcT-EC-213">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,91 +201,95 @@
             <point key="canvasLocation" x="-1735" y="-27"/>
         </scene>
         <!--Left View Controller-->
-        <scene sceneID="Zy5-A9-iJ9">
+        <scene sceneID="c3m-O2-Ess">
             <objects>
-                <viewController storyboardIdentifier="Left" id="eST-3q-KwH" customClass="LeftViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QRC-fh-g1H">
+                <viewController storyboardIdentifier="Left" id="f2l-fU-IDV" customClass="LeftViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uhj-61-inB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="olp-TA-EI3">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Shc-wy-6Ok">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAV-a4-PLB">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bb-eS-YYR">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdL-OR-h1V">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YT1-Ik-bJ1">
                                         <rect key="frame" x="0.0" y="129.5" width="375" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="8fS-tR-Ny5"/>
+                                            <constraint firstAttribute="height" constant="120" id="OXy-3H-7qf"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LSlideListCell" rowHeight="40" id="rXd-JL-DoO">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LSlideListCell" rowHeight="40" id="yxI-nH-qnc">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rXd-JL-DoO" id="hmY-LW-ALK">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yxI-nH-qnc" id="kLt-go-rFi">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ktA-eT-v1A">
-                                        <rect key="frame" x="0.0" y="249.5" width="375" height="259"/>
+                                    <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ihg-AV-VF6">
+                                        <rect key="frame" x="0.0" y="249.5" width="375" height="258.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hoh-ga-VXR">
+                                            <rect key="frame" x="0.0" y="72" width="375" height="53"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="AddListButtonTapped:" destination="f2l-fU-IDV" eventType="touchUpInside" id="3ln-zN-Iex"/>
+                                            </connections>
+                                        </button>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LCustomSlideListCell" id="hcg-TG-N8J">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LCustomSlideListCell" id="Nob-f2-w8f">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hcg-TG-N8J" id="tDh-ce-RD1">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nob-f2-w8f" id="aTr-Rx-MtH">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2V9-pi-iEZ">
-                                                            <rect key="frame" x="0.0" y="-8.5" width="375" height="60"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                            <state key="normal" title="+">
-                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91d-Qo-kYD">
-                                        <rect key="frame" x="0.0" y="508.5" width="375" height="138.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbQ-LF-QgQ">
+                                        <rect key="frame" x="0.0" y="508" width="375" height="139"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="SAV-a4-PLB" firstAttribute="width" secondItem="olp-TA-EI3" secondAttribute="width" id="3xo-4e-Okp"/>
-                                    <constraint firstItem="SAV-a4-PLB" firstAttribute="height" secondItem="olp-TA-EI3" secondAttribute="height" multiplier="0.2" id="Jfd-rq-FBa"/>
-                                    <constraint firstItem="ktA-eT-v1A" firstAttribute="height" secondItem="olp-TA-EI3" secondAttribute="height" multiplier="0.4" id="PbD-OQ-Itr"/>
-                                    <constraint firstItem="ktA-eT-v1A" firstAttribute="width" secondItem="olp-TA-EI3" secondAttribute="width" id="qms-Dl-ymc"/>
+                                    <constraint firstItem="ihg-AV-VF6" firstAttribute="height" secondItem="Shc-wy-6Ok" secondAttribute="height" multiplier="0.4" id="1t8-6f-WWi"/>
+                                    <constraint firstItem="7bb-eS-YYR" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="5hK-eG-X83"/>
+                                    <constraint firstItem="7bb-eS-YYR" firstAttribute="height" secondItem="Shc-wy-6Ok" secondAttribute="height" multiplier="0.2" id="JhB-r5-ewc"/>
+                                    <constraint firstItem="NbQ-LF-QgQ" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="Ktu-Fs-LTT"/>
+                                    <constraint firstItem="YT1-Ik-bJ1" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="qLo-M8-XMf"/>
+                                    <constraint firstItem="ihg-AV-VF6" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="wnS-59-T3R"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="olp-TA-EI3" firstAttribute="width" secondItem="qL0-QL-eau" secondAttribute="width" id="Fvq-yg-I9r"/>
-                            <constraint firstItem="olp-TA-EI3" firstAttribute="height" secondItem="qL0-QL-eau" secondAttribute="height" id="igF-Hz-Ci6"/>
-                            <constraint firstItem="olp-TA-EI3" firstAttribute="centerX" secondItem="qL0-QL-eau" secondAttribute="centerX" id="vpZ-LD-Xf9"/>
-                            <constraint firstItem="olp-TA-EI3" firstAttribute="centerY" secondItem="qL0-QL-eau" secondAttribute="centerY" id="zyP-Zy-Km9"/>
+                            <constraint firstItem="Shc-wy-6Ok" firstAttribute="centerY" secondItem="a7b-Kp-sdI" secondAttribute="centerY" id="EP7-5s-5xc"/>
+                            <constraint firstItem="Shc-wy-6Ok" firstAttribute="height" secondItem="a7b-Kp-sdI" secondAttribute="height" id="P7w-Xw-zLf"/>
+                            <constraint firstItem="Shc-wy-6Ok" firstAttribute="width" secondItem="a7b-Kp-sdI" secondAttribute="width" id="fO5-k2-U15"/>
+                            <constraint firstItem="Shc-wy-6Ok" firstAttribute="centerX" secondItem="a7b-Kp-sdI" secondAttribute="centerX" id="gaf-T6-93x"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="qL0-QL-eau"/>
+                        <viewLayoutGuide key="safeArea" id="a7b-Kp-sdI"/>
                     </view>
                     <connections>
-                        <outlet property="CustomSlideListTable" destination="ktA-eT-v1A" id="scK-tw-xQJ"/>
-                        <outlet property="SlideListTable" destination="xdL-OR-h1V" id="1sF-ec-Kra"/>
+                        <outlet property="AddListButton" destination="hoh-ga-VXR" id="4o5-no-cCo"/>
+                        <outlet property="CustomSlideListTable" destination="ihg-AV-VF6" id="iey-oP-gWq"/>
+                        <outlet property="SlideListTable" destination="YT1-Ik-bJ1" id="sEC-fC-EkH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="la9-ON-LQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bXa-vL-f3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1735" y="745"/>
+            <point key="canvasLocation" x="-1735" y="752"/>
         </scene>
     </scenes>
 </document>

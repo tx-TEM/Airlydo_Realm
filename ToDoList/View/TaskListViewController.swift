@@ -41,10 +41,27 @@ class TaskListViewController: UIViewController {
     }
     
     @IBAction func sortButtonTapped(_ sender: UIButton) {
-        let SortViewController = self.storyboard?.instantiateViewController(withIdentifier: "SortViewController") as! SortViewController
+        let controller = UIAlertController(title: "Sort",
+                                           message: nil,
+                                           preferredStyle: .actionSheet)
         
-        SortViewController.modalPresentationStyle = .overCurrentContext
-        self.present(SortViewController, animated: true, completion: nil)
+        // Add Action
+        controller.addAction(UIAlertAction(title: "dueDate", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.taskListModel.changeSortOption(sortProperties:[SortDescriptor(keyPath: "dueDate", ascending: true),
+                                                                SortDescriptor(keyPath: "priority", ascending: true) ])
+        }))
+        
+        controller.addAction(UIAlertAction(title: "Priority", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.taskListModel.changeSortOption(sortProperties:[SortDescriptor(keyPath: "priority", ascending: true),
+                                                                SortDescriptor(keyPath: "dueDate", ascending: true) ])
+        }))
+        
+        
+        controller.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        
+        self.present(controller, animated: true, completion: nil)
     }
     
     

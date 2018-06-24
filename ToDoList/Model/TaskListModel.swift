@@ -88,6 +88,12 @@ class TaskListModel {
         }
     }
     
+    // Change Sort Option
+    func changeSortOption(sortProperties: [SortDescriptor]) {
+        self.sortProperties = sortProperties
+        self.changeListOld()
+    }
+    
     // Date to String using Formatter
     func dueDateToString(dueDate: Date)-> String {
         return dateFormatter.string(from: dueDate)
