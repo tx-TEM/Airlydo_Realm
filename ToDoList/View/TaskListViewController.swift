@@ -14,7 +14,9 @@ import SlideMenuControllerSwift
 class TaskListViewController: UIViewController {
 
     @IBOutlet weak var TaskCellTable: UITableView!
-    @IBOutlet weak var AddTaskButton: UINavigationItem!
+    
+    @IBOutlet weak var AddTaskButton: UIBarButtonItem!
+    
     @IBOutlet weak var MainButton: UIButton!
     @IBOutlet weak var ArchiveButton: UIButton!
     @IBOutlet weak var SortButton: UIButton!
