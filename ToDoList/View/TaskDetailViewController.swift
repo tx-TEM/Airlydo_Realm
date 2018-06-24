@@ -70,6 +70,8 @@ class TaskDetailViewController: FormViewController {
             taskDetailModel = TaskDetailModel()
         }
         
+        self.navigationItem.title = self.taskDetailModel?.pageTitle
+        
         form +++ Section("Task")
             <<< TextRow("TitleTag"){
                 $0.title = "Add a Task"

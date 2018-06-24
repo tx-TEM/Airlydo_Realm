@@ -40,6 +40,12 @@ class TaskListViewController: UIViewController {
         taskListModel.changeListOld()
     }
     
+    @IBAction func projectSettingButtonTapped(_ sender: UIButton) {
+        let ProjectSettingViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProjectSettingViewController") as! ProjectSettingViewController
+        self.navigationController?.pushViewController(ProjectSettingViewController, animated: true)
+    }
+
+    
     @IBAction func sortButtonTapped(_ sender: UIButton) {
         let controller = UIAlertController(title: "Sort",
                                            message: nil,

@@ -46,7 +46,7 @@
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Sort"/>
                                                 <connections>
-                                                    <action selector="sortButtonTapped:" destination="QO6-ci-NVC" eventType="touchUpInside" id="Q64-Sr-lqa"/>
+                                                    <action selector="sortButtonTapped:" destination="QO6-ci-NVC" eventType="touchUpInside" id="2NJ-Zu-SpN"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8T-lm-C42">
@@ -69,6 +69,9 @@
                                                 <rect key="frame" x="281.5" y="0.0" width="93.5" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Setting"/>
+                                                <connections>
+                                                    <action selector="projectSettingButtonTapped:" destination="QO6-ci-NVC" eventType="touchUpInside" id="ufX-al-FIS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,14 +119,33 @@
                         <outlet property="MainButton" destination="h8T-lm-C42" id="LGA-5d-eNx"/>
                         <outlet property="SortButton" destination="Aod-A4-sfF" id="RUa-aW-fwG"/>
                         <outlet property="TaskCellTable" destination="uBE-e2-e2b" id="Uu2-ES-QD8"/>
-                        <segue destination="2A3-F9-X6z" kind="show" identifier="toAdd" id="kCi-s1-onr"/>
+                        <segue destination="66D-HA-9Q6" kind="show" identifier="toProjectSetting" id="PB3-RG-byK"/>
+                        <segue destination="2A3-F9-X6z" kind="show" identifier="toTaskDetail" id="X7j-QH-uPm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44b-2n-44m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119" y="-25"/>
         </scene>
-        <!--Add Task-->
+        <!--Project Setting-->
+        <scene sceneID="dx5-Bv-Grh">
+            <objects>
+                <viewController storyboardIdentifier="ProjectSettingViewController" id="66D-HA-9Q6" customClass="ProjectSettingViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l2V-og-s1n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GeU-Md-W9R"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Project Setting" id="yja-fr-oy6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SSC-tl-6WY"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ON4-pw-SAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052" y="-777.66116941529242"/>
+        </scene>
+        <!--Task Detail View Controller-->
         <scene sceneID="ED4-uX-Soh">
             <objects>
                 <viewController storyboardIdentifier="TaskDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2A3-F9-X6z" customClass="TaskDetailViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,7 +155,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wpy-TS-dl9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Task" id="fa3-bB-iSj">
+                    <navigationItem key="navigationItem" id="fa3-bB-iSj">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="o99-bG-5My">
                             <connections>
                                 <action selector="SaveTaskButtonTapped:" destination="2A3-F9-X6z" id="zYB-XK-qqu"/>

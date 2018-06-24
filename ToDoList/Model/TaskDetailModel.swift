@@ -21,7 +21,8 @@ class TaskDetailModel {
     var theTask: Task?
     var taskManager = TaskManager()
     
-    // task status : new or edit
+    // Page Status
+    var pageTitle = "Add Task"
     var isNewTask: Bool
     
     // list for Form
@@ -35,6 +36,7 @@ class TaskDetailModel {
     init() {
         theTask = Task()
         isNewTask = true
+        self.pageTitle = "Add Task"
         
         // get list for Form
         if let list = realm.objects(ProjectWrapper.self).first?.projectList {
@@ -57,6 +59,7 @@ class TaskDetailModel {
     init(task: Task) {
         theTask = task
         isNewTask = false
+        self.pageTitle = "Edit Task"
         
         // get list for Form
         if let list = realm.objects(ProjectWrapper.self).first?.projectList {
