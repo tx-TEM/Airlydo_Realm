@@ -1,0 +1,907 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1889CBFF0276E946756FA828 /* Pods_AirToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2CE02862578959A6E9DC8F /* Pods_AirToDo.framework */; };
+		25BFC1E8705EA8A81B531B76 /* Pods_ToDoListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0F73D45C48DD2D9939082A /* Pods_ToDoListUITests.framework */; };
+		49D7F42B20DE11B90007544C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7F42A20DE11B90007544C /* Settings.swift */; };
+		4F12C716B1B45E7E3CCC8CFF /* Pods_AirToDoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5FA52E2C80EBDB23E006A7 /* Pods_AirToDoTests.framework */; };
+		6F00A91820E023550056AF11 /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00A91720E023550056AF11 /* ProjectSettingViewController.swift */; };
+		6F04EF8120D7D511003BEC3F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04EF8020D7D511003BEC3F /* NotificationManager.swift */; };
+		6F04EFC020DA61F6003BEC3F /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04EFBF20DA61F6003BEC3F /* TaskManager.swift */; };
+		6F04EFC220DA80A6003BEC3F /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04EFC120DA80A6003BEC3F /* ProjectManager.swift */; };
+		6F04EFC420DBC95D003BEC3F /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04EFC320DBC95C003BEC3F /* ReminderManager.swift */; };
+		6F2F3DA320A6B3740081E5F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */; };
+		6F2F3DAB20A6B3740081E5F9 /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3DA920A6B3740081E5F9 /* ToDoList.xcdatamodeld */; };
+		6F2F3DAD20A6B3760081E5F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */; };
+		6F2F3DB020A6B3760081E5F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */; };
+		6F2F3DBB20A6B3760081E5F9 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3DBA20A6B3760081E5F9 /* ToDoListTests.swift */; };
+		6F2F3DC620A6B3760081E5F9 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3DC520A6B3760081E5F9 /* ToDoListUITests.swift */; };
+		6F2F3E2320AC58020081E5F9 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2220AC58020081E5F9 /* TaskListViewController.swift */; };
+		6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */; };
+		6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */; };
+		6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3D81C620B4534800B960F7 /* SetNotePageController.swift */; };
+		6F4DB01D20CD2D38009AC462 /* fav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01B20CD2D38009AC462 /* fav@2x.png */; };
+		6F4DB01E20CD2D38009AC462 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01C20CD2D38009AC462 /* check@2x.png */; };
+		6F4DB02020CD2D79009AC462 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB01F20CD2D79009AC462 /* menu@2x.png */; };
+		6F4DB02620CEFDF5009AC462 /* Airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02120CEFDF4009AC462 /* Airplane.png */; };
+		6F4DB02720CEFDF5009AC462 /* Time.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02220CEFDF5009AC462 /* Time.png */; };
+		6F4DB02820CEFDF5009AC462 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02320CEFDF5009AC462 /* Plus.png */; };
+		6F4DB02920CEFDF5009AC462 /* Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02420CEFDF5009AC462 /* Check.png */; };
+		6F4DB02A20CEFDF5009AC462 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4DB02520CEFDF5009AC462 /* Menu.png */; };
+		6F4DB02C20CF0DEA009AC462 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DB02B20CF0DEA009AC462 /* TaskListModel.swift */; };
+		6F4DB02E20CFE511009AC462 /* LeftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DB02D20CFE511009AC462 /* LeftModel.swift */; };
+		6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A290220BAB52C00A83F17 /* LeftViewController.swift */; };
+		6F7DB27020DFA04700074FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F7DB26F20DFA04700074FBA /* Main.storyboard */; };
+		6F9A729520D15282008BC21B /* TaskDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A729420D15282008BC21B /* TaskDetailModel.swift */; };
+		6FAA758320B9368B003E3272 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA758220B9368B003E3272 /* RealmModel.swift */; };
+		6FC43C1920B45688002BA0C1 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC43C1820B45688002BA0C1 /* TaskDetailViewController.swift */; };
+		6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5303C20BACA72000BC746 /* ContainerViewController.swift */; };
+		6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5304320BB63D2000BC746 /* SlideListCell.swift */; };
+		6FD5304620BB63D2000BC746 /* SlideListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5304420BB63D2000BC746 /* SlideListCell.xib */; };
+		E2CD558130E71612EC6BA236 /* Pods_AirToDoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAAD18612E10426991A2D76 /* Pods_AirToDoUITests.framework */; };
+		FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6F2F3DB720A6B3760081E5F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F2F3D9720A6B3740081E5F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F2F3D9E20A6B3740081E5F9;
+			remoteInfo = ToDoList;
+		};
+		6F2F3DC220A6B3760081E5F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F2F3D9720A6B3740081E5F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F2F3D9E20A6B3740081E5F9;
+			remoteInfo = ToDoList;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13D13866B60A9FF74020BD6B /* Pods-AirToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo.release.xcconfig"; sourceTree = "<group>"; };
+		1B5FA52E2C80EBDB23E006A7 /* Pods_AirToDoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirToDoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D0F73D45C48DD2D9939082A /* Pods_ToDoListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27C5178F0F1CA7FA9166E9BD /* Pods_ToDoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E88925FE7FFA50928ADD4B7 /* Pods-AirToDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoTests/Pods-AirToDoTests.release.xcconfig"; sourceTree = "<group>"; };
+		31AE4EDA20720D72D327CC25 /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
+		3BAAD18612E10426991A2D76 /* Pods_AirToDoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirToDoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49D7F42A20DE11B90007544C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		53D2B3C88ACBDEDD63132EB9 /* Pods-ToDoListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListTests/Pods-ToDoListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		684807BD5E8CD84FD0403110 /* Pods-ToDoListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListUITests/Pods-ToDoListUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6F00A91720E023550056AF11 /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
+		6F04EF8020D7D511003BEC3F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		6F04EFBF20DA61F6003BEC3F /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		6F04EFC120DA80A6003BEC3F /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
+		6F04EFC320DBC95C003BEC3F /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
+		6F2F3D9F20A6B3740081E5F9 /* AirToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6F2F3DAA20A6B3740081E5F9 /* ToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoList.xcdatamodel; sourceTree = "<group>"; };
+		6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F2F3DAF20A6B3760081E5F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6F2F3DB120A6B3760081E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F2F3DB620A6B3760081E5F9 /* AirToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2F3DBA20A6B3760081E5F9 /* ToDoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTests.swift; sourceTree = "<group>"; };
+		6F2F3DBC20A6B3760081E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F2F3DC120A6B3760081E5F9 /* AirToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2F3DC520A6B3760081E5F9 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
+		6F2F3DC720A6B3760081E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F2F3E2220AC58020081E5F9 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		6F3D81C620B4534800B960F7 /* SetNotePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotePageController.swift; sourceTree = "<group>"; };
+		6F4DB01B20CD2D38009AC462 /* fav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fav@2x.png"; sourceTree = "<group>"; };
+		6F4DB01C20CD2D38009AC462 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		6F4DB01F20CD2D79009AC462 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		6F4DB02120CEFDF4009AC462 /* Airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Airplane.png; sourceTree = "<group>"; };
+		6F4DB02220CEFDF5009AC462 /* Time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Time.png; sourceTree = "<group>"; };
+		6F4DB02320CEFDF5009AC462 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
+		6F4DB02420CEFDF5009AC462 /* Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Check.png; sourceTree = "<group>"; };
+		6F4DB02520CEFDF5009AC462 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
+		6F4DB02B20CF0DEA009AC462 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
+		6F4DB02D20CFE511009AC462 /* LeftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftModel.swift; sourceTree = "<group>"; };
+		6F6A290220BAB52C00A83F17 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		6F7DB26F20DFA04700074FBA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6F9A729420D15282008BC21B /* TaskDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailModel.swift; sourceTree = "<group>"; };
+		6FAA758220B9368B003E3272 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		6FC43C1820B45688002BA0C1 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		6FD5303C20BACA72000BC746 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		6FD5304320BB63D2000BC746 /* SlideListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideListCell.swift; sourceTree = "<group>"; };
+		6FD5304420BB63D2000BC746 /* SlideListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideListCell.xib; sourceTree = "<group>"; };
+		6FE6B31CDEFF47694DDD6736 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
+		739B3D24878301ED058C775B /* Pods-AirToDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoTests/Pods-AirToDoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9543AE20883F72162947188B /* Pods-AirToDoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoUITests/Pods-AirToDoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A2CE02862578959A6E9DC8F /* Pods_AirToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B76F9C3E7500E6FF154FD1CF /* Pods-AirToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo.debug.xcconfig"; sourceTree = "<group>"; };
+		D775324CCA2D02684E69B47C /* Pods-ToDoListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListTests/Pods-ToDoListTests.release.xcconfig"; sourceTree = "<group>"; };
+		F19D1F4697C3135479636233 /* Pods-AirToDoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoUITests/Pods-AirToDoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F72C492496140E5AA874A155 /* Pods-ToDoListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListUITests/Pods-ToDoListUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F2F3D9C20A6B3740081E5F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1889CBFF0276E946756FA828 /* Pods_AirToDo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F2F3DB320A6B3760081E5F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */,
+				4F12C716B1B45E7E3CCC8CFF /* Pods_AirToDoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F2F3DBE20A6B3760081E5F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25BFC1E8705EA8A81B531B76 /* Pods_ToDoListUITests.framework in Frameworks */,
+				E2CD558130E71612EC6BA236 /* Pods_AirToDoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		62C10532BA13BED4AB5A75F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FE6B31CDEFF47694DDD6736 /* Pods-ToDoList.debug.xcconfig */,
+				31AE4EDA20720D72D327CC25 /* Pods-ToDoList.release.xcconfig */,
+				53D2B3C88ACBDEDD63132EB9 /* Pods-ToDoListTests.debug.xcconfig */,
+				D775324CCA2D02684E69B47C /* Pods-ToDoListTests.release.xcconfig */,
+				684807BD5E8CD84FD0403110 /* Pods-ToDoListUITests.debug.xcconfig */,
+				F72C492496140E5AA874A155 /* Pods-ToDoListUITests.release.xcconfig */,
+				B76F9C3E7500E6FF154FD1CF /* Pods-AirToDo.debug.xcconfig */,
+				13D13866B60A9FF74020BD6B /* Pods-AirToDo.release.xcconfig */,
+				739B3D24878301ED058C775B /* Pods-AirToDoTests.debug.xcconfig */,
+				2E88925FE7FFA50928ADD4B7 /* Pods-AirToDoTests.release.xcconfig */,
+				9543AE20883F72162947188B /* Pods-AirToDoUITests.debug.xcconfig */,
+				F19D1F4697C3135479636233 /* Pods-AirToDoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6A1A434C5F32EAC0383AA6F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27C5178F0F1CA7FA9166E9BD /* Pods_ToDoList.framework */,
+				00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */,
+				1D0F73D45C48DD2D9939082A /* Pods_ToDoListUITests.framework */,
+				9A2CE02862578959A6E9DC8F /* Pods_AirToDo.framework */,
+				1B5FA52E2C80EBDB23E006A7 /* Pods_AirToDoTests.framework */,
+				3BAAD18612E10426991A2D76 /* Pods_AirToDoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F04EF7F20D7D4C7003BEC3F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6FAA758220B9368B003E3272 /* RealmModel.swift */,
+				6F04EFBF20DA61F6003BEC3F /* TaskManager.swift */,
+				6F04EFC120DA80A6003BEC3F /* ProjectManager.swift */,
+				6F04EFC320DBC95C003BEC3F /* ReminderManager.swift */,
+				6F04EF8020D7D511003BEC3F /* NotificationManager.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6F2F3D9620A6B3740081E5F9 = {
+			isa = PBXGroup;
+			children = (
+				6F2F3DA120A6B3740081E5F9 /* AirToDo */,
+				6F2F3DB920A6B3760081E5F9 /* AirToDoTests */,
+				6F2F3DC420A6B3760081E5F9 /* AirToDoUITests */,
+				6F2F3DA020A6B3740081E5F9 /* Products */,
+				62C10532BA13BED4AB5A75F0 /* Pods */,
+				6A1A434C5F32EAC0383AA6F0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6F2F3DA020A6B3740081E5F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F2F3D9F20A6B3740081E5F9 /* AirToDo.app */,
+				6F2F3DB620A6B3760081E5F9 /* AirToDoTests.xctest */,
+				6F2F3DC120A6B3760081E5F9 /* AirToDoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F2F3DA120A6B3740081E5F9 /* AirToDo */ = {
+			isa = PBXGroup;
+			children = (
+				6F638CB420B9B4C6004C586C /* Asset */,
+				6F04EF7F20D7D4C7003BEC3F /* Classes */,
+				6FAA758020B93442003E3272 /* Model */,
+				6FAA758120B9348E003E3272 /* View */,
+				6F9A729620D53462008BC21B /* Custom_View */,
+				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
+				6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */,
+				6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */,
+				6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */,
+				6F7DB26F20DFA04700074FBA /* Main.storyboard */,
+				6F2F3DA920A6B3740081E5F9 /* ToDoList.xcdatamodeld */,
+			);
+			path = AirToDo;
+			sourceTree = "<group>";
+		};
+		6F2F3DB920A6B3760081E5F9 /* AirToDoTests */ = {
+			isa = PBXGroup;
+			children = (
+				6F2F3DBA20A6B3760081E5F9 /* ToDoListTests.swift */,
+				6F2F3DBC20A6B3760081E5F9 /* Info.plist */,
+			);
+			path = AirToDoTests;
+			sourceTree = "<group>";
+		};
+		6F2F3DC420A6B3760081E5F9 /* AirToDoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6F2F3DC520A6B3760081E5F9 /* ToDoListUITests.swift */,
+				6F2F3DC720A6B3760081E5F9 /* Info.plist */,
+			);
+			path = AirToDoUITests;
+			sourceTree = "<group>";
+		};
+		6F2F3E2C20ADB98E0081E5F9 /* TaskCell */ = {
+			isa = PBXGroup;
+			children = (
+				6F2F3E2820ADB9690081E5F9 /* TaskCell.swift */,
+				6F2F3E2920ADB9690081E5F9 /* TaskCell.xib */,
+			);
+			path = TaskCell;
+			sourceTree = "<group>";
+		};
+		6F638CB420B9B4C6004C586C /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				6F4DB01F20CD2D79009AC462 /* menu@2x.png */,
+				6F4DB02120CEFDF4009AC462 /* Airplane.png */,
+				6F4DB02420CEFDF5009AC462 /* Check.png */,
+				6F4DB02520CEFDF5009AC462 /* Menu.png */,
+				6F4DB02320CEFDF5009AC462 /* Plus.png */,
+				6F4DB02220CEFDF5009AC462 /* Time.png */,
+				6F4DB01C20CD2D38009AC462 /* check@2x.png */,
+				6F4DB01B20CD2D38009AC462 /* fav@2x.png */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		6F9A729620D53462008BC21B /* Custom_View */ = {
+			isa = PBXGroup;
+			children = (
+				6FD5304220BB605E000BC746 /* SlideListCell */,
+				6F2F3E2C20ADB98E0081E5F9 /* TaskCell */,
+			);
+			path = Custom_View;
+			sourceTree = "<group>";
+		};
+		6FAA758020B93442003E3272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F4DB02B20CF0DEA009AC462 /* TaskListModel.swift */,
+				6F9A729420D15282008BC21B /* TaskDetailModel.swift */,
+				6F4DB02D20CFE511009AC462 /* LeftModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6FAA758120B9348E003E3272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49D7F42A20DE11B90007544C /* Settings.swift */,
+				6FD5303C20BACA72000BC746 /* ContainerViewController.swift */,
+				6F2F3E2220AC58020081E5F9 /* TaskListViewController.swift */,
+				6F00A91720E023550056AF11 /* ProjectSettingViewController.swift */,
+				6FC43C1820B45688002BA0C1 /* TaskDetailViewController.swift */,
+				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
+				6F6A290220BAB52C00A83F17 /* LeftViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6FD5304220BB605E000BC746 /* SlideListCell */ = {
+			isa = PBXGroup;
+			children = (
+				6FD5304320BB63D2000BC746 /* SlideListCell.swift */,
+				6FD5304420BB63D2000BC746 /* SlideListCell.xib */,
+			);
+			path = SlideListCell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6F2F3D9E20A6B3740081E5F9 /* AirToDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F2F3DCA20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDo" */;
+			buildPhases = (
+				7C59A62F8DF0B18BDB0C6145 /* [CP] Check Pods Manifest.lock */,
+				6F2F3D9B20A6B3740081E5F9 /* Sources */,
+				6F2F3D9C20A6B3740081E5F9 /* Frameworks */,
+				6F2F3D9D20A6B3740081E5F9 /* Resources */,
+				99E25EDAEECA8C3E31F4D9C0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirToDo;
+			productName = ToDoList;
+			productReference = 6F2F3D9F20A6B3740081E5F9 /* AirToDo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6F2F3DB520A6B3760081E5F9 /* AirToDoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F2F3DCD20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoTests" */;
+			buildPhases = (
+				A533EE7FD42892FF1CF05D38 /* [CP] Check Pods Manifest.lock */,
+				6F2F3DB220A6B3760081E5F9 /* Sources */,
+				6F2F3DB320A6B3760081E5F9 /* Frameworks */,
+				6F2F3DB420A6B3760081E5F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F2F3DB820A6B3760081E5F9 /* PBXTargetDependency */,
+			);
+			name = AirToDoTests;
+			productName = ToDoListTests;
+			productReference = 6F2F3DB620A6B3760081E5F9 /* AirToDoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6F2F3DC020A6B3760081E5F9 /* AirToDoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F2F3DD020A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoUITests" */;
+			buildPhases = (
+				8D3B268392AD9AB7895AC167 /* [CP] Check Pods Manifest.lock */,
+				6F2F3DBD20A6B3760081E5F9 /* Sources */,
+				6F2F3DBE20A6B3760081E5F9 /* Frameworks */,
+				6F2F3DBF20A6B3760081E5F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F2F3DC320A6B3760081E5F9 /* PBXTargetDependency */,
+			);
+			name = AirToDoUITests;
+			productName = ToDoListUITests;
+			productReference = 6F2F3DC120A6B3760081E5F9 /* AirToDoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F2F3D9720A6B3740081E5F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "yoshiki-t";
+				TargetAttributes = {
+					6F2F3D9E20A6B3740081E5F9 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					6F2F3DB520A6B3760081E5F9 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 6F2F3D9E20A6B3740081E5F9;
+					};
+					6F2F3DC020A6B3760081E5F9 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 6F2F3D9E20A6B3740081E5F9;
+					};
+				};
+			};
+			buildConfigurationList = 6F2F3D9A20A6B3740081E5F9 /* Build configuration list for PBXProject "AirToDo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6F2F3D9620A6B3740081E5F9;
+			productRefGroup = 6F2F3DA020A6B3740081E5F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F2F3D9E20A6B3740081E5F9 /* AirToDo */,
+				6F2F3DB520A6B3760081E5F9 /* AirToDoTests */,
+				6F2F3DC020A6B3760081E5F9 /* AirToDoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F2F3D9D20A6B3740081E5F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F2F3E2B20ADB9690081E5F9 /* TaskCell.xib in Resources */,
+				6F2F3DB020A6B3760081E5F9 /* LaunchScreen.storyboard in Resources */,
+				6F4DB02720CEFDF5009AC462 /* Time.png in Resources */,
+				6F4DB02020CD2D79009AC462 /* menu@2x.png in Resources */,
+				6F4DB01D20CD2D38009AC462 /* fav@2x.png in Resources */,
+				6F7DB27020DFA04700074FBA /* Main.storyboard in Resources */,
+				6F2F3DAD20A6B3760081E5F9 /* Assets.xcassets in Resources */,
+				6FD5304620BB63D2000BC746 /* SlideListCell.xib in Resources */,
+				6F4DB01E20CD2D38009AC462 /* check@2x.png in Resources */,
+				6F4DB02620CEFDF5009AC462 /* Airplane.png in Resources */,
+				6F4DB02A20CEFDF5009AC462 /* Menu.png in Resources */,
+				6F4DB02920CEFDF5009AC462 /* Check.png in Resources */,
+				6F4DB02820CEFDF5009AC462 /* Plus.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F2F3DB420A6B3760081E5F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F2F3DBF20A6B3760081E5F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7C59A62F8DF0B18BDB0C6145 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AirToDo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D3B268392AD9AB7895AC167 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AirToDoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99E25EDAEECA8C3E31F4D9C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/MCSwipeTableViewCell/MCSwipeTableViewCell.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCSwipeTableViewCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A533EE7FD42892FF1CF05D38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AirToDoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F2F3D9B20A6B3740081E5F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F00A91820E023550056AF11 /* ProjectSettingViewController.swift in Sources */,
+				6F04EF8120D7D511003BEC3F /* NotificationManager.swift in Sources */,
+				6F04EFC220DA80A6003BEC3F /* ProjectManager.swift in Sources */,
+				6F2F3E2A20ADB9690081E5F9 /* TaskCell.swift in Sources */,
+				6F04EFC420DBC95D003BEC3F /* ReminderManager.swift in Sources */,
+				6FC43C1920B45688002BA0C1 /* TaskDetailViewController.swift in Sources */,
+				6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */,
+				49D7F42B20DE11B90007544C /* Settings.swift in Sources */,
+				6FAA758320B9368B003E3272 /* RealmModel.swift in Sources */,
+				6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */,
+				6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */,
+				6F4DB02E20CFE511009AC462 /* LeftModel.swift in Sources */,
+				6F2F3DAB20A6B3740081E5F9 /* ToDoList.xcdatamodeld in Sources */,
+				6F9A729520D15282008BC21B /* TaskDetailModel.swift in Sources */,
+				6F4DB02C20CF0DEA009AC462 /* TaskListModel.swift in Sources */,
+				6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */,
+				6F04EFC020DA61F6003BEC3F /* TaskManager.swift in Sources */,
+				6F2F3DA320A6B3740081E5F9 /* AppDelegate.swift in Sources */,
+				6F2F3E2320AC58020081E5F9 /* TaskListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F2F3DB220A6B3760081E5F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F2F3DBB20A6B3760081E5F9 /* ToDoListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F2F3DBD20A6B3760081E5F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F2F3DC620A6B3760081E5F9 /* ToDoListUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F2F3DB820A6B3760081E5F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F2F3D9E20A6B3740081E5F9 /* AirToDo */;
+			targetProxy = 6F2F3DB720A6B3760081E5F9 /* PBXContainerItemProxy */;
+		};
+		6F2F3DC320A6B3760081E5F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F2F3D9E20A6B3740081E5F9 /* AirToDo */;
+			targetProxy = 6F2F3DC220A6B3760081E5F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F2F3DAF20A6B3760081E5F9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6F2F3DC820A6B3760081E5F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6F2F3DC920A6B3760081E5F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6F2F3DCB20A6B3760081E5F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B76F9C3E7500E6FF154FD1CF /* Pods-AirToDo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/AirToDo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoList";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F2F3DCC20A6B3760081E5F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13D13866B60A9FF74020BD6B /* Pods-AirToDo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/AirToDo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoList";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6F2F3DCE20A6B3760081E5F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 739B3D24878301ED058C775B /* Pods-AirToDoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToDoListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoListTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirToDo.app/AirToDo";
+			};
+			name = Debug;
+		};
+		6F2F3DCF20A6B3760081E5F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E88925FE7FFA50928ADD4B7 /* Pods-AirToDoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToDoListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoListTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirToDo.app/AirToDo";
+			};
+			name = Release;
+		};
+		6F2F3DD120A6B3760081E5F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9543AE20883F72162947188B /* Pods-AirToDoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToDoListUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoListUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToDoList;
+			};
+			name = Debug;
+		};
+		6F2F3DD220A6B3760081E5F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F19D1F4697C3135479636233 /* Pods-AirToDoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToDoListUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoListUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToDoList;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F2F3D9A20A6B3740081E5F9 /* Build configuration list for PBXProject "AirToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F2F3DC820A6B3760081E5F9 /* Debug */,
+				6F2F3DC920A6B3760081E5F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F2F3DCA20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F2F3DCB20A6B3760081E5F9 /* Debug */,
+				6F2F3DCC20A6B3760081E5F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F2F3DCD20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F2F3DCE20A6B3760081E5F9 /* Debug */,
+				6F2F3DCF20A6B3760081E5F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F2F3DD020A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F2F3DD120A6B3760081E5F9 /* Debug */,
+				6F2F3DD220A6B3760081E5F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6F2F3DA920A6B3740081E5F9 /* ToDoList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6F2F3DAA20A6B3740081E5F9 /* ToDoList.xcdatamodel */,
+			);
+			currentVersion = 6F2F3DAA20A6B3740081E5F9 /* ToDoList.xcdatamodel */;
+			path = ToDoList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6F2F3D9720A6B3740081E5F9 /* Project object */;
+}
