@@ -14,17 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AirToDo.xcscheme</key>
+		<key>Pods-Airlydo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AirToDoTests.xcscheme</key>
+		<key>Pods-AirlydoTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AirToDoUITests.xcscheme</key>
+		<key>Pods-AirlydoUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

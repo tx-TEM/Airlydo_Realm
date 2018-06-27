@@ -6,18 +6,18 @@ pod 'RealmSwift'
 pod 'Eureka'
 pod 'SlideMenuControllerSwift'
 
-target 'AirToDo' do
+target 'Airlydo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AirToDo
+  # Pods for Airlydo
 
-  target 'AirToDoTests' do
+  target 'AirlydoTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'AirToDoUITests' do
+  target 'AirlydoUITests' do
     inherit! :search_paths
     # Pods for testing
   end

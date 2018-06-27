@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1889CBFF0276E946756FA828 /* Pods_AirToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2CE02862578959A6E9DC8F /* Pods_AirToDo.framework */; };
 		25BFC1E8705EA8A81B531B76 /* Pods_ToDoListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0F73D45C48DD2D9939082A /* Pods_ToDoListUITests.framework */; };
 		49D7F42B20DE11B90007544C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7F42A20DE11B90007544C /* Settings.swift */; };
 		4F12C716B1B45E7E3CCC8CFF /* Pods_AirToDoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5FA52E2C80EBDB23E006A7 /* Pods_AirToDoTests.framework */; };
+		5DC765371C515B59A2DFE39E /* Pods_Airlydo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480F222DFC33681EDBEB1311 /* Pods_Airlydo.framework */; };
 		6F00A91820E023550056AF11 /* ProjectSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00A91720E023550056AF11 /* ProjectSettingViewController.swift */; };
 		6F04EF8120D7D511003BEC3F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04EF8020D7D511003BEC3F /* NotificationManager.swift */; };
 		6F04EFC020DA61F6003BEC3F /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F04EFBF20DA61F6003BEC3F /* TaskManager.swift */; };
@@ -44,6 +44,8 @@
 		6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5303C20BACA72000BC746 /* ContainerViewController.swift */; };
 		6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5304320BB63D2000BC746 /* SlideListCell.swift */; };
 		6FD5304620BB63D2000BC746 /* SlideListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5304420BB63D2000BC746 /* SlideListCell.xib */; };
+		82C94600CA82507C79CE8D9F /* Pods_AirlydoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEC26F6F2A894228158D98B /* Pods_AirlydoUITests.framework */; };
+		D0614AD137ACAF290DCCC6FE /* Pods_AirlydoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8775B698B2D29939DE68E7C4 /* Pods_AirlydoTests.framework */; };
 		E2CD558130E71612EC6BA236 /* Pods_AirToDoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAAD18612E10426991A2D76 /* Pods_AirToDoUITests.framework */; };
 		FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		00ED4F7CD1D705262F410C70 /* Pods_ToDoListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08FC8FDDF05C569DE5CBD7A9 /* Pods-AirlydoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirlydoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirlydoTests/Pods-AirlydoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13D13866B60A9FF74020BD6B /* Pods-AirToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo.release.xcconfig"; sourceTree = "<group>"; };
 		1B5FA52E2C80EBDB23E006A7 /* Pods_AirToDoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirToDoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D0F73D45C48DD2D9939082A /* Pods_ToDoListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,24 +77,28 @@
 		2E88925FE7FFA50928ADD4B7 /* Pods-AirToDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoTests/Pods-AirToDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		31AE4EDA20720D72D327CC25 /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
 		3BAAD18612E10426991A2D76 /* Pods_AirToDoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirToDoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		480F222DFC33681EDBEB1311 /* Pods_Airlydo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airlydo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D7F42A20DE11B90007544C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		53D2B3C88ACBDEDD63132EB9 /* Pods-ToDoListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListTests/Pods-ToDoListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E28E70A5BD33EF827B51470 /* Pods-Airlydo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airlydo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Airlydo/Pods-Airlydo.release.xcconfig"; sourceTree = "<group>"; };
 		684807BD5E8CD84FD0403110 /* Pods-ToDoListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListUITests/Pods-ToDoListUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		68BE6DEDF8E687977D32B120 /* Pods-AirlydoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirlydoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirlydoTests/Pods-AirlydoTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BE4E70FBA5ABE3A932F1B9F /* Pods-AirlydoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirlydoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirlydoUITests/Pods-AirlydoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F00A91720E023550056AF11 /* ProjectSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingViewController.swift; sourceTree = "<group>"; };
 		6F04EF8020D7D511003BEC3F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		6F04EFBF20DA61F6003BEC3F /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		6F04EFC120DA80A6003BEC3F /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 		6F04EFC320DBC95C003BEC3F /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
-		6F2F3D9F20A6B3740081E5F9 /* AirToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2F3D9F20A6B3740081E5F9 /* Airlydo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlydo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F2F3DAA20A6B3740081E5F9 /* ToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoList.xcdatamodel; sourceTree = "<group>"; };
 		6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F2F3DAF20A6B3760081E5F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F2F3DB120A6B3760081E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F2F3DB620A6B3760081E5F9 /* AirToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2F3DB620A6B3760081E5F9 /* AirlydoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlydoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2F3DBA20A6B3760081E5F9 /* ToDoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTests.swift; sourceTree = "<group>"; };
 		6F2F3DBC20A6B3760081E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F2F3DC120A6B3760081E5F9 /* AirToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2F3DC120A6B3760081E5F9 /* AirlydoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirlydoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F2F3DC520A6B3760081E5F9 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		6F2F3DC720A6B3760081E5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F2F3E2220AC58020081E5F9 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -118,10 +125,14 @@
 		6FD5304420BB63D2000BC746 /* SlideListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideListCell.xib; sourceTree = "<group>"; };
 		6FE6B31CDEFF47694DDD6736 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		739B3D24878301ED058C775B /* Pods-AirToDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoTests/Pods-AirToDoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8775B698B2D29939DE68E7C4 /* Pods_AirlydoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirlydoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9543AE20883F72162947188B /* Pods-AirToDoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoUITests/Pods-AirToDoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A2CE02862578959A6E9DC8F /* Pods_AirToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAEC26F6F2A894228158D98B /* Pods_AirlydoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirlydoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76F9C3E7500E6FF154FD1CF /* Pods-AirToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo.debug.xcconfig"; sourceTree = "<group>"; };
+		C5F2C167E95AAC62C88610AE /* Pods-Airlydo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airlydo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Airlydo/Pods-Airlydo.debug.xcconfig"; sourceTree = "<group>"; };
 		D775324CCA2D02684E69B47C /* Pods-ToDoListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListTests/Pods-ToDoListTests.release.xcconfig"; sourceTree = "<group>"; };
+		E32FCBD86CE43F91FD42232B /* Pods-AirlydoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirlydoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirlydoUITests/Pods-AirlydoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F19D1F4697C3135479636233 /* Pods-AirToDoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirToDoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirToDoUITests/Pods-AirToDoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F72C492496140E5AA874A155 /* Pods-ToDoListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListUITests/Pods-ToDoListUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1889CBFF0276E946756FA828 /* Pods_AirToDo.framework in Frameworks */,
+				5DC765371C515B59A2DFE39E /* Pods_Airlydo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +152,7 @@
 			files = (
 				FCB21261CA934831D14E1E7E /* Pods_ToDoListTests.framework in Frameworks */,
 				4F12C716B1B45E7E3CCC8CFF /* Pods_AirToDoTests.framework in Frameworks */,
+				D0614AD137ACAF290DCCC6FE /* Pods_AirlydoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +162,7 @@
 			files = (
 				25BFC1E8705EA8A81B531B76 /* Pods_ToDoListUITests.framework in Frameworks */,
 				E2CD558130E71612EC6BA236 /* Pods_AirToDoUITests.framework in Frameworks */,
+				82C94600CA82507C79CE8D9F /* Pods_AirlydoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +184,12 @@
 				2E88925FE7FFA50928ADD4B7 /* Pods-AirToDoTests.release.xcconfig */,
 				9543AE20883F72162947188B /* Pods-AirToDoUITests.debug.xcconfig */,
 				F19D1F4697C3135479636233 /* Pods-AirToDoUITests.release.xcconfig */,
+				C5F2C167E95AAC62C88610AE /* Pods-Airlydo.debug.xcconfig */,
+				5E28E70A5BD33EF827B51470 /* Pods-Airlydo.release.xcconfig */,
+				08FC8FDDF05C569DE5CBD7A9 /* Pods-AirlydoTests.debug.xcconfig */,
+				68BE6DEDF8E687977D32B120 /* Pods-AirlydoTests.release.xcconfig */,
+				6BE4E70FBA5ABE3A932F1B9F /* Pods-AirlydoUITests.debug.xcconfig */,
+				E32FCBD86CE43F91FD42232B /* Pods-AirlydoUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -184,6 +203,9 @@
 				9A2CE02862578959A6E9DC8F /* Pods_AirToDo.framework */,
 				1B5FA52E2C80EBDB23E006A7 /* Pods_AirToDoTests.framework */,
 				3BAAD18612E10426991A2D76 /* Pods_AirToDoUITests.framework */,
+				480F222DFC33681EDBEB1311 /* Pods_Airlydo.framework */,
+				8775B698B2D29939DE68E7C4 /* Pods_AirlydoTests.framework */,
+				AAEC26F6F2A894228158D98B /* Pods_AirlydoUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,9 +225,9 @@
 		6F2F3D9620A6B3740081E5F9 = {
 			isa = PBXGroup;
 			children = (
-				6F2F3DA120A6B3740081E5F9 /* AirToDo */,
-				6F2F3DB920A6B3760081E5F9 /* AirToDoTests */,
-				6F2F3DC420A6B3760081E5F9 /* AirToDoUITests */,
+				6F2F3DA120A6B3740081E5F9 /* Airlydo */,
+				6F2F3DB920A6B3760081E5F9 /* AirlydoTests */,
+				6F2F3DC420A6B3760081E5F9 /* AirlydoUITests */,
 				6F2F3DA020A6B3740081E5F9 /* Products */,
 				62C10532BA13BED4AB5A75F0 /* Pods */,
 				6A1A434C5F32EAC0383AA6F0 /* Frameworks */,
@@ -215,14 +237,14 @@
 		6F2F3DA020A6B3740081E5F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6F2F3D9F20A6B3740081E5F9 /* AirToDo.app */,
-				6F2F3DB620A6B3760081E5F9 /* AirToDoTests.xctest */,
-				6F2F3DC120A6B3760081E5F9 /* AirToDoUITests.xctest */,
+				6F2F3D9F20A6B3740081E5F9 /* Airlydo.app */,
+				6F2F3DB620A6B3760081E5F9 /* AirlydoTests.xctest */,
+				6F2F3DC120A6B3760081E5F9 /* AirlydoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6F2F3DA120A6B3740081E5F9 /* AirToDo */ = {
+		6F2F3DA120A6B3740081E5F9 /* Airlydo */ = {
 			isa = PBXGroup;
 			children = (
 				6F638CB420B9B4C6004C586C /* Asset */,
@@ -237,25 +259,25 @@
 				6F7DB26F20DFA04700074FBA /* Main.storyboard */,
 				6F2F3DA920A6B3740081E5F9 /* ToDoList.xcdatamodeld */,
 			);
-			path = AirToDo;
+			path = Airlydo;
 			sourceTree = "<group>";
 		};
-		6F2F3DB920A6B3760081E5F9 /* AirToDoTests */ = {
+		6F2F3DB920A6B3760081E5F9 /* AirlydoTests */ = {
 			isa = PBXGroup;
 			children = (
 				6F2F3DBA20A6B3760081E5F9 /* ToDoListTests.swift */,
 				6F2F3DBC20A6B3760081E5F9 /* Info.plist */,
 			);
-			path = AirToDoTests;
+			path = AirlydoTests;
 			sourceTree = "<group>";
 		};
-		6F2F3DC420A6B3760081E5F9 /* AirToDoUITests */ = {
+		6F2F3DC420A6B3760081E5F9 /* AirlydoUITests */ = {
 			isa = PBXGroup;
 			children = (
 				6F2F3DC520A6B3760081E5F9 /* ToDoListUITests.swift */,
 				6F2F3DC720A6B3760081E5F9 /* Info.plist */,
 			);
-			path = AirToDoUITests;
+			path = AirlydoUITests;
 			sourceTree = "<group>";
 		};
 		6F2F3E2C20ADB98E0081E5F9 /* TaskCell */ = {
@@ -327,9 +349,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6F2F3D9E20A6B3740081E5F9 /* AirToDo */ = {
+		6F2F3D9E20A6B3740081E5F9 /* Airlydo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F2F3DCA20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDo" */;
+			buildConfigurationList = 6F2F3DCA20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "Airlydo" */;
 			buildPhases = (
 				7C59A62F8DF0B18BDB0C6145 /* [CP] Check Pods Manifest.lock */,
 				6F2F3D9B20A6B3740081E5F9 /* Sources */,
@@ -341,14 +363,14 @@
 			);
 			dependencies = (
 			);
-			name = AirToDo;
+			name = Airlydo;
 			productName = ToDoList;
-			productReference = 6F2F3D9F20A6B3740081E5F9 /* AirToDo.app */;
+			productReference = 6F2F3D9F20A6B3740081E5F9 /* Airlydo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6F2F3DB520A6B3760081E5F9 /* AirToDoTests */ = {
+		6F2F3DB520A6B3760081E5F9 /* AirlydoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F2F3DCD20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoTests" */;
+			buildConfigurationList = 6F2F3DCD20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirlydoTests" */;
 			buildPhases = (
 				A533EE7FD42892FF1CF05D38 /* [CP] Check Pods Manifest.lock */,
 				6F2F3DB220A6B3760081E5F9 /* Sources */,
@@ -360,14 +382,14 @@
 			dependencies = (
 				6F2F3DB820A6B3760081E5F9 /* PBXTargetDependency */,
 			);
-			name = AirToDoTests;
+			name = AirlydoTests;
 			productName = ToDoListTests;
-			productReference = 6F2F3DB620A6B3760081E5F9 /* AirToDoTests.xctest */;
+			productReference = 6F2F3DB620A6B3760081E5F9 /* AirlydoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6F2F3DC020A6B3760081E5F9 /* AirToDoUITests */ = {
+		6F2F3DC020A6B3760081E5F9 /* AirlydoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F2F3DD020A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoUITests" */;
+			buildConfigurationList = 6F2F3DD020A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirlydoUITests" */;
 			buildPhases = (
 				8D3B268392AD9AB7895AC167 /* [CP] Check Pods Manifest.lock */,
 				6F2F3DBD20A6B3760081E5F9 /* Sources */,
@@ -379,9 +401,9 @@
 			dependencies = (
 				6F2F3DC320A6B3760081E5F9 /* PBXTargetDependency */,
 			);
-			name = AirToDoUITests;
+			name = AirlydoUITests;
 			productName = ToDoListUITests;
-			productReference = 6F2F3DC120A6B3760081E5F9 /* AirToDoUITests.xctest */;
+			productReference = 6F2F3DC120A6B3760081E5F9 /* AirlydoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -407,7 +429,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6F2F3D9A20A6B3740081E5F9 /* Build configuration list for PBXProject "AirToDo" */;
+			buildConfigurationList = 6F2F3D9A20A6B3740081E5F9 /* Build configuration list for PBXProject "Airlydo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -420,9 +442,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F2F3D9E20A6B3740081E5F9 /* AirToDo */,
-				6F2F3DB520A6B3760081E5F9 /* AirToDoTests */,
-				6F2F3DC020A6B3760081E5F9 /* AirToDoUITests */,
+				6F2F3D9E20A6B3740081E5F9 /* Airlydo */,
+				6F2F3DB520A6B3760081E5F9 /* AirlydoTests */,
+				6F2F3DC020A6B3760081E5F9 /* AirlydoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -476,7 +498,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AirToDo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Airlydo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -494,7 +516,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AirToDoUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AirlydoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -507,7 +529,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Airlydo/Pods-Airlydo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/MCSwipeTableViewCell/MCSwipeTableViewCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -524,7 +546,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AirToDo/Pods-AirToDo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Airlydo/Pods-Airlydo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A533EE7FD42892FF1CF05D38 /* [CP] Check Pods Manifest.lock */ = {
@@ -538,7 +560,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AirToDoTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AirlydoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -595,12 +617,12 @@
 /* Begin PBXTargetDependency section */
 		6F2F3DB820A6B3760081E5F9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6F2F3D9E20A6B3740081E5F9 /* AirToDo */;
+			target = 6F2F3D9E20A6B3740081E5F9 /* Airlydo */;
 			targetProxy = 6F2F3DB720A6B3760081E5F9 /* PBXContainerItemProxy */;
 		};
 		6F2F3DC320A6B3760081E5F9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6F2F3D9E20A6B3740081E5F9 /* AirToDo */;
+			target = 6F2F3D9E20A6B3740081E5F9 /* Airlydo */;
 			targetProxy = 6F2F3DC220A6B3760081E5F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -733,11 +755,11 @@
 		};
 		6F2F3DCB20A6B3760081E5F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B76F9C3E7500E6FF154FD1CF /* Pods-AirToDo.debug.xcconfig */;
+			baseConfigurationReference = C5F2C167E95AAC62C88610AE /* Pods-Airlydo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/AirToDo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Airlydo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -751,11 +773,11 @@
 		};
 		6F2F3DCC20A6B3760081E5F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13D13866B60A9FF74020BD6B /* Pods-AirToDo.release.xcconfig */;
+			baseConfigurationReference = 5E28E70A5BD33EF827B51470 /* Pods-Airlydo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/AirToDo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Airlydo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -769,7 +791,7 @@
 		};
 		6F2F3DCE20A6B3760081E5F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 739B3D24878301ED058C775B /* Pods-AirToDoTests.debug.xcconfig */;
+			baseConfigurationReference = 08FC8FDDF05C569DE5CBD7A9 /* Pods-AirlydoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -784,13 +806,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirToDo.app/AirToDo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airlydo.app/Airlydo";
 			};
 			name = Debug;
 		};
 		6F2F3DCF20A6B3760081E5F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E88925FE7FFA50928ADD4B7 /* Pods-AirToDoTests.release.xcconfig */;
+			baseConfigurationReference = 68BE6DEDF8E687977D32B120 /* Pods-AirlydoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -805,13 +827,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirToDo.app/AirToDo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Airlydo.app/Airlydo";
 			};
 			name = Release;
 		};
 		6F2F3DD120A6B3760081E5F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9543AE20883F72162947188B /* Pods-AirToDoUITests.debug.xcconfig */;
+			baseConfigurationReference = 6BE4E70FBA5ABE3A932F1B9F /* Pods-AirlydoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -831,7 +853,7 @@
 		};
 		6F2F3DD220A6B3760081E5F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F19D1F4697C3135479636233 /* Pods-AirToDoUITests.release.xcconfig */;
+			baseConfigurationReference = E32FCBD86CE43F91FD42232B /* Pods-AirlydoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -852,7 +874,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6F2F3D9A20A6B3740081E5F9 /* Build configuration list for PBXProject "AirToDo" */ = {
+		6F2F3D9A20A6B3740081E5F9 /* Build configuration list for PBXProject "Airlydo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F2F3DC820A6B3760081E5F9 /* Debug */,
@@ -861,7 +883,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F2F3DCA20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDo" */ = {
+		6F2F3DCA20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "Airlydo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F2F3DCB20A6B3760081E5F9 /* Debug */,
@@ -870,7 +892,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F2F3DCD20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoTests" */ = {
+		6F2F3DCD20A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirlydoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F2F3DCE20A6B3760081E5F9 /* Debug */,
@@ -879,7 +901,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F2F3DD020A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirToDoUITests" */ = {
+		6F2F3DD020A6B3760081E5F9 /* Build configuration list for PBXNativeTarget "AirlydoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F2F3DD120A6B3760081E5F9 /* Debug */,
