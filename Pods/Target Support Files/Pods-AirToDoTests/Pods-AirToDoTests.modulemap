@@ -1,6 +1,0 @@
-framework module Pods_AirToDoTests {
-  umbrella header "Pods-AirToDoTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

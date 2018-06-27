@@ -1,0 +1,6 @@
+framework module Pods_Airlydo {
+  umbrella header "Pods-Airlydo-umbrella.h"
+
+  export *
+  module * { export * }
+}

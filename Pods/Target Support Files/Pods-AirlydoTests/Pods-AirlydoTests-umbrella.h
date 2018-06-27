@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_AirToDoVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_AirToDoVersionString[];
+FOUNDATION_EXPORT double Pods_AirlydoTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_AirlydoTestsVersionString[];
 

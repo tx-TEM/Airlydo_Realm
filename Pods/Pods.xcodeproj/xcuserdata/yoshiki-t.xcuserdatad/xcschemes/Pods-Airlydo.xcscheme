@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A2B31DE65D27F857939FB7830AAE4D4"
-               BuildableName = "Pods_AirToDo.framework"
-               BlueprintName = "Pods-AirToDo"
+               BlueprintIdentifier = "D69744AADDA33652F2F5259CC2C7B1C4"
+               BuildableName = "Pods_Airlydo.framework"
+               BlueprintName = "Pods-Airlydo"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A2B31DE65D27F857939FB7830AAE4D4"
-            BuildableName = "Pods_AirToDo.framework"
-            BlueprintName = "Pods-AirToDo"
+            BlueprintIdentifier = "D69744AADDA33652F2F5259CC2C7B1C4"
+            BuildableName = "Pods_Airlydo.framework"
+            BlueprintName = "Pods-Airlydo"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
