@@ -5,6 +5,7 @@ pod 'MCSwipeTableViewCell', '~> 2.1.4'
 pod 'RealmSwift'
 pod 'Eureka'
 pod 'SlideMenuControllerSwift'
+pod 'GoogleSignIn'
 
 target 'Airlydo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks

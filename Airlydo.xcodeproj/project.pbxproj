@@ -37,6 +37,8 @@
 		6F4DB02C20CF0DEA009AC462 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DB02B20CF0DEA009AC462 /* TaskListModel.swift */; };
 		6F4DB02E20CFE511009AC462 /* LeftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DB02D20CFE511009AC462 /* LeftModel.swift */; };
 		6F6A290320BAB52C00A83F17 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A290220BAB52C00A83F17 /* LeftViewController.swift */; };
+		6F7A3F5720E3BC5E0059D804 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F7A3F5620E3BC5D0059D804 /* GoogleService-Info.plist */; };
+		6F7A3F5920E421EB0059D804 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A3F5820E421EB0059D804 /* SignInViewController.swift */; };
 		6F7DB27020DFA04700074FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F7DB26F20DFA04700074FBA /* Main.storyboard */; };
 		6F9A729520D15282008BC21B /* TaskDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A729420D15282008BC21B /* TaskDetailModel.swift */; };
 		6FAA758320B9368B003E3272 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA758220B9368B003E3272 /* RealmModel.swift */; };
@@ -116,6 +118,8 @@
 		6F4DB02B20CF0DEA009AC462 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
 		6F4DB02D20CFE511009AC462 /* LeftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftModel.swift; sourceTree = "<group>"; };
 		6F6A290220BAB52C00A83F17 /* LeftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		6F7A3F5620E3BC5D0059D804 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6F7A3F5820E421EB0059D804 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6F7DB26F20DFA04700074FBA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6F9A729420D15282008BC21B /* TaskDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailModel.swift; sourceTree = "<group>"; };
 		6FAA758220B9368B003E3272 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 				6FAA758120B9348E003E3272 /* View */,
 				6F9A729620D53462008BC21B /* Custom_View */,
 				6F2F3DB120A6B3760081E5F9 /* Info.plist */,
+				6F7A3F5620E3BC5D0059D804 /* GoogleService-Info.plist */,
 				6F2F3DA220A6B3740081E5F9 /* AppDelegate.swift */,
 				6F2F3DAC20A6B3760081E5F9 /* Assets.xcassets */,
 				6F2F3DAE20A6B3760081E5F9 /* LaunchScreen.storyboard */,
@@ -326,10 +331,11 @@
 		6FAA758120B9348E003E3272 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				49D7F42A20DE11B90007544C /* Settings.swift */,
+				6F7A3F5820E421EB0059D804 /* SignInViewController.swift */,
 				6FD5303C20BACA72000BC746 /* ContainerViewController.swift */,
 				6F2F3E2220AC58020081E5F9 /* TaskListViewController.swift */,
 				6F00A91720E023550056AF11 /* ProjectSettingViewController.swift */,
+				49D7F42A20DE11B90007544C /* Settings.swift */,
 				6FC43C1820B45688002BA0C1 /* TaskDetailViewController.swift */,
 				6F3D81C620B4534800B960F7 /* SetNotePageController.swift */,
 				6F6A290220BAB52C00A83F17 /* LeftViewController.swift */,
@@ -358,6 +364,7 @@
 				6F2F3D9C20A6B3740081E5F9 /* Frameworks */,
 				6F2F3D9D20A6B3740081E5F9 /* Resources */,
 				99E25EDAEECA8C3E31F4D9C0 /* [CP] Embed Pods Frameworks */,
+				98E5BD09FA1D5E129807C476 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -467,6 +474,7 @@
 				6F4DB02A20CEFDF5009AC462 /* Menu.png in Resources */,
 				6F4DB02920CEFDF5009AC462 /* Check.png in Resources */,
 				6F4DB02820CEFDF5009AC462 /* Plus.png in Resources */,
+				6F7A3F5720E3BC5E0059D804 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +531,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		98E5BD09FA1D5E129807C476 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Airlydo/Pods-Airlydo-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Airlydo/Pods-Airlydo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		99E25EDAEECA8C3E31F4D9C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,6 +557,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Airlydo/Pods-Airlydo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MCSwipeTableViewCell/MCSwipeTableViewCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -539,6 +568,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCSwipeTableViewCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -582,6 +614,7 @@
 				6FC43C1920B45688002BA0C1 /* TaskDetailViewController.swift in Sources */,
 				6FD5303D20BACA72000BC746 /* ContainerViewController.swift in Sources */,
 				49D7F42B20DE11B90007544C /* Settings.swift in Sources */,
+				6F7A3F5920E421EB0059D804 /* SignInViewController.swift in Sources */,
 				6FAA758320B9368B003E3272 /* RealmModel.swift in Sources */,
 				6F3D81C720B4534800B960F7 /* SetNotePageController.swift in Sources */,
 				6FD5304520BB63D2000BC746 /* SlideListCell.swift in Sources */,
@@ -764,7 +797,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoList";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Airlydo.Airlydo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -782,7 +815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-yoshiki.tx12252812.ToDoList";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Airlydo.Airlydo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

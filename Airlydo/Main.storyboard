@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="APc-m0-TFZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BKl-zx-i2C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,7 +30,7 @@
         <!--Task List View Controller-->
         <scene sceneID="FDy-cf-Qrs">
             <objects>
-                <viewController storyboardIdentifier="TaskListViewController" id="QO6-ci-NVC" customClass="TaskListViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskListViewController" id="QO6-ci-NVC" customClass="TaskListViewController" customModule="Airlydo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IsM-wS-VF3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="45" width="375" height="558"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskPage_TaskCell" id="VWh-pr-qI8" customClass="TaskCell" customModule="ToDoList" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskPage_TaskCell" id="VWh-pr-qI8" customClass="TaskCell" customModule="Airlydo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VWh-pr-qI8" id="2Dc-Fq-i32">
@@ -130,7 +130,7 @@
         <!--Project Setting-->
         <scene sceneID="dx5-Bv-Grh">
             <objects>
-                <viewController storyboardIdentifier="ProjectSettingViewController" id="66D-HA-9Q6" customClass="ProjectSettingViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectSettingViewController" id="66D-HA-9Q6" customClass="ProjectSettingViewController" customModule="Airlydo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l2V-og-s1n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +148,7 @@
         <!--Task Detail View Controller-->
         <scene sceneID="ED4-uX-Soh">
             <objects>
-                <viewController storyboardIdentifier="TaskDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2A3-F9-X6z" customClass="TaskDetailViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2A3-F9-X6z" customClass="TaskDetailViewController" customModule="Airlydo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FGk-sR-2Nz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,7 +174,7 @@
         <!--Note-->
         <scene sceneID="CQW-jc-ILu">
             <objects>
-                <viewController storyboardIdentifier="SetNotePageController" id="vCp-D6-5gh" customClass="SetNotePageController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetNotePageController" id="vCp-D6-5gh" customClass="SetNotePageController" customModule="Airlydo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FJ1-le-OZx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,10 +206,69 @@
             </objects>
             <point key="canvasLocation" x="2113" y="-26"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="79U-ZK-vyv">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="BKl-zx-i2C" customClass="SignInViewController" customModule="Airlydo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ugY-VE-NlR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="y7R-bB-T3U">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Airplane.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ngw-dQ-k7w">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-xn-rrQ">
+                                        <rect key="frame" x="0.0" y="259" width="375" height="258.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="wnE-Yt-4cP" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="517.5" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="OC7-7V-9vZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHw-X8-Cwg">
+                                        <rect key="frame" x="67.5" y="567.5" width="240" height="79.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ngw-dQ-k7w" firstAttribute="width" secondItem="y7R-bB-T3U" secondAttribute="width" id="RTj-CG-fwZ"/>
+                                    <constraint firstItem="Ngw-dQ-k7w" firstAttribute="height" secondItem="y7R-bB-T3U" secondAttribute="height" multiplier="0.4" id="bMy-nO-aFr"/>
+                                    <constraint firstItem="aCl-xn-rrQ" firstAttribute="height" secondItem="y7R-bB-T3U" secondAttribute="height" multiplier="0.4" id="dz2-vN-gBL"/>
+                                    <constraint firstItem="aCl-xn-rrQ" firstAttribute="width" secondItem="y7R-bB-T3U" secondAttribute="width" id="yBK-Jb-gSW"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="y7R-bB-T3U" firstAttribute="height" secondItem="Yp7-Lx-fxC" secondAttribute="height" id="cpy-R7-yLM"/>
+                            <constraint firstItem="y7R-bB-T3U" firstAttribute="centerY" secondItem="Yp7-Lx-fxC" secondAttribute="centerY" id="gVM-nu-Y2Z"/>
+                            <constraint firstItem="y7R-bB-T3U" firstAttribute="centerX" secondItem="Yp7-Lx-fxC" secondAttribute="centerX" id="rgN-nV-6RE"/>
+                            <constraint firstItem="y7R-bB-T3U" firstAttribute="width" secondItem="Yp7-Lx-fxC" secondAttribute="width" id="s4w-Ka-E6I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yp7-Lx-fxC"/>
+                    </view>
+                    <connections>
+                        <outlet property="signInButton" destination="wnE-Yt-4cP" id="15w-F5-3VL"/>
+                        <outlet property="statusText" destination="aCl-xn-rrQ" id="Ozr-Da-7Eb"/>
+                        <segue destination="APc-m0-TFZ" kind="show" id="iFf-Ff-uJR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3UR-m6-4gX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2561" y="-26"/>
+        </scene>
         <!--Container View Controller-->
         <scene sceneID="izM-fc-2PJ">
             <objects>
-                <viewController storyboardIdentifier="Container" id="APc-m0-TFZ" customClass="ContainerViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContainerViewController" id="APc-m0-TFZ" customClass="ContainerViewController" customModule="Airlydo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HcT-EC-213">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +284,7 @@
         <!--Left View Controller-->
         <scene sceneID="c3m-O2-Ess">
             <objects>
-                <viewController storyboardIdentifier="Left" id="f2l-fU-IDV" customClass="LeftViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Left" id="f2l-fU-IDV" customClass="LeftViewController" customModule="Airlydo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uhj-61-inB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,4 +373,7 @@
             <point key="canvasLocation" x="-1735" y="752"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Airplane.png" width="1024" height="1024"/>
+    </resources>
 </document>
