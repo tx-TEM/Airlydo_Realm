@@ -26,7 +26,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         GIDSignIn.sharedInstance().clientID = "752419583646-pfbeb5skfj6h84tkmakdnq6berefieqt.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         
-        // Notification
+        if GIDSignIn.sharedInstance().hasAuthInKeychain() {
+            // Signed in
+            print("signIn")
+            GIDSignIn.sharedInstance().signInSilently()
+            
+            // Set initialView
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "ContainerViewController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+        } else {
+            print("cant signIn")
+            
+            // Set initialView
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
+        // Notification / Reminder Setting
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests();
         let center = UNUserNotificationCenter.current()
         
@@ -155,15 +178,7 @@ extension AppDelegate : GIDSignInDelegate {
         if let error = error {
             print("\(error.localizedDescription)")
         } else {
-            // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            // ...
-            
+            print(user.profile.email)
         }
     }
     
