@@ -217,31 +217,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="y7R-bB-T3U">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ES-kt-062">
-                                        <rect key="frame" x="164.5" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="buttonTapped:" destination="BKl-zx-i2C" eventType="touchUpInside" id="bfc-Om-v5r"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Airplane.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ngw-dQ-k7w">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="259"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-xn-rrQ">
-                                        <rect key="frame" x="0.0" y="289" width="375" height="258.5"/>
+                                        <rect key="frame" x="0.0" y="259" width="375" height="258.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="wnE-Yt-4cP" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="547.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="517.5" width="375" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="OC7-7V-9vZ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHw-X8-Cwg">
-                                        <rect key="frame" x="67.5" y="597.5" width="240" height="49.5"/>
+                                        <rect key="frame" x="67.5" y="567.5" width="240" height="79.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -263,9 +256,9 @@
                         <viewLayoutGuide key="safeArea" id="Yp7-Lx-fxC"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="4ES-kt-062" id="jnP-ic-84n"/>
                         <outlet property="signInButton" destination="wnE-Yt-4cP" id="15w-F5-3VL"/>
                         <outlet property="statusText" destination="aCl-xn-rrQ" id="Ozr-Da-7Eb"/>
+                        <segue destination="APc-m0-TFZ" kind="show" id="X5K-C6-nyp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UR-m6-4gX" userLabel="First Responder" sceneMemberID="firstResponder"/>

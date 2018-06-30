@@ -103,6 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             NotificationManager.setLocalNotification(identifier: reminder.remID, date: reminder.remDate, title: taskName, body: body)
         }
         
+        GIDSignIn.sharedInstance().signInSilently()
         GIDSignIn.sharedInstance().signOut()
 
     }
@@ -183,6 +184,8 @@ extension AppDelegate : GIDSignInDelegate {
         } else {
             print(user.profile.email)
         }
+        
+        print("AppDelegate")
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
