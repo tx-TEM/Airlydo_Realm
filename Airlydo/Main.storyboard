@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BKl-zx-i2C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -299,10 +299,34 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Shc-wy-6Ok">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bb-eS-YYR">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gT0-sT-qSj">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zij-T0-Qwm">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNO-iI-w2J">
+                                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="129.5"/>
+                                                        <color key="backgroundColor" red="0.163490048" green="0.27076022379999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keh-DZ-Kxa">
+                                                        <rect key="frame" x="262.5" y="0.0" width="112.5" height="129.5"/>
+                                                        <color key="backgroundColor" red="0.96620899439999997" green="0.1134398321" blue="0.24503577009999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="NNO-iI-w2J" firstAttribute="width" secondItem="zij-T0-Qwm" secondAttribute="width" multiplier="0.7" id="kIr-ER-5I1"/>
+                                                    <constraint firstItem="NNO-iI-w2J" firstAttribute="height" secondItem="zij-T0-Qwm" secondAttribute="height" id="kd2-9f-mhK"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YT1-Ik-bJ1">
                                         <rect key="frame" x="0.0" y="129.5" width="375" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,8 +376,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ihg-AV-VF6" firstAttribute="height" secondItem="Shc-wy-6Ok" secondAttribute="height" multiplier="0.4" id="1t8-6f-WWi"/>
-                                    <constraint firstItem="7bb-eS-YYR" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="5hK-eG-X83"/>
-                                    <constraint firstItem="7bb-eS-YYR" firstAttribute="height" secondItem="Shc-wy-6Ok" secondAttribute="height" multiplier="0.2" id="JhB-r5-ewc"/>
+                                    <constraint firstItem="gT0-sT-qSj" firstAttribute="height" secondItem="Shc-wy-6Ok" secondAttribute="height" multiplier="0.2" id="AFB-if-CAB"/>
+                                    <constraint firstItem="gT0-sT-qSj" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="JPr-M5-Hnh"/>
                                     <constraint firstItem="NbQ-LF-QgQ" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="Ktu-Fs-LTT"/>
                                     <constraint firstItem="YT1-Ik-bJ1" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="qLo-M8-XMf"/>
                                     <constraint firstItem="ihg-AV-VF6" firstAttribute="width" secondItem="Shc-wy-6Ok" secondAttribute="width" id="wnS-59-T3R"/>
@@ -373,6 +397,7 @@
                         <outlet property="AddListButton" destination="hoh-ga-VXR" id="4o5-no-cCo"/>
                         <outlet property="CustomSlideListTable" destination="ihg-AV-VF6" id="iey-oP-gWq"/>
                         <outlet property="SlideListTable" destination="YT1-Ik-bJ1" id="sEC-fC-EkH"/>
+                        <outlet property="UserMail" destination="NNO-iI-w2J" id="rbe-Fv-LRO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXa-vL-f3y" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -102,6 +102,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             
             NotificationManager.setLocalNotification(identifier: reminder.remID, date: reminder.remDate, title: taskName, body: body)
         }
+        
+        GIDSignIn.sharedInstance().signOut()
+
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

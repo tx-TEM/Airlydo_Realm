@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import SlideMenuControllerSwift
 import RealmSwift
+import GoogleSignIn
 
 class LeftViewController: UIViewController {
     
@@ -18,7 +19,11 @@ class LeftViewController: UIViewController {
     
     @IBOutlet weak var SlideListTable: UITableView!
     @IBOutlet weak var CustomSlideListTable: UITableView!
+    
+    @IBOutlet weak var UserMail: UILabel!
+    
     @IBOutlet weak var AddListButton: UIButton!
+
 
     @IBAction func AddListButtonTapped(_ sender: UIButton) {
         
@@ -59,6 +64,12 @@ class LeftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let cUser = GIDSignIn.sharedInstance().currentUser {
+            UserMail.text = cUser.profile.email
+        }else{
+            UserMail.text = "example@gmail.com"
+        }
         
         SlideListTable.dataSource = self
         SlideListTable.delegate = self
@@ -78,6 +89,16 @@ class LeftViewController: UIViewController {
         CustomSlideListTable.dragDelegate = self
         CustomSlideListTable.dropDelegate = self
         CustomSlideListTable.dragInteractionEnabled = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let cUser = GIDSignIn.sharedInstance().currentUser {
+            UserMail.text = cUser.profile.email
+        }else{
+            UserMail.text = "example@gmail.com"
+        }
     }
     
     
