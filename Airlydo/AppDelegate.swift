@@ -103,8 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             NotificationManager.setLocalNotification(identifier: reminder.remID, date: reminder.remDate, title: taskName, body: body)
         }
         
-        GIDSignIn.sharedInstance().signInSilently()
-        GIDSignIn.sharedInstance().signOut()
+        // Test
+        //GIDSignIn.sharedInstance().signOut()
 
     }
 
